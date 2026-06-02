@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Architect | Lead Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#ffffff",
+              "on-surface": "#191c1e",
+              "primary-container": "#00325f",
+              "surface-tint": "#0060ac",
+              "surface-dim": "#d9dadc",
+              "on-secondary-fixed": "#001c3a",
+              "outline-variant": "#c3c6d0",
+              "on-secondary-container": "#315481",
+              "secondary": "#3d608e",
+              "on-tertiary-fixed": "#001a42",
+              "surface-variant": "#e1e2e4",
+              "surface-container-low": "#f2f4f6",
+              "on-tertiary-container": "#6298fd",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#d8e2ff",
+              "secondary-fixed": "#d4e3ff",
+              "surface-bright": "#f8f9fb",
+              "on-primary-fixed": "#001c39",
+              "inverse-surface": "#2e3132",
+              "on-primary": "#ffffff",
+              "error": "#ba1a1a",
+              "tertiary-fixed-dim": "#aec6ff",
+              "tertiary-container": "#002f6c",
+              "primary": "#001d3b",
+              "tertiary": "#001b44",
+              "surface-container-highest": "#e1e2e4",
+              "background": "#f8f9fb",
+              "on-primary-fixed-variant": "#004883",
+              "secondary-fixed-dim": "#a6c8fd",
+              "surface-container": "#edeef0",
+              "primary-fixed-dim": "#a4c9ff",
+              "surface": "#f8f9fb",
+              "surface-container-lowest": "#ffffff",
+              "outline": "#737780",
+              "on-tertiary-fixed-variant": "#004395",
+              "on-primary-container": "#589cef",
+              "on-error": "#ffffff",
+              "on-surface-variant": "#43474f",
+              "on-background": "#191c1e",
+              "surface-container-high": "#e7e8ea",
+              "on-secondary-fixed-variant": "#234875",
+              "secondary-container": "#a6c8fd",
+              "inverse-on-surface": "#f0f1f3",
+              "on-error-container": "#93000a",
+              "error-container": "#ffdad6",
+              "inverse-primary": "#a4c9ff",
+              "primary-fixed": "#d4e3ff"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Inter', sans-serif; background-color: #F8F9FB; }
+      .font-plus-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
+      .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); }
+      .action-gradient { background: linear-gradient(135deg, #4A90E2 0%, #2161C3 100%); }
+    </style>
+</head>
+<body class="text-on-surface antialiased overflow-hidden h-screen flex">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="bg-[#05325E] h-screen w-72 rounded-r-[24px] border-r-[8px] border-[#F8F9FB] shadow-xl flex flex-col py-8 px-4 flex-shrink-0 z-50">
+<div class="flex items-center gap-4 px-4 mb-10">
+<div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">domain</span>
+</div>
+<div>
+<h2 class="text-xl font-bold text-white tracking-tight leading-none">Digital Architect</h2>
+<p class="text-white/50 text-[10px] uppercase tracking-widest mt-1">SaaS CRM</p>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto custom-scrollbar space-y-2 pr-2">
+<!-- Nav Item: Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">dashboard</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Dashboard</span>
+</a>
+<!-- Nav Item: Leads / CRM (ACTIVE) -->
+<a class="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white rounded-full font-bold shadow-lg shadow-blue-500/40 transition-all duration-300 transform" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm">Leads / CRM</span>
+</a>
+<!-- Nav Item: Atendimento -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">chat_bubble</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Atendimento</span>
+</a>
+<!-- Nav Item: Pipeline -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">account_tree</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Pipeline</span>
+</a>
+<!-- Nav Item: Imóveis -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">domain</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Imóveis</span>
+</a>
+<!-- Nav Item: Agenda -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">calendar_today</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Agenda</span>
+</a>
+<!-- Nav Item: Propostas -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">description</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Propostas</span>
+</a>
+<!-- Nav Item: Proprietários -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">person_pin</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Proprietários</span>
+</a>
+<!-- Nav Item: Corretores -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">badge</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Corretores e Equipes</span>
+</a>
+<!-- Nav Item: Relatórios -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">assessment</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Relatórios</span>
+</a>
+<!-- Nav Item: Automações -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">auto_awesome</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Automações</span>
+</a>
+<!-- Nav Item: Agentes IA -->
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:scale-110 transition-transform">smart_toy</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Agentes Inteligentes</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-white/10 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl" href="#">
+<span class="material-symbols-outlined text-xl">extension</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Integrações</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white transition-all duration-200 hover:bg-white/5 rounded-xl" href="#">
+<span class="material-symbols-outlined text-xl">settings</span>
+<span class="font-['Plus_Jakarta_Sans'] text-sm font-medium">Configurações</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 flex flex-col h-screen overflow-hidden border-t-[8px] border-l-[8px] border-surface">
+<!-- TopNavBar (Authority Source: IMAGE_147 Style) -->
+<header class="sticky top-0 z-40 w-full flex justify-between items-center px-8 h-24 bg-white/80 backdrop-blur-xl">
+<div class="flex items-center gap-4 flex-1">
+<!-- Context Selector -->
+<button class="flex items-center gap-3 px-6 py-3 rounded-full border border-slate-200 bg-white hover:bg-slate-50 transition-colors shadow-sm">
+<span class="text-sm text-slate-400 font-medium">Contexto:</span>
+<span class="text-sm font-bold text-[#05325E]">Workspace Próprio</span>
+<span class="material-symbols-outlined text-slate-400 text-lg">expand_more</span>
+</button>
+<!-- Search Bar Centered -->
+<div class="flex-1 flex justify-center px-4">
+<div class="relative w-full max-w-xl">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xl">search</span>
+<input class="w-full bg-slate-100/40 border border-slate-200/60 rounded-full py-3 pl-12 pr-6 text-sm focus:ring-2 focus:ring-blue-500/10 focus:bg-white transition-all font-body placeholder-slate-400" placeholder="Buscar em todo o ecossistema..." type="text"/>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<!-- Icons -->
+<div class="flex items-center gap-4">
+<button class="relative w-10 h-10 flex items-center justify-center text-slate-500 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined text-2xl">notifications</span>
+<span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center text-slate-500 hover:text-blue-500 transition-colors">
+<span class="material-symbols-outlined text-2xl">apps</span>
+</button>
+</div>
+<!-- Divider -->
+<div class="h-8 w-px bg-slate-200"></div>
+<!-- Profile Section -->
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold text-[#05325E] leading-none">Ricardo Mantovani</p>
+<p class="text-[11px] text-slate-500 font-medium mt-1">Diretor Comercial</p>
+</div>
+<div class="w-10 h-10 rounded-full bg-slate-100 overflow-hidden ring-2 ring-slate-50 shadow-sm">
+<img alt="Ricardo Mantovani" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uifCtR2-G3OkYikQT8RlkLUsgF0PtGKfFWu3Bx870pXzg3eOg9Wp5o56wYltrvjvvBgmMyg9kRabtiShxSRJ-lbKLzy5mrfPk6asYCyu7JPnhE9yK6sj_N0V6HycyQYhLa5uXHNV-3I7euugTUOHtvOQAG4DdEznJx2RfYFNHqBR-M_Koi0UC2SPWG0DmcJDlWs8OCLKgk2Iz9PbMTvhRVJdKHNZoDgp-4KAYpNzk_qucG2dfO3cZWWOzsPQOuuMdBh1ZdUBw"/>
+</div>
+</div>
+<!-- CTA Button -->
+</div>
+</header>
+<!-- Main Content Area -->
+<div class="flex-1 overflow-y-auto p-8 bg-[#F8F9FB]">
+<div class="max-w-6xl mx-auto space-y-8 pb-32">
+<!-- Section Title & Breadcrumb -->
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-xs font-semibold text-slate-400 uppercase tracking-widest">
+<span>CRM</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-blue-600">Novo Registro</span>
+</div>
+<h3 class="text-3xl font-extrabold text-on-surface font-plus-jakarta tracking-tight">Cadastrar Novo Lead</h3>
+<p class="text-slate-500 font-body max-w-2xl">Insira as informações detalhadas para qualificação de seu novo cliente em potencial. Todos os campos com asterisco são obrigatórios.</p>
+</div>
+<!-- Bento Grid Layout for Forms -->
+<div class="grid grid-cols-12 gap-8">
+<!-- 1. Informações Pessoais (Card) -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest rounded-lg p-8 shadow-sm ring-1 ring-black/[0.03]">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+<span class="material-symbols-outlined">person</span>
+</div>
+<h4 class="text-xl font-bold font-plus-jakarta">Informações Pessoais</h4>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="col-span-2">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Nome Completo *</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body" placeholder="Ex: João da Silva" type="text"/>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">E-mail *</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body" placeholder="joao@exemplo.com" type="email"/>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Telefone *</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body" placeholder="(11) 99999-9999" type="tel"/>
+</div>
+<div class="col-span-2">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">CPF/CNPJ</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body" placeholder="000.000.000-00" type="text"/>
+</div>
+</div>
+</div>
+<!-- 2. Perfil do Lead (Card) -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-lowest rounded-lg p-8 shadow-sm ring-1 ring-black/[0.03]">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-orange-600">
+<span class="material-symbols-outlined">monitoring</span>
+</div>
+<h4 class="text-xl font-bold font-plus-jakarta">Perfil do Lead</h4>
+</div>
+<div class="space-y-6">
+<div>
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Origem</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body">
+<option>Instagram</option>
+<option>Facebook</option>
+<option>Site</option>
+<option>Indicação</option>
+<option>Outdoor</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Corretor Responsável</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body">
+<option>Ricardo Mantovani</option>
+<option>Ana Paula Souza</option>
+<option>Marcos Vinícius</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Temperatura</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 rounded-full text-xs font-bold border-2 border-red-100 bg-red-50 text-red-600">Hot</button>
+<button class="px-4 py-2 rounded-full text-xs font-bold border-2 border-slate-100 bg-slate-50 text-slate-500 hover:bg-orange-50 hover:border-orange-100 hover:text-orange-600 transition-colors">Warm</button>
+<button class="px-4 py-2 rounded-full text-xs font-bold border-2 border-slate-100 bg-slate-50 text-slate-500 hover:bg-blue-50 hover:border-blue-100 hover:text-blue-600 transition-colors">Cold</button>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Prioridade</label>
+<div class="flex gap-4">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-4 h-4 text-blue-600 focus:ring-blue-500" name="priority" type="radio"/>
+<span class="text-sm font-medium text-slate-600 group-hover:text-blue-600">Baixa</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="w-4 h-4 text-blue-600 focus:ring-blue-500" name="priority" type="radio"/>
+<span class="text-sm font-medium text-slate-600 group-hover:text-blue-600">Média</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="w-4 h-4 text-blue-600 focus:ring-blue-500" name="priority" type="radio"/>
+<span class="text-sm font-medium text-slate-600 group-hover:text-blue-600">Alta</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Interesse Imobiliário (Card) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-lg p-8 shadow-sm ring-1 ring-black/[0.03]">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+<span class="material-symbols-outlined">apartment</span>
+</div>
+<h4 class="text-xl font-bold font-plus-jakarta">Interesse Imobiliário</h4>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="col-span-2 md:col-span-1">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Tipo de Imóvel</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body">
+<option>Apartamento</option>
+<option>Casa de Rua</option>
+<option>Casa em Condomínio</option>
+<option>Cobertura</option>
+<option>Terreno</option>
+</select>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Bairros de Preferência</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body" placeholder="Ex: Itaim Bibi, Moema, Jardins" type="text"/>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Faixa de Preço (Mín-Máx)</label>
+<div class="flex items-center gap-3">
+<div class="relative flex-1">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold">R$</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-10 pr-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body" placeholder="Mínimo" type="text"/>
+</div>
+<div class="relative flex-1">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold">R$</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-10 pr-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body" placeholder="Máximo" type="text"/>
+</div>
+</div>
+</div>
+<div class="col-span-2 md:col-span-1">
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Urgência</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl py-4 px-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body">
+<option>Imediata (até 30 dias)</option>
+<option>Próximos 3 meses</option>
+<option>6 meses a 1 ano</option>
+<option>Apenas sondagem</option>
+</select>
+</div>
+</div>
+</div>
+<!-- 4. Qualificação Financeira (Card) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-lg p-8 shadow-sm ring-1 ring-black/[0.03] flex flex-col h-full">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<h4 class="text-xl font-bold font-plus-jakarta">Financeiro</h4>
+</div>
+<div class="space-y-6 flex-1">
+<div>
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-3">Necessita Financiamento?</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="py-3 rounded-xl border-2 border-blue-600 bg-blue-50 text-blue-600 font-bold text-sm transition-all">Sim</button>
+<button class="py-3 rounded-xl border-2 border-slate-100 bg-slate-50 text-slate-500 font-bold text-sm hover:border-slate-200 transition-all">Não</button>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Valor de Entrada Disponível</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm font-bold">R$</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-10 pr-5 text-on-surface focus:bg-white focus:ring-2 focus:ring-blue-500/20 transition-all font-body" placeholder="0,00" type="text"/>
+</div>
+</div>
+<div class="mt-auto p-4 bg-slate-50 rounded-2xl border border-slate-100">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-blue-500 text-xl">info</span>
+<p class="text-[11px] leading-relaxed text-slate-600 font-medium italic">Leads que necessitam de financiamento possuem uma taxa de conversão 15% menor em imóveis acima de R$ 2M. Considere qualificação bancária prévia.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer Actions -->
+<footer class="fixed bottom-0 right-0 left-64 h-24 bg-white/95 backdrop-blur-md border-t border-slate-100 px-8 flex items-center justify-end gap-4 z-40">
+<button class="px-8 py-3 rounded-full text-sm font-bold text-slate-500 border-2 border-slate-100 hover:bg-slate-50 transition-colors uppercase tracking-widest">
+                Cancelar
+            </button>
+<button class="action-gradient px-12 py-3.5 rounded-full text-sm font-bold text-white shadow-xl shadow-blue-500/30 hover:shadow-2xl hover:shadow-blue-600/40 hover:-translate-y-0.5 active:translate-y-0 transition-all uppercase tracking-widest">
+                Salvar Lead
+            </button>
+</footer>
+</main>
+</body></html>

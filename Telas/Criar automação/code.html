@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Criar Automação - Informações Básicas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-tint": "#0060ac",
+                        "primary-fixed-dim": "#a4c9ff",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "tertiary-fixed-dim": "#aec6ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e1e2e4",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e2e4",
+                        "secondary": "#3d608e",
+                        "surface-container-high": "#e7e8ea",
+                        "tertiary": "#001b44",
+                        "primary-fixed": "#d4e3ff",
+                        "error": "#ba1a1a",
+                        "primary": "#001d3b",
+                        "on-primary-fixed-variant": "#004883",
+                        "surface-bright": "#f8f9fb",
+                        "on-tertiary-fixed": "#001a42",
+                        "secondary-fixed-dim": "#a6c8fd",
+                        "inverse-primary": "#a4c9ff",
+                        "on-tertiary-container": "#6298fd",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#00325f",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9fb",
+                        "inverse-surface": "#2e3132",
+                        "secondary-container": "#a6c8fd",
+                        "on-surface-variant": "#43474f",
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#002f6c",
+                        "surface-container": "#edeef0",
+                        "on-secondary-fixed": "#001c3a",
+                        "secondary-fixed": "#d4e3ff",
+                        "surface-dim": "#d9dadc",
+                        "on-surface": "#191c1e",
+                        "on-primary-fixed": "#001c39",
+                        "on-secondary-container": "#315481",
+                        "on-primary-container": "#589cef",
+                        "outline-variant": "#c3c6d0",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-secondary-fixed-variant": "#234875",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9fb",
+                        "outline": "#737780"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-action-gradient {
+            background: linear-gradient(135deg, #4A90E2 0%, #2161C3 100%);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-surface text-on-background min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full z-40 bg-[#05325E] dark:bg-slate-950 text-white font-['Plus_Jakarta_Sans'] font-semibold text-sm tracking-tight rounded-r-[24px] w-72 overflow-y-auto shadow-2xl">
+<div class="p-8">
+<div class="text-lg font-bold text-white tracking-widest mb-8">The Digital Architect</div>
+<div class="flex items-center gap-3 mb-10 px-2">
+<img alt="Ricardo Mantovani" class="w-12 h-12 rounded-xl object-cover shadow-lg border-2 border-white/20" data-alt="Professional headshot of a luxury real estate broker in a crisp suit, studio lighting, confident expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwlLkU3N_KGyHYtufZkW3co7S3ykgvfXGC-aOn0rclflPVbel_eSU5xfFoSdEAEWo3unf-GMFf4U9L0998ayjzjVTJ3FFJm5oRqAWnxJ8oNoPpS4JPvDv6xGaE7KP7f_EZETmpPbwZ9dgfF82o3EFyFetSuoJ-FMCF10JWbFEqCbD-yRTek7r-QMJsNhrdeYzo0iapUSEsp4lz7z4D-c1_Rfb7EudbutJFyPyspIMGMkAl1xeSQPJICIzDIXWzbFMhFEuCT9jT"/>
+<div>
+<p class="text-white text-sm font-bold truncate">Ricardo Mantovani</p>
+<p class="text-white/60 text-xs font-medium">Premium Real Estate SaaS</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">hub</span>
+<span>Leads/CRM</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span>Atendimento</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">account_tree</span>
+<span>Pipeline</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">apartment</span>
+<span>Imóveis</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Agenda</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Propostas</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">person_pin</span>
+<span>Proprietários</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Corretores e Equipes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span>Relatórios</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white/10 text-white rounded-xl shadow-inner group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">settings_input_component</span>
+<span>Automações</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+<span>Agentes Inteligentes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">api</span>
+<span>Integrações e Consumo</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-xl group transition-transform scale-95 active:scale-90" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Configurações</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="sticky top-0 right-0 z-30 flex items-center justify-between px-8 py-4 ml-72 bg-[#F8F9FB]/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-[24px] mt-4 mx-6 mb-2 shadow-sm font-['Inter'] text-sm font-medium">
+<div class="flex items-center gap-6">
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-[#05325E] dark:text-white text-lg">Workspace Próprio</h1>
+<div class="relative group">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-slate-400">
+<span class="material-symbols-outlined text-sm">search</span>
+</span>
+<input class="pl-10 pr-4 py-2 bg-white/50 border-none rounded-full w-64 focus:ring-2 focus:ring-[#4A90E2]/50 focus:bg-white transition-all outline-none" placeholder="Pesquisar automações..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-500 hover:bg-white/50 transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-500 hover:bg-white/50 transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="flex items-center gap-3 pl-2 border-l border-slate-200 ml-2">
+<span class="text-[#05325E] dark:text-blue-400 font-semibold">Ricardo Mantovani</span>
+<img alt="Ricardo Mantovani" class="w-8 h-8 rounded-full" data-alt="Close-up profile photo of a smiling business professional, warm lighting, blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpbj_M-mzr0CIP_OMO-t-cs8Jkh37crBQ1YcW_4b32Pm2IyZA3wU_Jrb3Of8fhCeDg_NffR4-ssLFsCm2g3HBewMK4NGGJDP2GR9bAHH7epDrS6z2jzci23fSMQ0KZmByOQlQMhXaLVjsI8jY0rT5eZAn_wJTpAropBZLCpGclNznwVoYurjrLuFkwlzdodtiyxIjelmY7iRzLaqhdmjUpaGrNI7_by4Lzgl0rcYVSYt9UA48bi_hbfKxT8q8iBCUXFABPL34H"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-72 p-8 pt-4">
+<!-- Stepper -->
+<div class="max-w-6xl mx-auto mb-10">
+<div class="flex items-center justify-between px-4">
+<div class="flex flex-col items-center gap-2 group">
+<div class="w-10 h-10 rounded-full bg-action-gradient text-white flex items-center justify-center shadow-lg shadow-blue-200">
+<span class="material-symbols-outlined text-xl">info</span>
+</div>
+<span class="text-xs font-bold text-[#05325E]">Informações</span>
+</div>
+<div class="flex-1 h-[2px] bg-slate-200 mx-4 -mt-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-white text-slate-400 flex items-center justify-center border-2 border-slate-100">
+<span class="material-symbols-outlined text-xl">bolt</span>
+</div>
+<span class="text-xs font-medium text-slate-400">Gatilho</span>
+</div>
+<div class="flex-1 h-[2px] bg-slate-200 mx-4 -mt-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-white text-slate-400 flex items-center justify-center border-2 border-slate-100">
+<span class="material-symbols-outlined text-xl">filter_alt</span>
+</div>
+<span class="text-xs font-medium text-slate-400">Condições</span>
+</div>
+<div class="flex-1 h-[2px] bg-slate-200 mx-4 -mt-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-white text-slate-400 flex items-center justify-center border-2 border-slate-100">
+<span class="material-symbols-outlined text-xl">play_arrow</span>
+</div>
+<span class="text-xs font-medium text-slate-400">Ações</span>
+</div>
+<div class="flex-1 h-[2px] bg-slate-200 mx-4 -mt-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-white text-slate-400 flex items-center justify-center border-2 border-slate-100">
+<span class="material-symbols-outlined text-xl">dynamic_feed</span>
+</div>
+<span class="text-xs font-medium text-slate-400">Integrações</span>
+</div>
+<div class="flex-1 h-[2px] bg-slate-200 mx-4 -mt-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-white text-slate-400 flex items-center justify-center border-2 border-slate-100">
+<span class="material-symbols-outlined text-xl">biotech</span>
+</div>
+<span class="text-xs font-medium text-slate-400">Teste</span>
+</div>
+<div class="flex-1 h-[2px] bg-slate-200 mx-4 -mt-6"></div>
+<div class="flex flex-col items-center gap-2">
+<div class="w-10 h-10 rounded-full bg-white text-slate-400 flex items-center justify-center border-2 border-slate-100">
+<span class="material-symbols-outlined text-xl">rocket_launch</span>
+</div>
+<span class="text-xs font-medium text-slate-400">Publicação</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8 max-w-6xl mx-auto">
+<!-- Central Form Column -->
+<div class="col-span-8 space-y-6">
+<section class="bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/10">
+<header class="mb-8">
+<h2 class="font-headline text-2xl font-bold text-on-surface">Configurações Iniciais</h2>
+<p class="text-on-surface-variant text-sm mt-1">Defina a identidade e o contexto para o seu novo fluxo de trabalho.</p>
+</header>
+<div class="space-y-8">
+<!-- Nome da Automação -->
+<div class="group">
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-3">Nome da Automação</label>
+<input class="w-full text-lg font-headline font-semibold py-4 px-0 bg-transparent border-b-2 border-slate-100 focus:border-[#4A90E2] focus:ring-0 transition-all placeholder:text-slate-300" placeholder="Ex: Boas-vindas para Novos Leads Luxury" type="text"/>
+</div>
+<!-- Descrição -->
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-3">Descrição (Opcional)</label>
+<textarea class="w-full p-4 rounded-xl bg-surface-container-low border-none focus:bg-white focus:ring-2 focus:ring-[#4A90E2]/50 transition-all text-sm" placeholder="Descreva o propósito deste fluxo para sua equipe..." rows="3"></textarea>
+</div>
+<!-- Contexto do Fluxo -->
+<div>
+<label class="block text-xs font-bold text-on-surface uppercase tracking-wider mb-4">Contexto do Fluxo</label>
+<div class="grid grid-cols-3 gap-4">
+<button class="flex flex-col items-start p-5 rounded-2xl bg-white border-2 border-[#4A90E2] ring-4 ring-[#4A90E2]/10 transition-all text-left group">
+<div class="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#4A90E2] mb-4">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">Vendas</h4>
+<p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">Focado em fechamento, propostas e follow-up comercial.</p>
+</button>
+<button class="flex flex-col items-start p-5 rounded-2xl bg-surface-container-low border-2 border-transparent hover:border-slate-200 transition-all text-left group">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-slate-400 group-hover:text-pink-500 mb-4 transition-colors">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">Marketing</h4>
+<p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">Nutrição de leads, réguas de e-mail e campanhas ativas.</p>
+</button>
+<button class="flex flex-col items-start p-5 rounded-2xl bg-surface-container-low border-2 border-transparent hover:border-slate-200 transition-all text-left group">
+<div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-slate-400 group-hover:text-emerald-500 mb-4 transition-colors">
+<span class="material-symbols-outlined">settings_suggest</span>
+</div>
+<h4 class="font-bold text-on-surface text-sm">Operational</h4>
+<p class="text-[11px] text-on-surface-variant mt-1 leading-relaxed">Gestão interna, alertas de sistema e triagem de dados.</p>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Side Rail / Sidebar Support -->
+<div class="col-span-4 space-y-6">
+<!-- Automation Assistant -->
+<div class="bg-action-gradient p-6 rounded-lg text-white shadow-xl shadow-blue-200/50">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+<span class="material-symbols-outlined text-white" data-weight="fill" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<h3 class="font-bold text-sm">Automation Assistant</h3>
+</div>
+<div class="space-y-4">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-white/60 text-sm mt-0.5">lightbulb</span>
+<p class="text-xs leading-relaxed text-blue-50 font-medium">Use nomes descritivos para facilitar a busca rápida no painel geral.</p>
+</div>
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-white/60 text-sm mt-0.5">notification_important</span>
+<p class="text-xs leading-relaxed text-blue-50 font-medium">Fluxos do contexto Sales priorizam notificações imediatas no app mobile.</p>
+</div>
+</div>
+</div>
+<!-- Best Practices -->
+<div class="bg-surface-container-high/50 p-6 rounded-lg">
+<h3 class="text-[11px] font-extrabold text-slate-500 uppercase tracking-widest mb-4">Melhores Práticas</h3>
+<ul class="space-y-3">
+<li class="flex items-center gap-3">
+<div class="w-5 h-5 rounded-md bg-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 text-xs font-bold">check</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">Mantenha as descrições curtas</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-5 h-5 rounded-md bg-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 text-xs font-bold">check</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">Agrupe automações semelhantes</span>
+</li>
+<li class="flex items-center gap-3">
+<div class="w-5 h-5 rounded-md bg-emerald-100 flex items-center justify-center">
+<span class="material-symbols-outlined text-emerald-600 text-xs font-bold">check</span>
+</div>
+<span class="text-xs text-on-surface-variant font-medium">Defina tags de contexto</span>
+</li>
+</ul>
+<div class="mt-8 pt-6 border-t border-slate-200">
+<div class="rounded-xl overflow-hidden relative group aspect-video">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Modern high-tech workspace with multiple screens displaying data analytics, cinematic lighting, corporate tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCI2bW2Qp4sgSPzyhPzwyLTLzML2lsgEhV6w2QPXc_7eDSzyYZ4mlt0EbKFF2T2xcnYhukJsSUFf0S2nCc5Yla-fXjDyijX3ic_j1WgOI_9M4iXeFp8m66y7jWl_bVHrRWIDx8hK9B7MwgoSe7d0o24G7SA_3bbuS_PA5DT8da8wQNaV2MEnA2ppUE15lVWUx9SegKONxWhvmhnVmm4bPAF1SQvL705O9FgEo1VN0my2K-X_ZU-CCd_tyCNVUZjME1NkZdXD2IG"/>
+<div class="absolute inset-0 bg-primary/40 flex items-center justify-center backdrop-blur-[2px]">
+<button class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transform transition-transform active:scale-90">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</button>
+</div>
+</div>
+<p class="text-[10px] text-center mt-3 text-slate-500 font-medium italic">Vídeo: Guia de Organização de Fluxos</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<footer class="max-w-6xl mx-auto mt-12 pt-8 border-t border-slate-200 flex items-center justify-between">
+<button class="px-8 py-3 text-slate-500 font-bold hover:text-error transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">close</span>
+                Cancelar
+            </button>
+<div class="flex items-center gap-4">
+<div class="text-right mr-4">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Próxima Etapa</p>
+<p class="text-sm font-bold text-[#05325E]">Configuração de Gatilho</p>
+</div>
+<button class="bg-action-gradient text-white px-10 py-4 rounded-full font-bold shadow-xl shadow-blue-200 flex items-center gap-3 group transition-transform hover:scale-[1.02] active:scale-95">
+                    Próximo Passo
+                    <span class="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</footer>
+</main>
+<!-- Global Background Texture -->
+<div class="fixed inset-0 pointer-events-none -z-10 opacity-30 mix-blend-soft-light overflow-hidden">
+<div class="absolute -top-[10%] -right-[5%] w-[40%] h-[40%] bg-blue-400 blur-[150px] rounded-full"></div>
+<div class="absolute top-[40%] -left-[10%] w-[30%] h-[30%] bg-indigo-200 blur-[120px] rounded-full"></div>
+</div>
+</body></html>

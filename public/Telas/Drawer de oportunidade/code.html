@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pipeline Manager - Duplex Ed. Onyx</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error": "#ba1a1a",
+                        "secondary": "#3d608e",
+                        "tertiary": "#001b44",
+                        "on-surface": "#191c1e",
+                        "surface-variant": "#e1e2e4",
+                        "surface": "#f8f9fb",
+                        "outline-variant": "#c3c6d0",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e2e4",
+                        "inverse-surface": "#2e3132",
+                        "on-background": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "outline": "#737780",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-primary-fixed": "#001c39",
+                        "primary-fixed": "#d4e3ff",
+                        "primary-container": "#00325f",
+                        "background": "#f8f9fb",
+                        "secondary-container": "#a6c8fd",
+                        "on-primary-container": "#589cef",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-container": "#edeef0",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface-variant": "#43474f",
+                        "tertiary-container": "#002f6c",
+                        "on-secondary-fixed-variant": "#234875",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#d8e2ff",
+                        "surface-dim": "#d9dadc",
+                        "on-secondary-container": "#315481",
+                        "inverse-primary": "#a4c9ff",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed-dim": "#a4c9ff",
+                        "secondary-fixed": "#d4e3ff",
+                        "on-secondary-fixed": "#001c3a",
+                        "on-primary-fixed-variant": "#004883",
+                        "surface-bright": "#f8f9fb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#6298fd",
+                        "primary": "#001d3b",
+                        "tertiary-fixed-dim": "#aec6ff",
+                        "secondary-fixed-dim": "#a6c8fd",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#0060ac",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#e7e8ea"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-hidden">
+<!-- Side Navigation Bar -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-[#05325E] dark:bg-slate-950 flex flex-col h-full py-8 shadow-2xl z-50">
+<div class="px-6 mb-10">
+<h1 class="text-xl font-bold tracking-tight text-white">The Architect</h1>
+<p class="text-blue-200/60 text-xs font-medium">Premium Realty SaaS</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center text-blue-100/70 hover:text-white hover:bg-white/10 rounded-r-full mr-4 pl-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center text-blue-100/70 hover:text-white hover:bg-white/10 rounded-r-full mr-4 pl-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">domain</span>
+<span class="font-medium">Properties</span>
+</a>
+<a class="flex items-center bg-[#4A90E2] text-white rounded-r-full mr-4 pl-6 py-3 font-bold active:scale-95 duration-150" href="#">
+<span class="material-symbols-outlined mr-3">account_tree</span>
+<span class="font-medium">Pipeline</span>
+</a>
+<a class="flex items-center text-blue-100/70 hover:text-white hover:bg-white/10 rounded-r-full mr-4 pl-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">group</span>
+<span class="font-medium">Clients</span>
+</a>
+<a class="flex items-center text-blue-100/70 hover:text-white hover:bg-white/10 rounded-r-full mr-4 pl-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">campaign</span>
+<span class="font-medium">Marketing</span>
+</a>
+<a class="flex items-center text-blue-100/70 hover:text-white hover:bg-white/10 rounded-r-full mr-4 pl-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined mr-3">leaderboard</span>
+<span class="font-medium">Analytics</span>
+</a>
+</nav>
+<div class="mt-auto px-4 space-y-4">
+<button class="w-full bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white py-3 rounded-full font-bold shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                New Opportunity
+            </button>
+<div class="pt-4 border-t border-white/10">
+<a class="flex items-center text-blue-100/70 hover:text-white px-4 py-2 text-sm" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-4 py-2 text-sm" href="#">
+<span class="material-symbols-outlined mr-3 text-lg">help_outline</span>
+                    Support
+                </a>
+</div>
+</div>
+</aside>
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl flex justify-between items-center px-8 h-20 w-full">
+<div class="flex items-center gap-8">
+<h2 class="text-lg font-bold text-[#05325E] dark:text-white">Pipeline Manager</h2>
+<nav class="hidden lg:flex items-center gap-6 h-20">
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#05325E] pb-4 pt-4 border-b-2 border-transparent transition-colors text-sm font-medium" href="#">Summary</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#05325E] pb-4 pt-4 border-b-2 border-transparent transition-colors text-sm font-medium" href="#">History</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#05325E] pb-4 pt-4 border-b-2 border-transparent transition-colors text-sm font-medium" href="#">Tasks</a>
+<a class="text-[#4A90E2] border-[#4A90E2] pb-4 pt-4 border-b-2 font-bold text-sm" href="#">Visits</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#05325E] pb-4 pt-4 border-b-2 border-transparent transition-colors text-sm font-medium" href="#">Proposals</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-[#05325E] pb-4 pt-4 border-b-2 border-transparent transition-colors text-sm font-medium" href="#">AI Insights</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 mr-4">
+<button class="p-2 text-slate-400 hover:text-[#05325E] transition-colors focus:ring-2 ring-blue-400 ring-offset-2 rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-[#05325E] transition-colors focus:ring-2 ring-blue-400 ring-offset-2 rounded-full">
+<span class="material-symbols-outlined">history_edu</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-[#05325E] transition-colors focus:ring-2 ring-blue-400 ring-offset-2 rounded-full">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<button class="bg-surface-container-low text-[#05325E] px-6 py-2.5 rounded-full font-bold text-sm hover:bg-surface-container-high transition-all">
+                Edit Opportunity
+            </button>
+<img alt="Agent Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm" data-alt="professional portrait of a confident real estate agent in a modern office, warm lighting, blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWhP0y8f_xWndJexch0RCMflNGB8SzIZGJxEtSRvFjvG13k-ARC5uHQsVZKX3BwXOyKKKOKGhvup0OXH-yVsm9OfmxpHTdTICHNLw4JIlWZ-_zo0u-Dv1IX0cIFrGdNEcNp0ixBkyhP8OwVUtFKAVdBnyZa3FCNpSSzClyoQZJ09ACGwu56MnoPeAO6wAJMnd6PhfZxo3xgTPhRNKOfXOmvUHxB8ecgN0M396BvyszKwnhRKw3r0sK-vaTYR0XNBhUkOWJfddw"/>
+</div>
+</header>
+<!-- Main Content (Background Kanban) -->
+<main class="ml-64 pt-20 h-screen bg-surface-container-low overflow-hidden relative">
+<div class="p-8 opacity-40 pointer-events-none blur-[2px]">
+<div class="flex gap-6 overflow-x-auto pb-8">
+<!-- Kanban Column Example -->
+<div class="min-w-[320px] flex flex-col gap-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-headline font-bold text-slate-500 uppercase tracking-widest text-xs">New Leads (4)</h3>
+<span class="material-symbols-outlined text-slate-400">more_horiz</span>
+</div>
+<!-- Card 1 -->
+<div class="bg-white p-5 rounded-lg shadow-sm">
+<div class="flex justify-between mb-3">
+<span class="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded">APARTAMENTO</span>
+<span class="text-slate-400 text-[10px]">2 days ago</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface mb-1">Residencial Aurora</h4>
+<p class="text-sm text-slate-500 mb-4">Ricardo M. Queiroz</p>
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold text-[#05325E]">R$ 1.200.000</span>
+<img class="w-6 h-6 rounded-full" data-alt="close up headshot of a person with friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTpF53_7hAfwajUuBAtnZdocNMsT9OeTQVAblZ2vzv7KfPThuD1nr6KgJ4uGV15dVfdaYxfXOIS56ivjZ6dSZqzHztZtQ8OL7cJwoqx_RB-utDwocHcp6B9CmkAJE3sdbDHCwhXampk1WImzydf0mg9aehzKyyQTpXtYfqD0VUaQGTbbM4qZ2PNfS6wfnNKBCcnerbf4Cdlq5VG7iB6TaqjAJ7YA0mA2-bsTL43IjCXzUp5GNPoehkW3Gqyj8vsO28PbUwGpHp"/>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-5 rounded-lg shadow-sm">
+<div class="flex justify-between mb-3">
+<span class="px-2 py-1 bg-blue-50 text-blue-600 text-[10px] font-bold rounded">LOFT</span>
+<span class="text-slate-400 text-[10px]">5 hours ago</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface mb-1">Studio Itaim</h4>
+<p class="text-sm text-slate-500 mb-4">Mariana Fontes</p>
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold text-[#05325E]">R$ 890.000</span>
+<img class="w-6 h-6 rounded-full" data-alt="professional profile picture of a young professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyTyNqipCGPMeYY88vgSGAAuSrH_a1XODxeaQTV05wdecNHvC5ajbJHJFBUDlIMcHxWdgr7mwGtI51d794mYrnW6XYzsaOJ1vCNLSyxckvufKV_UQ6lLXrpnlrrKZYpQgS6WOSZVlUTazakQS6VscskwglQ0fC3NCRmg0UU8NJcRd2cMMnwr8ZLi6khZ_oBjMzNCtyxa-F8-fccT97hCdCc_7kptW7fiTM8Tio5_ZIBQ8menSuXPlq2r4QDYaG7Q9jjvMyUrnK"/>
+</div>
+</div>
+</div>
+<!-- Column 2 (Active Stage) -->
+<div class="min-w-[320px] flex flex-col gap-4">
+<div class="flex items-center justify-between mb-2 border-b-2 border-blue-500 pb-2">
+<h3 class="font-headline font-bold text-[#05325E] uppercase tracking-widest text-xs">Qualification (2)</h3>
+<span class="material-symbols-outlined text-slate-400">more_horiz</span>
+</div>
+<div class="bg-white p-5 rounded-lg border-2 border-[#4A90E2] shadow-xl scale-[1.02]">
+<h4 class="font-headline font-bold text-on-surface mb-1">Duplex Ed. Onyx</h4>
+<p class="text-sm text-slate-500 mb-4">Arthur Villa-Lobos</p>
+<div class="flex items-center justify-between">
+<span class="text-sm font-bold text-[#4A90E2]">R$ 2.450.000</span>
+<div class="flex -space-x-2">
+<img class="w-6 h-6 rounded-full border-2 border-white" data-alt="avatar of a luxury real estate client" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmsJOPkZt0IBCfReP8UplPm38AG0IHdTzTt9jypDdHwI06w5UDl78ambG23XdJvIYh85IAgdwwGiE9Cex4Bm_p9Ly3Qic4SAlFf0EumjQTxL0Reygm-fLESQaVwBABbbff7D67LP2jtA_W3a_zYIvTfvC5wk4F8fqNyT11xWXUKjLLPcU9BV7CcUR5QR25XEADY2l2RpgWrvAAhCLZwYbiamRubkCTZ2rDWhBJCPzQ4pGD_ADtekrFX6L1LPIqPyyKCfvTSgkD"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Dimming Overlay -->
+<div class="absolute inset-0 bg-slate-900/10 backdrop-blur-[2px] z-40"></div>
+<!-- OPPORTUNITY DRAWER -->
+<div class="fixed top-0 right-0 h-full w-[600px] bg-surface-container-lowest shadow-[-20px_0_60px_-15px_rgba(0,0,0,0.1)] z-50 flex flex-col transform transition-transform duration-300">
+<!-- Top Section: Badges & Close -->
+<div class="p-8 pb-4 flex items-center justify-between">
+<div class="flex gap-2">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-extrabold tracking-wider px-3 py-1 rounded-full uppercase">Oportunidade</span>
+<span class="bg-error-container text-on-error-container text-[10px] font-extrabold tracking-wider px-3 py-1 rounded-full uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">priority_high</span>
+                        Alta Prioridade
+                    </span>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors text-slate-400 hover:text-on-surface">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Deal Header -->
+<div class="px-8 mb-6">
+<h2 class="text-3xl font-headline font-extrabold text-[#05325E] leading-tight mb-1">Oportunidade: Duplex Ed. Onyx</h2>
+<div class="flex items-center gap-2">
+<span class="text-slate-400 text-sm font-medium">Estimated Value:</span>
+<span class="text-xl font-headline font-bold text-[#4A90E2]">R$ 2.450.000,00</span>
+</div>
+</div>
+<!-- Lead Info Card -->
+<div class="px-8 mb-8">
+<div class="bg-surface-container-low p-5 rounded-lg flex items-center justify-between border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Arthur Villa-Lobos" class="w-14 h-14 rounded-full object-cover" data-alt="close-up portrait of a sophisticated middle-aged man with silver hair and warm smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEn5jF_DFUBoc24TIJAA1TBBwPX-VUjeYJQk9-4YwhY-RAr9XX-42EZt_i_isWInXXiuLnK4b7q0PJHmf26PtczQ8rc9e4WTjAlSXr1e2PxJn9Sae20XTPQcBnhH9zzfSfZmnADWwyqG-V-qTjtNwIcikCjUCLo3wP25wTFNsA4Mws5eWFkBComXJtWv5BrfKwThpgxq_s9oxzhjZ_DWVr6ayqQGAdqQsHVsRaDm9-jvF8iAQuF3z8EAMioDaIq-XAM_qQ6pAm"/>
+<span class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Arthur Villa-Lobos</h4>
+<p class="text-sm text-slate-500">Lead Qualificado</p>
+</div>
+</div>
+<div class="flex flex-col items-end">
+<div class="flex items-center gap-1 text-orange-600 bg-orange-50 px-3 py-1 rounded-full text-xs font-bold mb-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                            Hot Temperature
+                        </div>
+<span class="text-[10px] text-slate-400 uppercase font-bold tracking-tighter">Last Contact: 2h ago</span>
+</div>
+</div>
+</div>
+<!-- Navigation Tabs -->
+<div class="px-8 border-b border-outline-variant/10 flex gap-6 overflow-x-auto no-scrollbar mb-8">
+<button class="pb-4 text-[#4A90E2] border-b-2 border-[#4A90E2] font-bold text-sm whitespace-nowrap">Resumo</button>
+<button class="pb-4 text-slate-500 hover:text-[#05325E] transition-colors text-sm whitespace-nowrap">Histórico</button>
+<button class="pb-4 text-slate-500 hover:text-[#05325E] transition-colors text-sm whitespace-nowrap">Tarefas</button>
+<button class="pb-4 text-slate-500 hover:text-[#05325E] transition-colors text-sm whitespace-nowrap">Visitas</button>
+<button class="pb-4 text-slate-500 hover:text-[#05325E] transition-colors text-sm whitespace-nowrap">Propostas</button>
+<button class="pb-4 text-slate-500 hover:text-[#05325E] transition-colors text-sm whitespace-nowrap flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">auto_awesome</span>
+                    IA / Insights
+                </button>
+</div>
+<!-- Drawer Scrollable Content -->
+<div class="flex-1 overflow-y-auto px-8 pb-10 space-y-8 no-scrollbar">
+<!-- Quick Metrics Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-5 rounded-lg flex flex-col justify-center border border-outline-variant/5">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Current Stage</p>
+<div class="flex items-center gap-2">
+<span class="font-headline font-bold text-[#05325E] text-lg">Qualificação</span>
+<span class="material-symbols-outlined text-green-500 text-lg">trending_up</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-lg flex flex-col justify-center border border-outline-variant/5">
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Lead Score</p>
+<div class="flex items-center gap-2">
+<span class="font-headline font-extrabold text-[#4A90E2] text-2xl">92 <span class="text-xs text-slate-400 font-medium">/ 100</span></span>
+<div class="w-8 h-8 rounded-full border-4 border-blue-100 border-t-[#4A90E2] rotate-45"></div>
+</div>
+</div>
+</div>
+<!-- Interest Details -->
+<section>
+<h3 class="font-headline font-bold text-slate-500 text-xs uppercase tracking-widest mb-4">Detalhes de Interesse</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-1 border-b border-slate-100">
+<span class="text-sm text-slate-500">Tipologia</span>
+<span class="text-sm font-semibold text-on-surface">Duplex</span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-slate-100">
+<span class="text-sm text-slate-500">Configuração</span>
+<span class="text-sm font-semibold text-on-surface">3 Suítes</span>
+</div>
+<div class="flex justify-between items-center py-1 border-b border-slate-100">
+<span class="text-sm text-slate-500">Localização</span>
+<span class="text-sm font-semibold text-on-surface">Leblon, Rio de Janeiro</span>
+</div>
+<div class="flex justify-between items-center py-1">
+<span class="text-sm text-slate-500">Financiamento Necessário</span>
+<span class="text-sm font-bold text-green-600">SIM</span>
+</div>
+</div>
+</section>
+<!-- Featured Property Carousel-style -->
+<section>
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline font-bold text-slate-500 text-xs uppercase tracking-widest">Unidades Sugeridas</h3>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400"><span class="material-symbols-outlined text-lg">chevron_left</span></button>
+<button class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400"><span class="material-symbols-outlined text-lg">chevron_right</span></button>
+</div>
+</div>
+<div class="flex gap-4 overflow-x-hidden">
+<!-- Unit 1 -->
+<div class="min-w-[240px] bg-white rounded-lg overflow-hidden border border-slate-100 group">
+<div class="h-32 relative">
+<img alt="Unit 402" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="interior view of a luxury modern living room with floor to ceiling windows overlooking the ocean, minimalist furniture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUxisYAeve0BC7m9ql-wtlM9us6sC0fkQZOCN3ZWKURlsLq8Sj5p7XPGVa_OB4BjlK89cLbbmWGN6lyTXSJmRamvTAb8snloQ3cQKumWsGOyHSFvJq4ZvUXAxY3O3s-Y-Bta9FbfKRUDcim3--_L_UOMiBbwJBF0sK3L7bgASpHYbBdgjOQtZ7Dp5LqQibc-5CP_KtOcjznns-xoC_i75BnxcR34RV7Hod8WUzMYoYvPIG9lS3xfO9V0kkVChyEwlpZSaDzae2"/>
+<div class="absolute top-2 left-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold">UNIDADE 402</div>
+</div>
+<div class="p-3">
+<p class="text-xs font-bold text-[#05325E] mb-1">R$ 2.450.000</p>
+<p class="text-[10px] text-slate-500">224m² • 3 Suítes • 2 Vagas</p>
+</div>
+</div>
+<!-- Unit 2 -->
+<div class="min-w-[240px] bg-white rounded-lg overflow-hidden border border-slate-100 group opacity-60">
+<div class="h-32 relative">
+<img alt="Unit 501" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="luxury apartment bedroom with elegant wooden accents and warm evening lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRjKus8UNBAe2POuHg8TGId31qcUG4VgqdM0L2_sZFSyuGa-nlFptHL2N5VgBscgJt8QhZDxPzjbo3kBoRaF5Ya2Wj_idOmpsq0oWDCjo9Ajy7ErhW8lrLvA-WHGmljoaK5F4kJymmJIC_MEOZkQQW7UDYiHGw-oS6uzHQgrofh5VUvPtJptO8iFB3DpFgeSS-s4vL3SZ-zQSNQNRrmeGt6fxIGtvZoaZRxD36M4YZQQ_P7GPQ4JSFmFyFe3DrIXlv0RkuUbZc"/>
+<div class="absolute top-2 left-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold">UNIDADE 501</div>
+</div>
+<div class="p-3">
+<p class="text-xs font-bold text-[#05325E] mb-1">R$ 2.680.000</p>
+<p class="text-[10px] text-slate-500">238m² • 3 Suítes • 3 Vagas</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Actions -->
+<div class="p-8 bg-surface-container-lowest border-t border-slate-100 space-y-4">
+<button class="w-full bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white py-4 rounded-full font-bold shadow-lg shadow-blue-500/20 active:scale-95 transition-transform">
+                    Registrar Proposta
+                </button>
+<div class="grid grid-cols-2 gap-4">
+<button class="flex items-center justify-center gap-2 py-3 rounded-full border border-outline-variant/30 text-slate-600 font-bold text-sm hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-lg">move_up</span>
+                        Mover Etapa
+                    </button>
+<button class="flex items-center justify-center gap-2 py-3 rounded-full text-error font-bold text-sm hover:bg-red-50 transition-colors">
+<span class="material-symbols-outlined text-lg">close</span>
+                        Marcar Perda
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Biblioteca de Agentes - Digital Architect</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#001b44",
+                    "surface-tint": "#0060ac",
+                    "primary": "#001d3b",
+                    "on-primary-container": "#589cef",
+                    "tertiary-fixed": "#d8e2ff",
+                    "outline-variant": "#c3c6d0",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f0f1f3",
+                    "on-surface": "#191c1e",
+                    "on-primary-fixed-variant": "#004883",
+                    "surface": "#f8f9fb",
+                    "on-background": "#191c1e",
+                    "tertiary-fixed-dim": "#aec6ff",
+                    "on-tertiary-fixed-variant": "#004395",
+                    "surface-dim": "#d9dadc",
+                    "on-tertiary-container": "#6298fd",
+                    "surface-bright": "#f8f9fb",
+                    "surface-variant": "#e1e2e4",
+                    "secondary-fixed": "#d4e3ff",
+                    "primary-fixed": "#d4e3ff",
+                    "tertiary-container": "#002f6c",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface-container": "#edeef0",
+                    "secondary-fixed-dim": "#a6c8fd",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-secondary": "#ffffff",
+                    "on-primary-fixed": "#001c39",
+                    "error": "#ba1a1a",
+                    "inverse-surface": "#2e3132",
+                    "on-surface-variant": "#43474f",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e7e8ea",
+                    "primary-container": "#00325f",
+                    "outline": "#737780",
+                    "secondary-container": "#a6c8fd",
+                    "on-tertiary-fixed": "#001a42",
+                    "background": "#f8f9fb",
+                    "on-secondary-fixed": "#001c3a",
+                    "on-secondary-fixed-variant": "#234875",
+                    "secondary": "#3d608e",
+                    "primary-fixed-dim": "#a4c9ff",
+                    "on-secondary-container": "#315481",
+                    "inverse-primary": "#a4c9ff",
+                    "surface-container-low": "#f2f4f6",
+                    "on-error-container": "#93000a",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FB; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .action-gradient { background: linear-gradient(135deg, #4A90E2 0%, #2161C3 100%); }
+        .sidebar-gradient { background: linear-gradient(180deg, #05325E 0%, #0A3E67 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); }
+        .depth-frame { border-top: 8px solid #F8F9FB; border-left: 8px solid #F8F9FB; }
+    </style>
+</head>
+<body class="text-on-surface bg-surface overflow-x-hidden">
+<!-- Sidebar Navigation -->
+<aside class="fixed left-0 top-0 h-screen w-72 flex flex-col overflow-y-auto sidebar-gradient z-40 shadow-2xl transition-all duration-300">
+<div class="p-8">
+<h1 class="text-xl font-bold text-white tracking-tighter">Digital Architect</h1>
+<p class="text-blue-400 text-xs font-medium tracking-widest mt-1 opacity-80 uppercase">Premium Real Estate</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<!-- Navigation Items from JSON -->
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">contacts</span> Leads/CRM
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">forum</span> Atendimento
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">view_kanban</span> Pipeline
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">home_work</span> Imóveis
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">calendar_today</span> Agenda
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">description</span> Propostas
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">person_pin</span> Proprietários
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">group</span> Corretores e Equipes
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">analytics</span> Relatórios
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">auto_mode</span> Automações
+            </a>
+<!-- ACTIVE TAB: Agentes Inteligentes -->
+<a class="flex items-center action-gradient text-white rounded-full font-bold mx-2 px-4 py-3 shadow-[0_8px_16px_rgba(74,144,226,0.25)] font-['Plus_Jakarta_Sans'] text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">smart_toy</span> Agentes Inteligentes
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">api</span> Integrações e Consumo
+            </a>
+<a class="flex items-center text-blue-100/70 hover:text-white px-6 py-3 transition-colors hover:bg-white/5 font-['Plus_Jakarta_Sans'] font-medium text-sm tracking-wide group" href="#">
+<span class="material-symbols-outlined mr-4 opacity-70 group-hover:opacity-100">settings</span> Configurações
+            </a>
+</nav>
+<div class="p-6 mt-auto">
+<div class="flex items-center space-x-3 p-3 bg-white/5 rounded-2xl border border-white/10">
+<img alt="Ricardo Mantovani Profile" class="w-10 h-10 rounded-full border-2 border-blue-400" data-alt="professional portrait of a middle-aged male real estate executive with a confident smile and clean business attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTY9GhXJKWYdahoFYvH9oQ6X-Tczsnv6VHgZxO857dkMZQTauADwC_4nCCrl7Q663AqrbkDHUSEI8vnPsnoeucq2252DB2N40WOL8l31qGz9JiNwW3ItV_DMPC3ZKhPRxrzNsULtmb4aIT0eM6HYRHsxGSPN95Nq-uRs37lwVKm8c8as56bmLVcPyDokVxQOmpUfsoR6uXPrSf5U2fd1G3UkbBX8EsiP5BlEDoumJ9UNXHAXyLy4R3TBGAhvUIc5hw_4T1aEDD"/>
+<div class="overflow-hidden">
+<p class="text-white text-sm font-bold truncate">Ricardo Mantovani</p>
+<p class="text-blue-300 text-xs truncate">Diretor Executivo</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 right-0 left-72 h-20 bg-[#F8F9FB]/80 backdrop-blur-xl flex items-center px-10 z-30 border-b border-slate-100/50"><div class="flex items-center space-x-4">
+<!-- Context Selector -->
+<div class="flex items-center bg-white px-6 py-2.5 rounded-full border border-slate-100 shadow-sm cursor-pointer hover:bg-slate-50 transition-all">
+<span class="text-slate-400 text-sm font-medium mr-2">Contexto:</span>
+<span class="text-[#05325E] font-bold text-sm mr-2">Workspace Próprio</span>
+<span class="material-symbols-outlined text-slate-400 text-lg">expand_more</span>
+</div>
+</div>
+<!-- Search Bar -->
+<div class="flex-1 max-w-xl mx-8">
+<div class="flex items-center bg-white px-6 py-3 rounded-full border border-slate-100 shadow-sm">
+<span class="material-symbols-outlined text-slate-400 text-xl mr-3">search</span>
+<input class="w-full border-none bg-transparent text-sm focus:ring-0 text-on-surface placeholder:text-slate-400" placeholder="Buscar em todo o ecossistema..." type="text"/>
+</div>
+</div>
+<!-- Right Actions & Profile -->
+<div class="flex items-center space-x-6">
+<div class="flex items-center space-x-2">
+<button class="relative w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-500">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors text-slate-500">
+<span class="material-symbols-outlined">apps</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<div class="flex items-center space-x-4">
+<div class="text-right">
+<p class="text-[#05325E] font-bold text-sm leading-none">Ricardo Mantovani</p>
+<p class="text-slate-400 text-[11px] font-medium mt-1">Diretor Executivo</p>
+</div>
+<img alt="Ricardo Mantovani" class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTY9GhXJKWYdahoFYvH9oQ6X-Tczsnv6VHgZxO857dkMZQTauADwC_4nCCrl7Q663AqrbkDHUSEI8vnPsnoeucq2252DB2N40WOL8l31qGz9JiNwW3ItV_DMPC3ZKhPRxrzNsULtmb4aIT0eM6HYRHsxGSPN95Nq-uRs37lwVKm8c8as56bmLVcPyDokVxQOmpUfsoR6uXPrSf5U2fd1G3UkbBX8EsiP5BlEDoumJ9UNXHAXyLy4R3TBGAhvUIc5hw_4T1aEDD"/>
+</div>
+</div></header>
+<!-- Main Content Area -->
+<main class="ml-72 pt-28 px-10 pb-16 min-h-screen depth-frame">
+<!-- Header Section -->
+<section class="mb-12"><div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="max-w-4xl">
+<h3 class="text-4xl font-extrabold text-[#05325E] tracking-tight mb-3">Biblioteca de Agentes</h3>
+<p class="text-slate-500 text-lg font-medium leading-relaxed">Escolha um template pronto para acelerar sua operação imobiliária.</p>
+</div>
+<button class="action-gradient text-white px-8 py-4 rounded-full font-bold text-sm shadow-lg hover:scale-[1.02] active:scale-95 transition-all flex items-center space-x-2 shrink-0 font-['Plus_Jakarta_Sans']">
+<span class="material-symbols-outlined text-xl">add</span>
+<span>Novo Agente</span>
+</button>
+</div></section>
+<!-- Filters Section -->
+<section class="mb-10 flex justify-between items-center w-full"><div class="flex items-center bg-[#F1F3F6] p-1.5 rounded-full shadow-sm bg-pill-container">
+<button class="px-4 py-2.5 bg-white text-[#4A90E2] rounded-full font-bold text-sm shadow-sm transition-all">
+      Todos
+    </button>
+<button class="px-4 py-2.5 text-slate-500 hover:text-[#05325E] font-semibold text-sm transition-all">
+      Vendas
+    </button>
+<button class="px-4 py-2.5 text-slate-500 hover:text-[#05325E] font-semibold text-sm transition-all">
+      Marketing
+    </button>
+<button class="px-4 py-2.5 text-slate-500 hover:text-[#05325E] font-semibold text-sm transition-all">
+      Operacional
+    </button>
+<button class="px-4 py-2.5 text-slate-500 hover:text-[#05325E] font-semibold text-sm transition-all">
+      Suporte
+    </button>
+</div>
+<div class="flex items-center bg-white px-6 py-3 rounded-full border border-slate-100 shadow-sm cursor-pointer hover:bg-slate-50 transition-colors">
+<span class="text-[#737780] text-[10px] font-extrabold uppercase tracking-widest mr-3 font-['Plus_Jakarta_Sans']">ORDENAR POR:</span>
+<span class="text-[#05325E] text-sm font-bold mr-3 font-['Plus_Jakarta_Sans']">Mais Populares</span>
+<span class="material-symbols-outlined text-slate-400 text-lg">expand_more</span>
+</div></section>
+<!-- Agents Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Sarah - Lead Scout -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-50 bg-slate-100">
+<img alt="Sarah" class="w-full h-full object-cover" data-alt="professional portrait avatar of a friendly woman named Sarah with blonde hair and a professional look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARJdOfWmP3W7d4wdqimKthdHGmylGweRQOz_F54egjBTd-vxP23AL-kpTD5S1G0b_aTCjtsXcbCgjhKDLDaxFeDv3UH5sSk4MwF9KVsWBOVXf_n41OdCRh-UZTMnrt08dvFSsTD2GY3pHZON_z3L1R-DOJq4J00uXzbIw-grZGgiIjQE1JaweZVEIFzsWBa_FmjcwiwQu87v8cH58HnZrCWbefd7HWJ1Sd-TriMDmPGPnB4i5iIIvrBIUIK43X_62xPvKHTq9U"/>
+</div>
+<span class="px-3 py-1 bg-blue-50 text-[#4A90E2] text-[10px] font-bold uppercase tracking-widest rounded-full">Vendas</span>
+</div>
+<h4 class="text-xl font-bold text-[#05325E] mb-1">Sarah — Lead Scout</h4>
+<p class="text-blue-600 text-sm font-semibold mb-4">Especialista em prospecção ativa</p>
+<p class="text-slate-500 text-sm leading-relaxed mb-8">Especialista em prospecção ativa e qualificação fria para identificar oportunidades reais.</p>
+<button class="w-full py-4 action-gradient text-white rounded-full font-bold text-sm hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-2">
+<span>Usar Template</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Oliver - Concierge -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-50 bg-slate-100">
+<img alt="Oliver" class="w-full h-full object-cover" data-alt="professional portrait of a sophisticated male concierge named Oliver in business casual attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKNMOg5fKh2FtQB-gB-arNT-2_J3jX6LuDJpdcLMECFAyfoxe-3tsvINqBHzvmOorNcBKPUtNDZaKazaIOmx81sdEBTKafWSIKRc68YJQfNx0wM_5nbj12oeJ76MfY5Lhzz9n6lRaTnbKExkvSY8LF8ldhInqkju7cc7lxxUV6m1SK19s74AxSNmoIHw7019zuKJFaK_TO7WZT80fUrm1A4IB7VO-iISM4aVR_L6z7SKrka_kSd1BugGtg8q-dg2lWRY9wcCB0"/>
+</div>
+<span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest rounded-full">Operacional</span>
+</div>
+<h4 class="text-xl font-bold text-[#05325E] mb-1">Oliver — Concierge</h4>
+<p class="text-blue-600 text-sm font-semibold mb-4">Gestão de agendamentos</p>
+<p class="text-slate-500 text-sm leading-relaxed mb-8">Gestão impecável de agendamentos e recepção de clientes com altíssimo padrão.</p>
+<button class="w-full py-4 action-gradient text-white rounded-full font-bold text-sm hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-2">
+<span>Usar Template</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Elena - Analista -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-50 bg-slate-100">
+<img alt="Elena" class="w-full h-full object-cover" data-alt="modern professional woman portrait for a marketing analyst role, smart glasses and intelligent look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkzJ8u2MwOVu0T0jcWKmElxncC7gOgh9ttu2e8p40ecrPTWnzjis0Wp9TYaN6m7aQHoZ0dvJm-BCWjlsHoiqkYw630Cpd9KCmvCecaRMn2XPPrNMRTohlnoZx8SqxmHDb7EpxhLGHEa4cdeQGYTUF1crIkTysesP1-tyvOO-jUn6ckQP3t-9ACdtW3IJHa4JdXbREEcBRY5yhUzIzGLT8CwgFh2ENcKM047h4KBAaCJprImyH8r-G0Tkwn07LFUMU8ThwDJ6y2"/>
+</div>
+<span class="px-3 py-1 bg-purple-50 text-purple-600 text-[10px] font-bold uppercase tracking-widest rounded-full">Marketing</span>
+</div>
+<h4 class="text-xl font-bold text-[#05325E] mb-1">Elena — Analista</h4>
+<p class="text-blue-600 text-sm font-semibold mb-4">Métricas e Otimização</p>
+<p class="text-slate-500 text-sm leading-relaxed mb-8">Análise de métricas de campanhas e sugestões de otimização baseadas em dados reais.</p>
+<button class="w-full py-4 action-gradient text-white rounded-full font-bold text-sm hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-2">
+<span>Usar Template</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Max - Reativador -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-50 bg-slate-100">
+<img alt="Max" class="w-full h-full object-cover" data-alt="determined and friendly male avatar named Max, expert in sales and communication" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhHsDTe5uZmuIQ2tvKg08jRPsxH3RqI0YH9rbckd0EhD1gOFpI5q05zOSXqbAniV-MHoTzDzlhp9vO_4JjwL1TxN3aOpkUeGrVl0Sb5fOvC_fylcMYj5gLI2AfGkdkTq7ItDpunD0kyJn8lGgi744ziLETVI4GK73sghnM5VckdiqYotttIq3Ps_-AMViRq-5GtGfA_kcBlgLNxfCYz5Z6CwH40xVEeyvXh_qUojSHYtkI_GNGUVk2ClXEtIERcFgbQDmCEpi1"/>
+</div>
+<span class="px-3 py-1 bg-blue-50 text-[#4A90E2] text-[10px] font-bold uppercase tracking-widest rounded-full">Vendas</span>
+</div>
+<h4 class="text-xl font-bold text-[#05325E] mb-1">Max — Reativador</h4>
+<p class="text-blue-600 text-sm font-semibold mb-4">Recuperação de Leads</p>
+<p class="text-slate-500 text-sm leading-relaxed mb-8">Recuperação de leads inativos com gatilhos psicológicos e persuasão avançada.</p>
+<button class="w-full py-4 action-gradient text-white rounded-full font-bold text-sm hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-2">
+<span>Usar Template</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Chloe - Content Bot -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-50 bg-slate-100">
+<img alt="Chloe" class="w-full h-full object-cover" data-alt="creative looking woman avatar named Chloe, representing a social media and content specialist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA81sus9APYHEy9-6DS8NYFnqMJjkHTvQaSiuqb64KU0ZihgfAQ7Qd4xYPL8fqxRq9LPMCZRwMwz0Sl1m2OiJrsoYUw24yFJvsjMANU3o0-ICXYWEREYHdMBj3EIh5TdGn5M_ADXVTv01s9YcHDACJvjCzZXcLmBPxvPXfn30M8EbSB-qy7RYo95C28jvovnP6wzk_zZaWZQmRbv-OQnG24aM6GJbh4cEvphf5HzfQdh0L4J7zW2UKkaHL3wtgL3xRt9bgNuxIh"/>
+</div>
+<span class="px-3 py-1 bg-purple-50 text-purple-600 text-[10px] font-bold uppercase tracking-widest rounded-full">Marketing</span>
+</div>
+<h4 class="text-xl font-bold text-[#05325E] mb-1">Chloe — Content Bot</h4>
+<p class="text-blue-600 text-sm font-semibold mb-4">Escrita Criativa</p>
+<p class="text-slate-500 text-sm leading-relaxed mb-8">Criação de scripts para redes sociais e textos persuasivos para atrair compradores.</p>
+<button class="w-full py-4 action-gradient text-white rounded-full font-bold text-sm hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-2">
+<span>Usar Template</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Lucas - Expeditor -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100">
+<div class="flex justify-between items-start mb-6">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-blue-50 bg-slate-100">
+<img alt="Lucas" class="w-full h-full object-cover" data-alt="professional male avatar named Lucas, looking organized and efficient for administrative role" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqVrqGvtycYf5p2DGYL5wjQvLZS0y8tWCv8H8naZ_Y34R3G9pyv-sBV3QpVFb04mioLeCwxgNledAjJp6Mc-4DjD7-XAa-9TI6ctVlUHEcbzSa70or7CnFp6kgALl8BefrpruXCiymEXuRk2rTRs-jF1uox01kqhC8plwnzAK1cmDdmGstk7RXqb9hDAqk71SL94jC5y5Uh3uVKJhqlJb4JuU1aUOGlcJhy3T2fy3Rku0ugyVM9BVd8OuIy4U17Z7lyqXl07d6"/>
+</div>
+<span class="px-3 py-1 bg-slate-100 text-slate-600 text-[10px] font-bold uppercase tracking-widest rounded-full">Operacional</span>
+</div>
+<h4 class="text-xl font-bold text-[#05325E] mb-1">Lucas — Expeditor</h4>
+<p class="text-blue-600 text-sm font-semibold mb-4">Automação Documental</p>
+<p class="text-slate-500 text-sm leading-relaxed mb-8">Automação de contratos e fluxo documental para acelerar o fechamento de vendas.</p>
+<button class="w-full py-4 action-gradient text-white rounded-full font-bold text-sm hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center space-x-2">
+<span>Usar Template</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Custom Agent Banner -->
+<section class="mt-16 relative overflow-hidden rounded-lg p-10 bg-[#05325E] text-white">
+<div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+<div>
+<h3 class="text-3xl font-extrabold mb-3 tracking-tight">Precisa de um Agente Personalizado?</h3>
+<p class="text-blue-100/80 text-lg font-medium">Construa sua própria lógica ou solicite suporte técnico especializado.</p>
+</div>
+<div class="flex flex-wrap gap-4 shrink-0">
+<button class="px-8 py-4 bg-white text-[#05325E] rounded-full font-bold text-sm hover:bg-slate-50 transition-all shadow-xl shadow-black/10">Criar do zero</button>
+<button class="px-8 py-4 border border-white/20 hover:bg-white/10 rounded-full font-bold text-sm transition-all">Falar com suporte</button>
+</div>
+</div>
+<!-- Decorative background elements -->
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
+<div class="absolute -left-20 -bottom-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
+</section>
+</main>
+<!-- Floating Action Button (FAB) - Suppressed per rules for Library Page -->
+</body></html>

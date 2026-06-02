@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Architect - Importação de Leads</title>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#c3c6d0",
+              "on-primary-fixed-variant": "#004883",
+              "surface-container-high": "#e7e8ea",
+              "primary": "#001d3b",
+              "tertiary-container": "#002f6c",
+              "primary-fixed": "#d4e3ff",
+              "inverse-on-surface": "#f0f1f3",
+              "tertiary-fixed-dim": "#aec6ff",
+              "secondary-fixed": "#d4e3ff",
+              "tertiary-fixed": "#d8e2ff",
+              "on-surface": "#191c1e",
+              "surface-container-low": "#f2f4f6",
+              "primary-fixed-dim": "#a4c9ff",
+              "surface-dim": "#d9dadc",
+              "surface-container-highest": "#e1e2e4",
+              "background": "#f8f9fb",
+              "on-tertiary-fixed-variant": "#004395",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#001b44",
+              "on-tertiary-container": "#6298fd",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed-variant": "#234875",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed": "#001a42",
+              "on-primary-container": "#589cef",
+              "secondary-fixed-dim": "#a6c8fd",
+              "on-primary": "#ffffff",
+              "surface-tint": "#0060ac",
+              "outline": "#737780",
+              "inverse-surface": "#2e3132",
+              "on-background": "#191c1e",
+              "on-error": "#ffffff",
+              "surface-container": "#edeef0",
+              "primary-container": "#00325f",
+              "inverse-primary": "#a4c9ff",
+              "secondary-container": "#a6c8fd",
+              "surface-variant": "#e1e2e4",
+              "on-secondary-fixed": "#001c3a",
+              "surface": "#f8f9fb",
+              "on-secondary-container": "#315481",
+              "on-primary-fixed": "#001c39",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#43474f",
+              "error": "#ba1a1a",
+              "secondary": "#3d608e",
+              "surface-bright": "#f8f9fb"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {
+              "DEFAULT": "1rem",
+              "lg": "1.5rem", // 24px
+              "xl": "2rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+      .sidebar-gradient { background: #05325E; }
+      .active-menu-gradient { 
+        background: linear-gradient(90deg, #4A90E2 0%, #2161C3 100%);
+        box-shadow: 0 4px 15px rgba(33, 97, 195, 0.4);
+      }
+      .action-gradient { background: linear-gradient(135deg, #4A90E2 0%, #2161C3 100%); }
+      .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+      .premium-card { background: #ffffff; border-radius: 1.5rem; border: 1px solid rgba(255,255,255,1); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.04); }
+    </style>
+</head>
+<body class="bg-[#F8F9FB] text-on-surface flex min-h-screen overflow-hidden">
+<!-- Sidebar -->
+<aside class="sidebar-gradient h-screen w-72 flex-shrink-0 fixed left-0 top-0 z-40 flex flex-col">
+<div class="px-8 py-10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+<span class="material-symbols-outlined text-white text-xl">explore</span>
+</div>
+<div>
+<h2 class="text-xl font-extrabold text-white tracking-tight font-headline">The Architect</h2>
+<p class="text-blue-100/50 text-[10px] font-bold uppercase tracking-widest">Luxury Portfolio</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto px-4 space-y-1 custom-scrollbar">
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="grid_view">grid_view</span>
+<span class="text-[15px] font-semibold">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 active-menu-gradient text-white rounded-full mx-2 my-1 transition-all" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="equalizer">equalizer</span>
+<span class="text-[15px] font-bold">Leads / CRM</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="chat">chat</span>
+<span class="text-[15px] font-semibold">Atendimento</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="view_column">view_column</span>
+<span class="text-[15px] font-semibold">Pipeline</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="home">home</span>
+<span class="text-[15px] font-semibold">Imóveis</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="calendar_today">calendar_today</span>
+<span class="text-[15px] font-semibold">Agenda</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="description">description</span>
+<span class="text-[15px] font-semibold">Propostas</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="assignment_ind">assignment_ind</span>
+<span class="text-[15px] font-semibold">Proprietários</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="group">group</span>
+<span class="text-[15px] font-semibold">Corretores e Equipes</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="bar_chart">bar_chart</span>
+<span class="text-[15px] font-semibold">Relatórios</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="settings_suggest">settings_suggest</span>
+<span class="text-[15px] font-semibold">Automações</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="smart_toy">smart_toy</span>
+<span class="text-[15px] font-semibold">Agentes Inteligentes</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="hub">hub</span>
+<span class="text-[15px] font-semibold">Integrações e Consumo</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-3.5 text-blue-100/60 hover:text-white transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="settings">settings</span>
+<span class="text-[15px] font-semibold">Configurações</span>
+</a>
+</nav>
+</aside>
+<!-- Main Wrapper -->
+<main class="flex-1 ml-72 min-h-screen bg-background border-t-[8px] border-l-[8px] border-background flex flex-col overflow-hidden">
+<!-- TopAppBar - Mark 2 Implementation -->
+<header class="h-24 px-10 flex items-center sticky top-0 z-30 bg-[#F8F9FB]">
+<div class="flex-1 flex items-center justify-between gap-8">
+<!-- Context Selector -->
+<div class="flex items-center h-[56px] px-8 bg-white rounded-full shadow-[0_2px_10px_rgba(0,0,0,0.04)] cursor-pointer hover:bg-white/80 transition-all border border-gray-50">
+<span class="text-[14px] text-outline font-medium">Contexto:</span>
+<span class="text-[14px] font-bold text-primary ml-3">Workspace Próprio</span>
+<span class="material-symbols-outlined text-primary text-[20px] ml-4" data-icon="expand_more">expand_more</span>
+</div>
+<!-- Global Search - Centered -->
+<div class="flex-1 max-w-xl relative">
+<span class="material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-outline/60 text-[20px]" data-icon="search">search</span>
+<input class="w-full bg-white border-none rounded-full pl-14 pr-8 h-[56px] text-[14px] font-medium placeholder:text-outline/50 shadow-[0_2px_10px_rgba(0,0,0,0.04)] focus:ring-2 focus:ring-primary/5 transition-all" placeholder="Buscar em todo o ecossistema..." type="text"/>
+</div>
+<!-- Actions and User Profile -->
+<div class="flex items-center gap-3">
+<button class="relative w-12 h-12 flex items-center justify-center rounded-full text-outline/60 hover:bg-white hover:shadow-sm transition-all">
+<span class="material-symbols-outlined text-[24px]" data-icon="notifications">notifications</span>
+<span class="absolute top-[14px] right-[14px] w-[6px] h-[6px] bg-[#E53935] rounded-full"></span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full text-outline/60 hover:bg-white hover:shadow-sm transition-all">
+<span class="material-symbols-outlined text-[24px]" data-icon="apps">apps</span>
+</button>
+<div class="h-10 w-[1px] bg-gray-200/60 mx-3"></div>
+<!-- User Profile -->
+<div class="flex items-center gap-4 pl-1">
+<div class="text-right">
+<p class="text-[15px] font-bold text-primary leading-tight">Ricardo Mantovani</p>
+<p class="text-[12px] text-outline/70 font-medium">Diretor Comercial</p>
+</div>
+<div class="relative">
+<img class="w-11 h-11 rounded-full object-cover shadow-sm ring-2 ring-white" data-alt="Ricardo Mantovani" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0wX1OPfLzVDQDOv7AdtHyzzk0W1SVSIV7aR2lb0cnZpI6bLlNOYg_a5lscuaEMvUZxSrcC2bT7OVfeRs-HMmjsOQprD6Xvs4SqlNEioOxEzpCkGjmdnaSXrWt3jdKBcuSVO4sWVuK-S0RZ4AHXppF3JDX2dCtG9H7TxpnYkhubN42GXRrgc33k3OWn2VR0IQuV7RC3-0X2wdbEN6EJezZQghcla2WX3Hr3Eo48TOCXx68sDQ6IV5kAoifwZpd9mZQN8v4wIB_"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Header -->
+<div class="px-10 py-6 mb-2">
+<div class="flex flex-col">
+<div class="flex items-center gap-4">
+<h1 class="text-[28px] font-extrabold text-primary tracking-tight font-headline">Importação de Leads</h1>
+<span class="px-3.5 py-1.5 bg-[#001D3B] text-white text-[10px] font-bold rounded-full uppercase tracking-[0.1em]">Wizard Premium</span>
+</div>
+<p class="text-sm text-outline/80 font-medium mt-1">Configurando mapeamento de dados do arquivo CSV</p>
+</div>
+</div>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto px-10 pb-12 space-y-12 custom-scrollbar">
+<!-- Stepper Mark 2 -->
+<div class="max-w-4xl mx-auto flex justify-between items-center py-6">
+<!-- Step 1 Done -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shadow-sm border border-blue-100 transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-xl font-bold" data-icon="check">check</span>
+</div>
+<span class="text-[10px] font-bold text-outline uppercase tracking-widest">01 Upload CSV</span>
+</div>
+<div class="flex-1 h-[2px] bg-blue-100/50 mx-6 mb-6"></div>
+<!-- Step 2 Active -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-11 h-11 rounded-full action-gradient text-white flex items-center justify-center font-bold text-sm shadow-[0_8px_24px_-4px_rgba(33,97,195,0.4)] ring-[6px] ring-blue-50 transition-transform hover:scale-105">
+                        02
+                    </div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest">02 Mapeamento</span>
+</div>
+<div class="flex-1 h-[2px] bg-outline-variant/30 mx-6 mb-6"></div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-white border border-outline-variant/30 text-outline flex items-center justify-center font-bold text-sm transition-transform hover:scale-105">
+                        03
+                    </div>
+<span class="text-[10px] font-bold text-outline/60 uppercase tracking-widest">03 Validação</span>
+</div>
+<div class="flex-1 h-[2px] bg-outline-variant/30 mx-6 mb-6"></div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-11 h-11 rounded-full bg-white border border-outline-variant/30 text-outline flex items-center justify-center font-bold text-sm transition-transform hover:scale-105">
+                        04
+                    </div>
+<span class="text-[10px] font-bold text-outline/60 uppercase tracking-widest">04 Confirmação</span>
+</div>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Mapping Interface -->
+<div class="col-span-12 xl:col-span-8">
+<div class="premium-card p-10">
+<div class="flex justify-between items-start mb-10">
+<div>
+<h3 class="text-xl font-extrabold text-primary font-headline">Configurar Mapeamento</h3>
+<p class="text-sm text-outline mt-1.5 font-medium">Conecte as colunas do seu arquivo aos campos do Digital Architect.</p>
+</div>
+<button class="flex items-center gap-2.5 px-5 py-2.5 rounded-full text-blue-600 bg-blue-50 font-bold text-xs hover:bg-blue-100 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="auto_awesome">auto_awesome</span>
+                                Auto-mapeamento Inteligente
+                            </button>
+</div>
+<div class="space-y-4">
+<!-- Table Header -->
+<div class="grid grid-cols-12 gap-4 px-6 pb-2 border-b border-outline-variant/10">
+<div class="col-span-4 text-[10px] font-extrabold text-outline uppercase tracking-[0.15em]">Coluna CSV</div>
+<div class="col-span-4 text-[10px] font-extrabold text-outline uppercase tracking-[0.15em]">Campo do Sistema</div>
+<div class="col-span-3 text-[10px] font-extrabold text-outline uppercase tracking-[0.15em]">Exemplo</div>
+<div class="col-span-1 text-right text-[10px] font-extrabold text-outline uppercase tracking-[0.15em]">Status</div>
+</div>
+<!-- Row 1 -->
+<div class="grid grid-cols-12 gap-4 items-center p-6 bg-surface-container-low/40 rounded-[1.5rem] hover:bg-surface-container-low transition-colors">
+<div class="col-span-4 font-bold text-primary text-sm tracking-tight">full_name</div>
+<div class="col-span-4">
+<select class="w-full bg-white border-outline-variant/20 rounded-xl text-sm font-semibold py-2.5 focus:ring-primary/5 focus:border-primary transition-all shadow-sm">
+<option selected="">Nome Completo</option>
+<option>Primeiro Nome</option>
+<option>Sobrenome</option>
+</select>
+</div>
+<div class="col-span-3 text-xs text-outline font-medium italic">"Ricardo Alcantara..."</div>
+<div class="col-span-1 flex justify-end">
+<span class="material-symbols-outlined text-green-500 text-[20px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="grid grid-cols-12 gap-4 items-center p-6 bg-surface-container-low/40 rounded-[1.5rem] hover:bg-surface-container-low transition-colors">
+<div class="col-span-4 font-bold text-primary text-sm tracking-tight">email_personal</div>
+<div class="col-span-4">
+<select class="w-full bg-white border-outline-variant/20 rounded-xl text-sm font-semibold py-2.5 focus:ring-primary/5 focus:border-primary transition-all shadow-sm">
+<option selected="">E-mail Principal</option>
+<option>E-mail Alternativo</option>
+</select>
+</div>
+<div class="col-span-3 text-xs text-outline font-medium italic">"ricardo@email.com"</div>
+<div class="col-span-1 flex justify-end">
+<span class="material-symbols-outlined text-green-500 text-[20px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Row 3 (Alert State) -->
+<div class="grid grid-cols-12 gap-4 items-center p-6 bg-white rounded-[1.5rem] ring-2 ring-blue-500/20 shadow-lg shadow-blue-500/5">
+<div class="col-span-4 font-bold text-primary text-sm tracking-tight">phone_cell</div>
+<div class="col-span-4">
+<select class="w-full bg-white border-blue-500/30 rounded-xl text-sm font-semibold py-2.5 focus:ring-primary/5 focus:border-blue-500 transition-all shadow-sm">
+<option disabled="" selected="">Selecione um campo...</option>
+<option>Celular</option>
+<option>Telefone Comercial</option>
+</select>
+</div>
+<div class="col-span-3 text-xs text-outline font-medium italic">"(11) 98877-6655"</div>
+<div class="col-span-1 flex justify-end">
+<span class="material-symbols-outlined text-amber-500 animate-pulse text-[20px]" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="grid grid-cols-12 gap-4 items-center p-6 bg-surface-container-low/40 rounded-[1.5rem] hover:bg-surface-container-low transition-colors">
+<div class="col-span-4 font-bold text-primary text-sm tracking-tight">property_interest</div>
+<div class="col-span-4">
+<select class="w-full bg-white border-outline-variant/20 rounded-xl text-sm font-semibold py-2.5 focus:ring-primary/5 focus:border-primary transition-all shadow-sm">
+<option selected="">Interesse: Tipo</option>
+<option>Localização Preferida</option>
+</select>
+</div>
+<div class="col-span-3 text-xs text-outline font-medium italic">"Apartamento Luxo"</div>
+<div class="col-span-1 flex justify-end">
+<span class="material-symbols-outlined text-green-500 text-[20px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Column: Summary -->
+<div class="col-span-12 xl:col-span-4 space-y-6">
+<div class="premium-card p-8 space-y-8">
+<div class="flex items-start justify-between">
+<div>
+<h4 class="text-xs font-extrabold text-primary font-headline uppercase tracking-[0.15em]">Resumo do Arquivo</h4>
+<p class="text-[11px] text-outline font-bold mt-1">leads_q4_export.csv</p>
+</div>
+<span class="px-2.5 py-1 bg-surface-container-low rounded-lg text-outline font-bold text-[9px] uppercase">CSV UTF-8</span>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="flex flex-col">
+<span class="text-xs text-outline font-bold uppercase tracking-tight">Total de Leads</span>
+<span class="text-4xl font-black text-primary font-headline mt-1 tracking-tighter">1,248</span>
+</div>
+</div>
+<!-- Progress Bar -->
+<div class="space-y-2">
+<div class="w-full h-2.5 bg-surface-container-low rounded-full overflow-hidden flex">
+<div class="h-full bg-green-500 w-[88%]" style="box-shadow: 0 0 10px rgba(34,197,94,0.3)"></div>
+<div class="h-full bg-red-500 w-[12%]"></div>
+</div>
+<div class="flex justify-between text-[10px] font-bold text-outline/60 uppercase">
+<span>Válidos (88%)</span>
+<span>Erros (12%)</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-4">
+<div class="p-5 bg-green-50/50 rounded-[1.5rem] border border-green-100/50">
+<p class="text-[10px] font-bold text-green-600 uppercase tracking-widest">Prontos</p>
+<p class="text-2xl font-black text-green-700 font-headline mt-1">1,102</p>
+</div>
+<div class="p-5 bg-red-50/50 rounded-[1.5rem] border border-red-100/50">
+<p class="text-[10px] font-bold text-red-600 uppercase tracking-widest">Erros</p>
+<p class="text-2xl font-black text-red-700 font-headline mt-1">146</p>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-3 p-4 bg-primary/5 rounded-[1.5rem]">
+<span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+<p class="text-[11px] text-primary/80 font-semibold leading-relaxed">Leads com erro de formatação no campo 'telefone' serão ignorados.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Actions -->
+<div class="flex justify-between items-center pt-8 border-t border-outline-variant/10">
+<button class="px-10 py-4 rounded-full border border-outline-variant/30 text-outline font-bold text-[13px] hover:bg-white hover:shadow-md transition-all active:scale-95">
+                    Voltar ao Upload
+                </button>
+<div class="flex items-center gap-10">
+<div class="text-right hidden md:block">
+<p class="text-xs text-outline font-bold uppercase tracking-tight">Status do Mapeamento</p>
+<p class="text-sm font-black text-primary">3 de 14 colunas pendentes</p>
+</div>
+<button class="action-gradient px-12 py-4 rounded-full text-white font-bold text-sm shadow-[0_12px_30px_-5px_rgba(33,97,195,0.4)] hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-3">
+                        Validar e Pré-visualizar
+                        <span class="material-symbols-outlined font-bold" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Central de Automações - Digital Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#001c39",
+                    "secondary-fixed-dim": "#a6c8fd",
+                    "surface-variant": "#e1e2e4",
+                    "tertiary-fixed-dim": "#aec6ff",
+                    "surface-dim": "#d9dadc",
+                    "secondary-container": "#a6c8fd",
+                    "on-tertiary-fixed": "#001a42",
+                    "inverse-surface": "#2e3132",
+                    "on-tertiary-fixed-variant": "#004395",
+                    "primary-fixed-dim": "#a4c9ff",
+                    "primary-container": "#00325f",
+                    "on-secondary-container": "#315481",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "on-surface-variant": "#43474f",
+                    "outline-variant": "#c3c6d0",
+                    "tertiary-fixed": "#d8e2ff",
+                    "on-tertiary-container": "#6298fd",
+                    "background": "#f8f9fb",
+                    "on-surface": "#191c1e",
+                    "surface-container": "#edeef0",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#004883",
+                    "on-primary-container": "#589cef",
+                    "tertiary-container": "#002f6c",
+                    "surface-bright": "#f8f9fb",
+                    "inverse-on-surface": "#f0f1f3",
+                    "primary": "#001d3b",
+                    "on-secondary-fixed-variant": "#234875",
+                    "on-background": "#191c1e",
+                    "surface-container-highest": "#e1e2e4",
+                    "surface": "#f8f9fb",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e7e8ea",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#d4e3ff",
+                    "outline": "#737780",
+                    "inverse-primary": "#a4c9ff",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#0060ac",
+                    "tertiary": "#001b44",
+                    "surface-container-low": "#f2f4f6",
+                    "secondary": "#3d608e",
+                    "primary-fixed": "#d4e3ff",
+                    "on-secondary-fixed": "#001c3a",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8F9FB; }
+        .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .premium-shadow { box-shadow: 0 10px 30px rgba(18, 38, 63, 0.06); }
+        .glass-sidebar { background: linear-gradient(180deg, #05325E 0%, #0A3E67 100%); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- Sidebar -->
+<aside class="h-screen w-72 fixed left-0 top-0 overflow-y-auto glass-sidebar flex flex-col z-50 premium-shadow">
+<div class="p-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center backdrop-blur-md">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-white tracking-tighter font-headline">Digital Architect</h1>
+<p class="text-[10px] text-white/50 uppercase tracking-widest font-bold">Premium Real Estate</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span> Dashboard
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">person_search</span> Leads / CRM
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">chat</span> Atendimento
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">account_tree</span> Pipeline
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">domain</span> Imóveis
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span> Agenda
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">description</span> Propostas
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span> Proprietários
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">group</span> Corretores e Equipes
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">analytics</span> Relatórios
+        </a>
+<a class="flex items-center gap-3 bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white py-3 px-6 transition-colors font-headline font-semibold text-sm tracking-wide rounded-full shadow-lg shadow-blue-500/20 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">settings_input_component</span> Automações
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">smart_toy</span> Agentes Inteligentes
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">api</span> Integrações e Consumo
+        </a>
+<a class="flex items-center gap-3 text-white/70 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide hover:bg-white/5 rounded-full" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span> Configurações
+        </a>
+</nav>
+<div class="p-6 mt-auto">
+<a class="flex items-center gap-3 text-white/50 hover:text-white py-3 px-6 transition-colors font-headline font-medium text-sm tracking-wide" href="#">
+<span class="material-symbols-outlined text-[20px]">logout</span> Sair
+        </a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-72 min-h-screen p-2">
+<div class="bg-surface rounded-[24px] min-h-[calc(100vh-1rem)] flex flex-col border-[8px] border-[#F8F9FB]">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-40 h-20 flex justify-between items-center px-8 bg-[#F8F9FB]/80 backdrop-blur-xl transition-all">
+<div class="flex items-center gap-6">
+<div>
+<h2 class="text-xl font-black text-[#05325E] font-headline">Central de Automações</h2>
+<div class="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity">
+<span class="text-xs font-semibold text-slate-500 font-body">Workspace Próprio</span>
+<span class="material-symbols-outlined text-[16px] text-slate-400">expand_more</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative hidden lg:block">
+<input class="w-80 bg-white border-none rounded-full py-2.5 px-5 text-sm focus:ring-2 focus:ring-[#4A90E2] premium-shadow placeholder-slate-400 font-body" placeholder="Buscar automações..." type="text"/>
+<span class="material-symbols-outlined absolute right-4 top-2.5 text-slate-400">search</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-100/50 transition-all text-slate-500 relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<button class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-100/50 transition-all text-slate-500">
+<span class="material-symbols-outlined">apps</span>
+</button>
+<div class="h-8 w-[1px] bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="text-xs font-bold text-[#05325E] font-headline">Ricardo Mantovani</p>
+<p class="text-[10px] text-slate-500 font-medium font-body">Admin Master</p>
+</div>
+<img alt="Avatar do Usuário" class="w-10 h-10 rounded-full border-2 border-white premium-shadow object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS4cf7ffU4TmQQCNYY37yuYA7sLUkBywpB3dSERUE0YAH7GVMEFO6AWJvPvh4F-_T6NSA82_3GiXLNODf7qrgReTAkigO4rCFCZ8fKoCsHmBC75q3wETRpHszeNkYFk0UtDK43LpoeqcAosA-WauSKI2wwY9iDSiUeafBMCoqPHuHeS52IGJ6NSjcv_fHyAcLOpRy4nsbP-T6R0Iw_hZnXa40BTipp9EHO7Kyk_2JAIIBdTPDCkjAYlRmcneWRw1zCJn2CSlOy"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-8 space-y-12 flex-1">
+<!-- New Page Header Section -->
+<div class="flex justify-between items-center">
+<div>
+<h1 class="text-[32px] font-extrabold text-[#05325E] font-headline tracking-tight">Central de Automações</h1>
+<p class="text-slate-500 font-body mt-1">Gerencie seus fluxos inteligentes e otimize sua operação imobiliária.</p>
+</div>
+<button class="bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white px-8 py-4 rounded-full text-sm font-bold shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]">add</span> Criar Automação
+            </button>
+</div>
+<!-- KPIs -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1: Total de Automações -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] premium-shadow flex flex-col justify-between group hover:bg-surface-bright transition-all border border-slate-50">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-[#4A90E2]">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 0;">account_tree</span>
+</div>
+<div class="bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span class="text-[11px] font-bold">+2</span>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-headline mb-1">Total de Automações</p>
+<h3 class="text-3xl font-extrabold text-[#05325E] font-headline">24</h3>
+</div>
+</div>
+<!-- Card 2: Execuções Mês -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] premium-shadow flex flex-col justify-between group hover:bg-surface-bright transition-all border border-slate-50">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-orange-400">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<div class="bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span class="text-[11px] font-bold">+14%</span>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-headline mb-1">Execuções Mês</p>
+<h3 class="text-3xl font-extrabold text-[#05325E] font-headline">12.840</h3>
+</div>
+</div>
+<!-- Card 3: Taxa de Sucesso -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] premium-shadow flex flex-col justify-between group hover:bg-surface-bright transition-all border border-slate-50">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-400">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 0;">verified</span>
+</div>
+<div class="bg-slate-100 text-slate-500 px-3 py-1 rounded-full">
+<span class="text-[11px] font-bold">Estável</span>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-headline mb-1">Taxa de Sucesso</p>
+<h3 class="text-3xl font-extrabold text-[#05325E] font-headline">99.2%</h3>
+</div>
+</div>
+<!-- Card 4: Tempo Economizado -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] premium-shadow flex flex-col justify-between group hover:bg-surface-bright transition-all border border-slate-50">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-500">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 0;">hourglass_top</span>
+</div>
+<div class="bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="text-[11px] font-bold">Meta</span>
+</div>
+</div>
+<div>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-headline mb-1">Tempo Economizado</p>
+<h3 class="text-3xl font-extrabold text-[#05325E] font-headline">184h</h3>
+</div>
+</div>
+</div>
+<!-- Active Flows -->
+<div class="bg-surface-container-lowest rounded-lg premium-shadow">
+<div class="px-8 py-5 flex justify-between items-center bg-white border-b border-slate-50">
+<h4 class="text-lg font-bold text-[#05325E] font-headline">Fluxos Ativos</h4>
+<div class="flex gap-3"><div class="flex items-center bg-slate-100/50 p-1 rounded-full">
+<button class="px-6 py-2 rounded-full text-xs font-bold bg-white text-[#05325E] shadow-sm transition-all">Todos</button>
+<button class="px-6 py-2 rounded-full text-xs font-bold text-slate-500 hover:text-[#05325E] transition-all">Ativos</button>
+<button class="px-6 py-2 rounded-full text-xs font-bold text-slate-500 hover:text-[#05325E] transition-all">Pausados</button>
+</div>
+</div>
+</div>
+<div class="">
+<table class="w-full text-left border-collapse table-auto">
+<thead>
+<tr class="bg-surface-container-low text-slate-500 text-[9px] uppercase tracking-[0.15em] font-bold">
+<th class="px-8 py-3">Nome da Automação</th>
+<th class="px-8 py-3">Gatilho</th>
+<th class="px-8 py-3">Ação Principal</th>
+<th class="px-8 py-3">Contexto</th>
+<th class="px-8 py-3">Status</th>
+<th class="px-8 py-3">Última Execução</th>
+<th class="px-8 py-3">Falhas</th>
+<th class="px-8 py-3 w-10"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-50">
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-8 py-2.5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-[#05325E] font-headline leading-tight">Boas-vindas Lead Novo</span>
+<span class="text-[9px] text-slate-400 font-mono">#ATM-8291</span>
+</div>
+</td>
+<td class="px-8 py-2.5">
+<span class="bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full text-[9px] font-bold">Novo Lead Criado</span>
+</td>
+<td class="px-8 py-2.5">
+<div class="flex items-center gap-2 text-xs text-slate-600 font-medium">Enviar E-mail</div>
+</td>
+<td class="px-8 py-2.5">
+<span class="bg-blue-100 text-blue-600 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider">Marketing</span>
+</td>
+<td class="px-8 py-2.5">
+<label class="relative inline-flex items-center cursor-pointer scale-75 origin-left">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#4A90E2]"></div>
+</label>
+</td>
+<td class="px-8 py-2.5 text-xs text-slate-500 font-medium">Há 2 min</td>
+<td class="px-8 py-2.5 text-xs text-slate-500 font-medium">0</td>
+<td class="px-8 py-2.5 text-right">
+<button class="text-slate-300 hover:text-[#05325E] transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-8 py-2.5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-[#05325E] font-headline leading-tight">Agendamento de Visitas</span>
+<span class="text-[9px] text-slate-400 font-mono">#ATM-4420</span>
+</div>
+</td>
+<td class="px-8 py-2.5">
+<span class="bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full text-[9px] font-bold">Confirmar Webhook</span>
+</td>
+<td class="px-8 py-2.5">
+<div class="flex items-center gap-2 text-xs text-slate-600 font-medium">Sincronizar Agenda</div>
+</td>
+<td class="px-8 py-2.5">
+<span class="bg-orange-100 text-orange-600 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider">Operacional</span>
+</td>
+<td class="px-8 py-2.5">
+<label class="relative inline-flex items-center cursor-pointer scale-75 origin-left">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#4A90E2]"></div>
+</label>
+</td>
+<td class="px-8 py-2.5 text-xs text-slate-500 font-medium">Hoje, 09:15</td>
+<td class="px-8 py-2.5 text-xs text-slate-500 font-medium">0</td>
+<td class="px-8 py-2.5 text-right">
+<button class="text-slate-300 hover:text-[#05325E] transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-8 py-2.5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-[#05325E] font-headline leading-tight">Alertas de Proposta</span>
+<span class="text-[9px] text-slate-400 font-mono">#ATM-1194</span>
+</div>
+</td>
+<td class="px-8 py-2.5">
+<span class="bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full text-[9px] font-bold">Proposta Recebida</span>
+</td>
+<td class="px-8 py-2.5">
+<div class="flex items-center gap-2 text-xs text-slate-600 font-medium">Push Notification</div>
+</td>
+<td class="px-8 py-2.5">
+<span class="bg-green-100 text-green-600 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider">Vendas</span>
+</td>
+<td class="px-8 py-2.5">
+<label class="relative inline-flex items-center cursor-pointer scale-75 origin-left">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#4A90E2]"></div>
+</label>
+</td>
+<td class="px-8 py-2.5 text-xs text-slate-500 font-medium">Ontem, 22:40</td>
+<td class="px-8 py-2.5 text-xs text-red-500 font-bold">3</td>
+<td class="px-8 py-2.5 text-right">
+<button class="text-slate-300 hover:text-[#05325E] transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 transition-colors group">
+<td class="px-8 py-2.5">
+<div class="flex flex-col">
+<span class="text-sm font-bold text-[#05325E] font-headline leading-tight">Follow-up Automático</span>
+<span class="text-[9px] text-slate-400 font-mono">#ATM-7732</span>
+</div>
+</td>
+<td class="px-8 py-2.5">
+<span class="bg-slate-100 text-slate-600 px-2.5 py-0.5 rounded-full text-[9px] font-bold">48h Inativo</span>
+</td>
+<td class="px-8 py-2.5">
+<div class="flex items-center gap-2 text-xs text-slate-600 font-medium">Enviar WhatsApp</div>
+</td>
+<td class="px-8 py-2.5">
+<span class="bg-blue-100 text-blue-600 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider">Marketing</span>
+</td>
+<td class="px-8 py-2.5">
+<label class="relative inline-flex items-center cursor-pointer scale-75 origin-left">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#4A90E2]"></div>
+</label>
+</td>
+<td class="px-8 py-2.5 text-xs text-slate-500 font-medium">Semana passada</td>
+<td class="px-8 py-2.5 text-xs text-slate-500 font-medium">0</td>
+<td class="px-8 py-2.5 text-right">
+<button class="text-slate-300 hover:text-[#05325E] transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-8 py-4 bg-surface-container-low/30 border-t border-slate-50 flex justify-between items-center">
+<span class="text-xs text-slate-500 font-medium">Mostrando 4 de 24 automações ativas</span>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-white transition-all"><span class="material-symbols-outlined text-[18px]">chevron_left</span></button>
+<button class="w-8 h-8 rounded-full bg-[#05325E] text-white text-xs font-bold shadow-sm">1</button>
+<button class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-white text-xs font-bold transition-all">2</button>
+<button class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-white text-xs font-bold transition-all">3</button>
+<button class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-white transition-all"><span class="material-symbols-outlined text-[18px]">chevron_right</span></button>
+</div>
+</div>
+</div>
+<!-- Secondary Info Section (Bento Style) -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-lg premium-shadow">
+<div class="flex justify-between items-center mb-6">
+<h4 class="text-md font-bold text-[#05325E] font-headline">Saúde das Integrações</h4>
+<span class="text-xs text-blue-600 font-bold hover:underline cursor-pointer">Ver Tudo</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-green-500">hub</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-700">Zapier / Webhooks</p>
+<p class="text-[10px] text-slate-400">Latência média: 45ms</p>
+</div>
+</div>
+<span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-[10px] font-bold">Operacional</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-blue-500">chat_bubble</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-700">WhatsApp API</p>
+<p class="text-[10px] text-slate-400">Taxa de entrega: 99.8%</p>
+</div>
+</div>
+<span class="bg-green-100 text-green-600 px-3 py-1 rounded-full text-[10px] font-bold">Operacional</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition-colors">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-purple-500">mail</span>
+</div>
+<div>
+<p class="text-sm font-bold text-slate-700">SendGrid Email</p>
+<p class="text-[10px] text-slate-400">Créditos: 12.5k restantes</p>
+</div>
+</div>
+<span class="bg-yellow-100 text-yellow-600 px-3 py-1 rounded-full text-[10px] font-bold">Alerta</span>
+</div>
+</div>
+</div>
+<div class="bg-gradient-to-br from-[#05325E] to-[#0A3E67] p-8 rounded-lg premium-shadow relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="text-xl font-bold text-white mb-2 font-headline">Crie como um Arquiteto</h4>
+<p class="text-white/70 text-sm mb-6 max-w-[280px] leading-relaxed">Combine gatilhos, filtros e ações para construir fluxos de trabalho que trabalham enquanto você descansa.</p>
+<button class="bg-white text-[#05325E] px-6 py-3 rounded-full text-xs font-black shadow-xl hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">auto_fix_high</span> Iniciar Canvas Visual
+                        </button>
+</div>
+<div class="absolute -right-10 -bottom-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
+<span class="material-symbols-outlined text-[240px] text-white">architecture</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

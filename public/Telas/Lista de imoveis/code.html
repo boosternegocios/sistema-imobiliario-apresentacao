@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Digital Architect - Gestão de Estoque</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "tertiary-fixed": "#d8e2ff",
+                "outline": "#737780",
+                "surface-container-low": "#f2f4f6",
+                "primary-fixed-dim": "#a4c9ff",
+                "surface-container-lowest": "#ffffff",
+                "surface-variant": "#e1e2e4",
+                "secondary-fixed-dim": "#a6c8fd",
+                "primary-fixed": "#d4e3ff",
+                "error": "#ba1a1a",
+                "on-secondary-container": "#315481",
+                "surface-tint": "#0060ac",
+                "secondary-container": "#a6c8fd",
+                "surface-container-highest": "#e1e2e4",
+                "on-tertiary-fixed-variant": "#004395",
+                "on-tertiary-fixed": "#001a42",
+                "background": "#f8f9fb",
+                "on-tertiary-container": "#6298fd",
+                "on-primary": "#ffffff",
+                "on-secondary-fixed-variant": "#234875",
+                "on-secondary-fixed": "#001c3a",
+                "surface-dim": "#d9dadc",
+                "surface-bright": "#f8f9fb",
+                "primary": "#001d3b",
+                "primary-container": "#00325f",
+                "on-primary-fixed-variant": "#004883",
+                "on-primary-container": "#589cef",
+                "surface-container-high": "#e7e8ea",
+                "surface": "#f8f9fb",
+                "inverse-on-surface": "#f0f1f3",
+                "on-secondary": "#ffffff",
+                "inverse-primary": "#a4c9ff",
+                "secondary": "#3d608e",
+                "error-container": "#ffdad6",
+                "tertiary": "#001b44",
+                "on-primary-fixed": "#001c39",
+                "on-surface-variant": "#43474f",
+                "on-error": "#ffffff",
+                "tertiary-fixed-dim": "#aec6ff",
+                "secondary-fixed": "#d4e3ff",
+                "on-background": "#191c1e",
+                "on-tertiary": "#ffffff",
+                "inverse-surface": "#2e3132",
+                "on-error-container": "#93000a",
+                "surface-container": "#edeef0",
+                "on-surface": "#191c1e",
+                "outline-variant": "#c3c6d0",
+                "tertiary-container": "#002f6c"
+              },
+              fontFamily: {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased overflow-x-hidden">
+<!-- Sidebar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-50 bg-gradient-to-b from-[#05325E] to-[#0A3E67] flex flex-col py-6 shadow-2xl font-['Plus_Jakarta_Sans'] antialiased">
+<div class="px-6 mb-8">
+<h1 class="text-white font-bold text-xl tracking-tight">The Digital Architect</h1>
+</div>
+<nav class="flex-1 overflow-y-auto space-y-1">
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+<span class="text-sm font-medium">Leads / CRM</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span class="text-sm font-medium">Atendimento</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="account_tree">account_tree</span>
+<span class="text-sm font-medium">Pipeline</span>
+</a>
+<!-- Active Item: Imóveis -->
+<a class="bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white rounded-full mx-2 px-4 py-2 flex items-center gap-3 shadow-lg" href="#">
+<span class="material-symbols-outlined" data-icon="domain" style="font-variation-settings: 'FILL' 1;">domain</span>
+<span class="text-sm font-semibold">Imóveis</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span class="text-sm font-medium">Agenda</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span class="text-sm font-medium">Propostas</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
+<span class="text-sm font-medium">Proprietários</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="text-sm font-medium">Corretores e Equipes</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="text-sm font-medium">Relatórios</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="auto_mode">auto_mode</span>
+<span class="text-sm font-medium">Automações</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span class="text-sm font-medium">Agentes Inteligentes</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full" href="#">
+<span class="material-symbols-outlined" data-icon="api">api</span>
+<span class="text-sm font-medium">Integrações e Consumo</span>
+</a>
+<a class="text-white/70 hover:text-white mx-2 px-4 py-2 flex items-center gap-3 transition-colors hover:bg-white/10 rounded-full mt-auto" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm font-medium">Configurações</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="ml-64 min-h-screen border-l-8 border-t-8 border-surface flex flex-col">
+<!-- Top Bar Shell -->
+<header class="h-20 bg-white/80 backdrop-blur-md border-b border-slate-200/60 flex items-center justify-between px-8 sticky top-0 z-40">
+<!-- Left: Context Selector -->
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 bg-slate-100 hover:bg-slate-200 px-4 py-2 rounded-full cursor-pointer transition-colors border border-slate-200/50 group">
+<span class="material-symbols-outlined text-primary text-xl" data-icon="workspaces">workspaces</span>
+<span class="text-sm font-bold text-primary">Workspace Próprio</span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary transition-colors" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Center: Search Bar -->
+<div class="flex-1 max-w-2xl px-12">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors" data-icon="search">search</span>
+<input class="w-full bg-slate-100 border-transparent focus:border-primary/20 focus:bg-white focus:ring-4 focus:ring-primary/5 rounded-full py-2.5 pl-12 pr-4 text-sm transition-all" placeholder="Buscar por código, nome ou localização..." type="text"/>
+</div>
+</div>
+<!-- Right: Profile & Actions -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 transition-colors relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="h-8 w-px bg-slate-200 mx-2"></div>
+<div class="flex items-center gap-3 pl-2 group cursor-pointer">
+<div class="text-right">
+<p class="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors">Ricardo Mantovani</p>
+<p class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Diretor Comercial</p>
+</div>
+<div class="relative">
+<img alt="Ricardo Mantovani" class="w-10 h-10 rounded-full object-cover border-2 border-primary/10 group-hover:border-primary/30 transition-all shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOCr9WkE_2DK0-CnG0PWJfaIET9vlp7QMXpOYNQHO4cgMkVnnOESO-jSpazVaCE3tarigjUVc1lLDSEuNQqTaF9hTYUMQ9kfuzAS_6S2au6XuvAe-1Msv4mUdUg6wv__8RhJnUg6sgHVmx6rcdqrS791N6Ymye1C0m43wPA6_JVUkxnfbmyGVp8giBTr2jvx7Xll2jMjqw4SZy_kkdcIi1YGDWAZHaes0oWVXMP0cPVwDRJtTBjzVjXBB9IkqgS8JZ3DzxeTMh"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8 space-y-8 max-w-[1600px] mx-auto w-full">
+<!-- Inventory Header -->
+<section class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<div>
+<h2 class="text-3xl font-extrabold text-on-surface tracking-tight font-headline">Gestão de Estoque</h2>
+<p class="text-slate-500 mt-1">Acompanhe e gerencie seu portfólio de imóveis premium.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-6 py-2.5 rounded-full border border-outline-variant/30 text-slate-600 font-semibold text-sm hover:bg-surface-container-low transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="ios_share">ios_share</span>
+                    Exportar Inventário
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white font-bold text-sm shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
+                    Novo Imóvel
+                </button>
+</div>
+</section>
+<!-- Inventory KPIs - Mark 2 Style -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- KPI 1: Total Ativos -->
+<div class="bg-white p-8 rounded-[24px] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<p class="text-[#64748B] text-[11px] font-bold uppercase tracking-widest mb-4">Total Ativos</p>
+<div class="flex items-center justify-between">
+<h3 class="leading-none font-extrabold text-[#05325E] font-headline text-4xl">248</h3>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-[#E8F5E9] text-[#2E7D32] rounded-full">
+<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'wght' 700;">trending_up</span>
+<span class="text-xs font-bold">+12%</span>
+</div>
+</div>
+</div>
+<!-- KPI 2: Reservados -->
+<div class="bg-white p-8 rounded-[24px] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<p class="text-[#64748B] text-[11px] font-bold uppercase tracking-widest mb-4">Reservados</p>
+<div class="flex items-center justify-between">
+<h3 class="leading-none font-extrabold text-[#05325E] font-headline text-4xl">42</h3>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-[#FFF3E0] text-[#E65100] rounded-full">
+<span class="material-symbols-outlined text-sm font-bold" style="font-variation-settings: 'wght' 700;">schedule</span>
+<span class="text-xs font-bold uppercase">Em Dia</span>
+</div>
+</div>
+</div>
+<!-- KPI 3: Vendidos -->
+<div class="bg-white p-8 rounded-[24px] shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<p class="text-[#64748B] text-[11px] font-bold uppercase tracking-widest mb-4">Vendidos (Jan-Mar)</p>
+<div class="flex items-center justify-between">
+<h3 class="leading-none font-extrabold text-[#05325E] font-headline text-4xl">156</h3>
+<div class="flex items-center gap-1.5 px-3 py-1.5 bg-[#E3F2FD] text-[#1976D2] rounded-full">
+<span class="text-xs font-bold">Meta: 200</span>
+</div>
+</div>
+</div>
+<!-- KPI 4: Valor em Carteira - Primary Highlight -->
+<div class="bg-[#05325E] p-8 rounded-[24px] shadow-xl hover:shadow-2xl transition-all relative overflow-hidden group">
+<!-- Subtle Gradient Overlay -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+<div class="absolute bottom-0 right-0 w-48 h-48 bg-[#4A90E2]/10 rounded-full -mr-24 -mb-24 blur-3xl"></div>
+<p class="text-white/60 text-[11px] font-bold uppercase tracking-widest mb-4 relative z-10">Valor em Carteira</p>
+<div class="relative z-10">
+<h3 class="text-white font-extrabold font-headline leading-tight"><span class="text-xl opacity-90">R$</span> <span class="tracking-tight text-3xl">842.5M</span></h3>
+</div>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="bg-surface-container-low/50 p-4 rounded-2xl flex flex-wrap items-center gap-4">
+<div class="flex-1 min-w-[200px] bg-white rounded-xl px-4 py-2 flex items-center justify-between cursor-pointer border border-transparent hover:border-[#4A90E2]/30 transition-all">
+<div class="flex flex-col">
+<span class="text-[10px] text-slate-400 font-bold uppercase">Localização</span>
+<span class="text-sm font-semibold text-on-surface">Todos os Bairros</span>
+</div>
+<span class="material-symbols-outlined text-slate-400" data-icon="expand_more">expand_more</span>
+</div>
+<div class="flex-1 min-w-[150px] bg-white rounded-xl px-4 py-2 flex items-center justify-between cursor-pointer border border-transparent hover:border-[#4A90E2]/30 transition-all">
+<div class="flex flex-col">
+<span class="text-[10px] text-slate-400 font-bold uppercase">Tipo</span>
+<span class="text-sm font-semibold text-on-surface">Apartamentos</span>
+</div>
+<span class="material-symbols-outlined text-slate-400" data-icon="expand_more">expand_more</span>
+</div>
+<div class="flex-1 min-w-[150px] bg-white rounded-xl px-4 py-2 flex items-center justify-between cursor-pointer border border-transparent hover:border-[#4A90E2]/30 transition-all">
+<div class="flex flex-col">
+<span class="text-[10px] text-slate-400 font-bold uppercase">Finalidade</span>
+<span class="text-sm font-semibold text-on-surface">Venda</span>
+</div>
+<span class="material-symbols-outlined text-slate-400" data-icon="expand_more">expand_more</span>
+</div>
+<div class="flex-1 min-w-[200px] bg-white rounded-xl px-4 py-2 flex items-center justify-between cursor-pointer border border-transparent hover:border-[#4A90E2]/30 transition-all">
+<div class="flex flex-col">
+<span class="text-[10px] text-slate-400 font-bold uppercase">Faixa de Preço</span>
+<span class="text-sm font-semibold text-on-surface">R$ 2.5M - R$ 15M</span>
+</div>
+<span class="material-symbols-outlined text-slate-400" data-icon="expand_more">expand_more</span>
+</div>
+<button class="p-3 bg-white text-on-surface rounded-xl hover:bg-slate-50 transition-all border border-transparent hover:border-slate-200">
+<span class="material-symbols-outlined" data-icon="tune">tune</span>
+</button>
+</section>
+<!-- Property Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+<!-- Property Card 1 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Luxury Property" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern luxury villa architectural exterior with large glass windows reflecting a sunset over a private infinity pool and manicured lawn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY6biTewlq_9qxC-REuv8rk2HIYLakHHaREUiyXC89l85tYoeWhhob84fPE-SvP56D1WKwixk3exjwQedAvoYe7rzqXIZJ64mJdy22W6XiGGgu2Od8bH5Ave3dT5YWpxWk7-vNQOWBqPAgJOahQQXa1r5sBiaA58C3cUgeonoRiUoU4frgZ0RYsgyDUgY_CE4H1MkXqA2kaFscZ8sI30_z3ghGD6Ik43O101Z9f6nrmGZauDwSPcVhZ4kioZZOG1y6fYEt8jME"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-[#4A90E2] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Ativo</span>
+<span class="bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">#AP204</span>
+</div>
+<button class="absolute top-4 right-4 w-8 h-8 bg-white/20 backdrop-blur-md rounded-full text-white flex items-center justify-center hover:bg-white hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<div class="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-sm">group</span>
+<span class="text-xs font-bold text-slate-700">12 Leads</span>
+</div>
+<div class="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span class="text-xs font-bold text-slate-700">45 Visitas</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="mb-4">
+<h3 class="text-xl font-bold text-[#05325E] leading-tight font-headline">Infinity Garden Residence</h3>
+<div class="flex items-center gap-1 text-slate-400 mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="text-xs font-medium">Itaim Bibi, São Paulo - SP</span>
+</div>
+</div>
+<div class="flex justify-between items-center py-4 border-y border-surface-container-low mb-4">
+<div class="text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase">Área</p>
+<p class="text-sm font-bold text-on-surface">345m²</p>
+</div>
+<div class="text-center border-x border-surface-container-low px-8">
+<p class="text-[10px] text-slate-400 font-bold uppercase">Suítes</p>
+<p class="text-sm font-bold text-on-surface">4</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase">Vagas</p>
+<p class="text-sm font-bold text-on-surface">5</p>
+</div>
+</div>
+<div class="mb-6">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Valor de Venda</p>
+<p class="text-2xl font-black text-[#4A90E2] font-headline">R$ 8.420.000</p>
+</div>
+<div class="flex items-center gap-3 mt-auto">
+<button class="flex-1 py-3 rounded-full bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+                            Ver Ficha
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-low text-slate-600 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Property Card 2 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Luxury Penthouse" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="minimalist white luxury penthouse interior with floor-to-ceiling windows overlooking a modern cityscape at dusk with warm interior ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL6QONwxoW2LEvxAGNlqu0ytkgIwj0CkKhwjoySCaMVGhpbVTPz3eHFL_HZOWvWAAEpkD0_07VjHaN56FqYKSwGzgTdVUkTmCfBGam0DxtPrgudCBNPGvMevgPDRHOUYN_zgWWXmNh2zevg8i_OTqJoQ0iBPGI8u1eBtfR3_jbKQ1xMQEp0edbkX2WOTmrQDSxK7o48yWAh0gFqIb9xi5CA9t37ZUkxAVQ7hDe3erjmoa1vL6Ozp-mRESZpU4rTa0IihDbdu4C"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-amber-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Reservado</span>
+<span class="bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">#CO402</span>
+</div>
+<button class="absolute top-4 right-4 w-8 h-8 bg-white/20 backdrop-blur-md rounded-full text-white flex items-center justify-center hover:bg-white hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<div class="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-sm">group</span>
+<span class="text-xs font-bold text-slate-700">8 Leads</span>
+</div>
+<div class="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span class="text-xs font-bold text-slate-700">22 Visitas</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="mb-4">
+<h3 class="text-xl font-bold text-[#05325E] leading-tight font-headline">Skyline Platinum Penthouse</h3>
+<div class="flex items-center gap-1 text-slate-400 mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="text-xs font-medium">Vila Olímpia, São Paulo - SP</span>
+</div>
+</div>
+<div class="flex justify-between items-center py-4 border-y border-surface-container-low mb-4">
+<div class="text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase">Área</p>
+<p class="text-sm font-bold text-on-surface">580m²</p>
+</div>
+<div class="text-center border-x border-surface-container-low px-8">
+<p class="text-[10px] text-slate-400 font-bold uppercase">Suítes</p>
+<p class="text-sm font-bold text-on-surface">5</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase">Vagas</p>
+<p class="text-sm font-bold text-on-surface">8</p>
+</div>
+</div>
+<div class="mb-6">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Valor de Venda</p>
+<p class="text-2xl font-black text-[#4A90E2] font-headline">R$ 15.200.000</p>
+</div>
+<div class="flex items-center gap-3 mt-auto">
+<button class="flex-1 py-3 rounded-full bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all active:scale-95">
+                            Ver Ficha
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-low text-slate-600 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Property Card 3 -->
+<article class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col opacity-80">
+<div class="relative h-64 overflow-hidden">
+<img alt="Modernist Mansion" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Ultra-modern architectural mansion with sharp geometric lines and wood paneling, featuring floor-to-ceiling glass and a spacious stone terrace in an upscale neighborhood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB77AyoClrcke9Kev-jeC71W7Opd2UsDHSVLJ9Bha5IrQbB27GincssUtSDmOjyY4BJIb_itKBer33MeUNfhNbMpCr0CUWoRpEo2MBraULVHN81SeFuIcc_i_j5SKNFWSqDCyL-WPgbxTYBRoEo3UZOOLC8b5AkBFxkw82uuP4nMITuRwJsNuuZJbWudEnnZLoK-3uc-XXLVBli34KfqFivLhUo0tNa5yxNotaPVmpbvR-mawRrIvyZWBDTB527BxjZX8lBmkjY"/>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-emerald-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Vendido</span>
+<span class="bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">#CS012</span>
+</div>
+<button class="absolute top-4 right-4 w-8 h-8 bg-white/20 backdrop-blur-md rounded-full text-white flex items-center justify-center hover:bg-white hover:text-red-500 transition-all">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+</button>
+<div class="absolute bottom-4 left-4">
+<div class="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-sm">group</span>
+<span class="text-xs font-bold text-slate-700">Vendido</span>
+</div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="mb-4">
+<h3 class="text-xl font-bold text-[#05325E] leading-tight font-headline">The Glass House Mansion</h3>
+<div class="flex items-center gap-1 text-slate-400 mt-1">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+<span class="text-xs font-medium">Morumbi, São Paulo - SP</span>
+</div>
+</div>
+<div class="flex justify-between items-center py-4 border-y border-surface-container-low mb-4">
+<div class="text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase">Área</p>
+<p class="text-sm font-bold text-on-surface">1.200m²</p>
+</div>
+<div class="text-center border-x border-surface-container-low px-8">
+<p class="text-[10px] text-slate-400 font-bold uppercase">Suítes</p>
+<p class="text-sm font-bold text-on-surface">6</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] text-slate-400 font-bold uppercase">Vagas</p>
+<p class="text-sm font-bold text-on-surface">12</p>
+</div>
+</div>
+<div class="mb-6">
+<p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Valor de Venda</p>
+<p class="text-2xl font-black text-[#4A90E2] font-headline">R$ 22.000.000</p>
+</div>
+<div class="flex items-center gap-3 mt-auto">
+<button class="flex-1 py-3 rounded-full bg-slate-200 text-slate-500 font-bold text-sm cursor-not-allowed">
+                            Arquivado
+                        </button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-low text-slate-600 hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+</article>
+</section>
+<!-- Pagination or Load More -->
+<section class="flex justify-center py-8 flex-col items-center">
+<div class="text-slate-500 font-headline text-sm font-medium mb-4 w-full text-center">Mostrando 6 de 248 imóveis</div>
+<button class="px-10 py-3 rounded-full border-2 border-[#4A90E2]/10 text-[#4A90E2] font-bold text-sm hover:bg-[#4A90E2]/5 hover:border-[#4A90E2]/30 transition-all active:scale-95">
+                Carregar mais propriedades
+            </button>
+</section>
+</div>
+</main>
+</body></html>

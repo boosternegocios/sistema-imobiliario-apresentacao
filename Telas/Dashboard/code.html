@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#001d3b",
+                        "surface-bright": "#f8f9fb",
+                        "inverse-primary": "#a4c9ff",
+                        "on-background": "#191c1e",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#589cef",
+                        "on-secondary-fixed-variant": "#234875",
+                        "inverse-on-surface": "#f0f1f3",
+                        "surface-container-high": "#e7e8ea",
+                        "on-surface": "#191c1e",
+                        "on-secondary": "#ffffff",
+                        "primary-container": "#00325f",
+                        "surface": "#f8f9fb",
+                        "on-tertiary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e1e2e4",
+                        "surface-container-low": "#f2f4f6",
+                        "primary-fixed-dim": "#a4c9ff",
+                        "surface-container-highest": "#e1e2e4",
+                        "tertiary": "#001b44",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#edeef0",
+                        "tertiary-fixed": "#d8e2ff",
+                        "outline-variant": "#c3c6d0",
+                        "on-primary-fixed-variant": "#004883",
+                        "on-secondary-container": "#315481",
+                        "on-primary-fixed": "#001c39",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "on-secondary-fixed": "#001c3a",
+                        "primary-fixed": "#d4e3ff",
+                        "secondary-container": "#a6c8fd",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-tertiary-container": "#6298fd",
+                        "secondary-fixed-dim": "#a6c8fd",
+                        "secondary": "#3d608e",
+                        "outline": "#737780",
+                        "secondary-fixed": "#d4e3ff",
+                        "surface-tint": "#0060ac",
+                        "on-surface-variant": "#43474f",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed-dim": "#aec6ff",
+                        "surface-dim": "#d9dadc",
+                        "tertiary-container": "#002f6c",
+                        "inverse-surface": "#2e3132",
+                        "background": "#f8f9fb"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-gradient {
+            background: linear-gradient(to bottom, #05325E, #0A3E67);
+        }
+        .action-gradient {
+            background: linear-gradient(135deg, #4A90E2, #2161C3);
+        }
+        .chart-gradient {
+            background: linear-gradient(to bottom, rgba(74, 144, 226, 0.2), rgba(74, 144, 226, 0));
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+        .premium-shadow {
+            box-shadow: 0 10px 30px rgba(18, 38, 63, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased">
+<!-- Sidebar (SideNavBar) -->
+<aside class="sidebar-gradient h-screen w-72 flex flex-col fixed left-0 top-0 overflow-y-auto rounded-r-[24px] z-50 shadow-2xl shadow-blue-900/20">
+<div class="px-8 py-8"><div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center backdrop-blur-md">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">architecture</span>
+</div>
+<div>
+<h2 class="text-2xl font-bold text-white tracking-tight font-display">The Architect</h2>
+<p class="text-[10px] text-blue-200/60 uppercase tracking-widest font-semibold font-display">Luxury Portfolio</p>
+</div>
+</div></div>
+<nav class="flex flex-col py-6 gap-1 flex-grow"><!-- Dashboard (Active) -->
+<div class="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white rounded-full mx-4 font-bold shadow-[0_10px_20px_-5px_rgba(74,144,226,0.5)] transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[14px] font-display">Dashboard</span>
+</div>
+<!-- Inactive Items -->
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">leaderboard</span>
+<span class="text-[14px] font-display">Leads / CRM</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">forum</span>
+<span class="text-[14px] font-display">Atendimento</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">view_kanban</span>
+<span class="text-[14px] font-display">Pipeline</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">home_work</span>
+<span class="text-[14px] font-display">Imóveis</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-[14px] font-display">Agenda</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">description</span>
+<span class="text-[14px] font-display">Propostas</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">person_pin</span>
+<span class="text-[14px] font-display">Proprietários</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">group</span>
+<span class="text-[14px] font-display">Corretores e Equipes</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">assessment</span>
+<span class="text-[14px] font-display">Relatórios</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">settings_suggest</span>
+<span class="text-[14px] font-display">Automações</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">smart_toy</span>
+<span class="text-[14px] font-display">Agentes Inteligentes</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">hub</span>
+<span class="text-[14px] font-display">Integrações e Consumo</span>
+</div>
+<div class="flex items-center gap-3 px-6 py-3 text-blue-100/70 hover:text-white hover:bg-white/5 rounded-full mx-4 transition-all cursor-pointer group">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-[14px] font-display">Configurações</span>
+</div></nav>
+</aside>
+<!-- Top Navigation (TopNavBar) -->
+<header class="fixed top-0 right-0 left-72 h-20 bg-[#F7F8FA]/80 backdrop-blur-xl z-40 flex items-center justify-between px-8 border-none">
+<div class="flex items-center gap-6">
+<div class="flex items-center bg-white rounded-full px-4 py-2 shadow-sm border border-outline-variant/10">
+<span class="text-xs font-semibold text-slate-400 mr-2">Contexto:</span>
+<span class="text-sm font-bold text-[#05325E]">Workspace Próprio</span>
+<span class="material-symbols-outlined text-sm ml-1">expand_more</span>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="bg-white border-none rounded-full pl-10 pr-4 py-2.5 w-72 text-sm focus:ring-2 focus:ring-[#4A90E2] transition-all shadow-sm" placeholder="Buscar em todo o ecossistema..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors relative">
+<span class="material-symbols-outlined text-slate-600">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full ring-2 ring-white"></span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 transition-colors">
+<span class="material-symbols-outlined text-slate-600">apps</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+<div class="text-right hidden xl:block">
+<p class="text-sm font-bold text-[#05325E]">Arthur Lima</p>
+<p class="text-[10px] text-slate-500 font-medium">Diretor Comercial</p>
+</div>
+<img alt="Arthur Lima" class="w-10 h-10 rounded-full object-cover ring-2 ring-white shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTf_DvM54w5ZziwJa7IrlvlTRp3R5Q03A8pXYO7l7bQESNw7d950LI17mBu7XJGVImFIjvbAdIsISxpAK6BLPamBGt8cklMC3XeASpCM2mXywQC2NjvN3Cv6V0MR4h49bG5NNhgO4sySFMTcEs27cl_HVBuT0DgNp9YQgoAcCPY_EbksW-Ltah1AvfWswF7sdU9yfp6ohBiAVyO9isyoiBy0Ln2p5rGaj8yzYPFN-AfljySavGZY4usXK3kaQYRT0mhGu7ybea"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-72 mt-20 p-8 min-h-screen">
+<!-- New Integrated Header Style from Mark 1 -->
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-4">
+<div>
+<h1 class="text-3xl font-extrabold text-[#05325E] tracking-tight">Dashboard Principal</h1>
+<p class="text-slate-500 font-medium mt-1">Bem-vindo de volta, Arthur. Aqui está o que aconteceu hoje.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-2 px-6 py-3 rounded-full bg-white border border-slate-200 text-[#05325E] font-bold text-sm shadow-sm hover:bg-slate-50 transition-all">
+<span class="material-symbols-outlined text-xl">picture_as_pdf</span>
+                    Relatório PDF
+                </button>
+<button class="action-gradient flex items-center gap-2 px-6 py-3 rounded-full text-white font-bold text-sm shadow-lg shadow-blue-500/20 hover:scale-[1.02] transition-all">
+<span class="material-symbols-outlined text-xl">add</span>
+                    Novo Lead
+                </button>
+</div>
+</div>
+<!-- Row 1: KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] transition-shadow premium-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#4A90E2]" style="font-variation-settings: 'FILL' 1;">group_add</span>
+</div>
+<span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-lg">+12% HOJE</span>
+</div>
+<h3 class="text-slate-500 text-sm font-medium mb-1">Leads do Dia</h3>
+<p class="text-3xl font-bold text-[#05325E]">42</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] transition-shadow premium-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-2xl flex items-center justify-center" style="background-color: #FDEDED;">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1; color: #D9534F;">error</span>
+</div>
+<span class="text-[10px] font-bold bg-error px-2 py-1 rounded-lg" style="color: #D9534F; background-color: #FDEDED; padding: 4px 10px; border-radius: 9999px;">URGENTE</span>
+</div>
+<h3 class="text-slate-500 text-sm font-medium mb-1">Sem Resposta</h3>
+<p class="text-3xl font-bold text-[#05325E]">08</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] transition-shadow premium-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#4A90E2]" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<span class="text-[10px] font-bold text-[#05325E] bg-blue-100 px-2 py-1 rounded-lg">HOJE</span>
+</div>
+<h3 class="text-slate-500 text-sm font-medium mb-1">Visitas de Hoje</h3>
+<p class="text-3xl font-bold text-[#05325E]">15</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-[24px] transition-shadow premium-shadow">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-500" style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+</div>
+<span class="text-[10px] font-bold text-amber-700 bg-amber-100 px-2 py-1 rounded-lg">ACTIVE</span>
+</div>
+<h3 class="text-slate-500 text-sm font-medium mb-1">Propostas em Aberto</h3>
+<p class="text-3xl font-bold text-[#05325E]">R$ 4.2M</p>
+</div>
+</div>
+<!-- Row 2: Main Grid (60% / 40% Adjusted Layout as per request) -->
+<div class="grid grid-cols-10 gap-8 mb-8">
+<!-- Performance Chart (60%) -->
+<div class="col-span-10 lg:col-span-6 bg-surface-container-lowest p-8 rounded-[24px] premium-shadow">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-xl font-extrabold text-[#05325E] tracking-tight">Performance de Leads</h2>
+<p class="text-sm text-slate-500">Conversão de leads qualificados vs. período anterior</p>
+</div>
+<div class="flex bg-surface-container-low p-1 rounded-xl">
+<button class="px-4 py-1.5 text-xs font-bold rounded-lg text-[#05325E] bg-white shadow-sm">Weekly</button>
+<button class="px-4 py-1.5 text-xs font-bold rounded-lg text-slate-500 hover:text-[#05325E]">Monthly</button>
+</div>
+</div>
+<!-- Simulated Chart -->
+<div class="h-64 w-full relative">
+<div class="absolute inset-0 flex items-end justify-between px-4 pb-2 border-b border-slate-100">
+<div class="w-1 h-20 bg-slate-100 rounded-full"></div>
+<div class="w-1 h-32 bg-slate-100 rounded-full"></div>
+<div class="w-1 h-16 bg-slate-100 rounded-full"></div>
+<div class="w-1 h-44 bg-slate-100 rounded-full"></div>
+<div class="w-1 h-28 bg-slate-100 rounded-full"></div>
+<div class="w-1 h-36 bg-slate-100 rounded-full"></div>
+<div class="w-1 h-24 bg-slate-100 rounded-full"></div>
+</div>
+<!-- The Curve (SVG) -->
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none">
+<path d="M0,180 Q150,80 300,120 T600,40 T900,100" fill="none" stroke="#4A90E2" stroke-linecap="round" stroke-width="4"></path>
+<path class="fill-[#4A90E2]/10" d="M0,180 Q150,80 300,120 T600,40 T900,100 V256 H0 Z"></path>
+</svg>
+<!-- Floating Data Point -->
+<div class="absolute left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+<div class="bg-[#05325E] text-white text-[10px] font-bold py-1 px-2 rounded-lg mb-2 shadow-lg">84 Leads</div>
+<div class="w-4 h-4 rounded-full border-4 border-white bg-[#4A90E2] shadow-md"></div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+<span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span>
+</div>
+</div>
+<!-- SLA Alerts (40%) -->
+<div class="col-span-10 lg:col-span-4 bg-surface-container-lowest p-8 rounded-[24px] premium-shadow">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-3xl font-bold" style="font-variation-settings: 'FILL' 1; color: #D9534F;">alarm</span>
+<h2 class="text-xl font-extrabold text-[#05325E] tracking-tight">SLA Vencido</h2>
+</div>
+<div class="space-y-4">
+<!-- Alert Card 1 -->
+<div class="bg-[#F5F7F8] p-5 rounded-[24px] flex items-center justify-between">
+<div class="flex items-center gap-4">
+<img alt="Mariana Costa" class="w-14 h-14 rounded-2xl object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkcMFkvOQeHkbqvPcGcekMHAvnmZHoNIn3N8SRbBwL_J6YlwIuZvGmD9cfmGaKSMDJRESWdLXYlCRIg9y9KX-yDBK7EkR1lkB8jODrtaO3not178A_M8XgpjEtd_a4zE40JuV6Puon3aLfjWqaFNc0szgbPkIufszI3DCLJMAy2qs9HoXJCQdvZPs0LbTbVi0T3iED6Hf1IuymCxQsey5Rml6ss78fpY989Hy4-hu5qUWWCbjvbM0fW-8zILcnVU9rZJA-bsgR"/>
+<div>
+<h4 class="text-sm font-bold text-[#05325E] leading-tight">Mariana Costa</h4>
+<p class="text-[10px] font-black uppercase mt-1" style="color: #D9534F; background-color: #FDEDED; padding: 2px 8px; border-radius: 9999px; width: fit-content;">4H ATRASADO</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-9 h-9 rounded-full bg-white shadow-sm flex items-center justify-center text-emerald-500 hover:bg-emerald-500 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">chat</span>
+</button>
+</div>
+</div>
+<!-- Alert Card 2 -->
+<div class="bg-[#F5F7F8] p-5 rounded-[24px] flex items-center justify-between">
+<div class="flex items-center gap-4">
+<img alt="Roberto Mendes" class="w-14 h-14 rounded-2xl object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjJqvpBjaXmgPn3W4jqeempuQb8o4W5CHkLzjozH1P6bE0BC2LXvTwEHVJLrtCgZEkWCq3zoHuFUqek7T3jm9Bnf35n7UAf2xdOJeKhvnwrQM3IPdMpTq2SdYp92q02WuaEnHeE-oHmp_uZquqrYX5RKPBC8d8pZvG8kQACQJ5feGnmKKgzbXb0wvzE14WLwv3dG1rTci6z0DxgTdLEyoW_sPD5x1jUW4HOixgyYapOlMiuB7eRptdXh50bSTtXCQkJEENRY_k"/>
+<div>
+<h4 class="text-sm font-bold text-[#05325E] leading-tight">Roberto Mendes</h4>
+<p class="text-[10px] font-black uppercase mt-1" style="color: #D9534F; background-color: #FDEDED; padding: 2px 8px; border-radius: 9999px; width: fit-content;">2H ATRASADO</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="w-9 h-9 rounded-full bg-white shadow-sm flex items-center justify-center text-emerald-500 hover:bg-emerald-500 hover:text-white transition-all">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">chat</span>
+</button>
+</div>
+</div>
+<!-- Footer Link -->
+<div class="pt-4 text-center">
+<a class="text-blue-600 font-bold text-sm hover:underline" href="#">Ver todos os alertas</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 3: Secondary Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+<!-- Left Column: Timeline (Próximas Visitas) -->
+<div class="bg-surface-container-lowest p-8 rounded-[24px] shadow-sm flex flex-col h-full">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-xl font-extrabold text-[#05325E] tracking-tight">Próximas Visitas</h2>
+</div>
+<div class="space-y-8 relative flex-grow before:absolute before:left-[1.35rem] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-100">
+<!-- Visit 1 -->
+<div class="relative flex items-center gap-6 pl-12">
+<div class="absolute left-0 w-11 h-11 rounded-full bg-white border-4 border-blue-50 flex items-center justify-center z-10 shadow-sm">
+<span class="material-symbols-outlined text-blue-500 text-lg">location_on</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between flex-grow bg-slate-50 p-6 rounded-2xl border border-slate-100/50">
+<div class="mb-3 md:mb-0">
+<p class="text-xs font-bold text-blue-600 mb-1">14:30 - 15:30</p>
+<h4 class="text-md font-bold text-[#05325E]">Cobertura Duplex - Ed. Onyx</h4>
+<p class="text-xs text-slate-500 flex items-center gap-1 mt-1"><span class="material-symbols-outlined text-xs">map</span> Vila Nova Conceição, SP</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkcMFkvOQeHkbqvPcGcekMHAvnmZHoNIn3N8SRbBwL_J6YlwIuZvGmD9cfmGaKSMDJRESWdLXYlCRIg9y9KX-yDBK7EkR1lkB8jODrtaO3not178A_M8XgpjEtd_a4zE40JuV6Puon3aLfjWqaFNc0szgbPkIufszI3DCLJMAy2qs9HoXJCQdvZPs0LbTbVi0T3iED6Hf1IuymCxQsey5Rml6ss78fpY989Hy4-hu5qUWWCbjvbM0fW-8zILcnVU9rZJA-bsgR"/>
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjJqvpBjaXmgPn3W4jqeempuQb8o4W5CHkLzjozH1P6bE0BC2LXvTwEHVJLrtCgZEkWCq3zoHuFUqek7T3jm9Bnf35n7UAf2xdOJeKhvnwrQM3IPdMpTq2SdYp92q02WuaEnHeE-oHmp_uZquqrYX5RKPBC8d8pZvG8kQACQJ5feGnmKKgzbXb0wvzE14WLwv3dG1rTci6z0DxgTdLEyoW_sPD5x1jUW4HOixgyYapOlMiuB7eRptdXh50bSTtXCQkJEENRY_k"/>
+<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-bold text-slate-500 border-2 border-white">+2</div>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Visit 2 -->
+<div class="relative flex items-center gap-6 pl-12">
+<div class="absolute left-0 w-11 h-11 rounded-full bg-white border-4 border-slate-50 flex items-center justify-center z-10">
+<span class="material-symbols-outlined text-slate-400 text-lg">location_on</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between flex-grow bg-slate-50 p-6 rounded-2xl border border-slate-100/50">
+<div class="mb-3 md:mb-0">
+<p class="text-xs font-bold text-slate-400 mb-1">17:00 - 18:00</p>
+<h4 class="text-md font-bold text-[#05325E]">Casa Jardim Europa - Classic Style</h4>
+<p class="text-xs text-slate-500 flex items-center gap-1 mt-1"><span class="material-symbols-outlined text-xs">map</span> Jardim Europa, SP</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjJqvpBjaXmgPn3W4jqeempuQb8o4W5CHkLzjozH1P6bE0BC2LXvTwEHVJLrtCgZEkWCq3zoHuFUqek7T3jm9Bnf35n7UAf2xdOJeKhvnwrQM3IPdMpTq2SdYp92q02WuaEnHeE-oHmp_uZquqrYX5RKPBC8d8pZvG8kQACQJ5feGnmKKgzbXb0wvzE14WLwv3dG1rTci6z0DxgTdLEyoW_sPD5x1jUW4HOixgyYapOlMiuB7eRptdXh50bSTtXCQkJEENRY_k"/>
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-white object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkcMFkvOQeHkbqvPcGcekMHAvnmZHoNIn3N8SRbBwL_J6YlwIuZvGmD9cfmGaKSMDJRESWdLXYlCRIg9y9KX-yDBK7EkR1lkB8jODrtaO3not178A_M8XgpjEtd_a4zE40JuV6Puon3aLfjWqaFNc0szgbPkIufszI3DCLJMAy2qs9HoXJCQdvZPs0LbTbVi0T3iED6Hf1IuymCxQsey5Rml6ss78fpY989Hy4-hu5qUWWCbjvbM0fW-8zILcnVU9rZJA-bsgR"/>
+</div>
+<span class="material-symbols-outlined text-slate-300">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: AI Recommendations -->
+<div class="sidebar-gradient p-8 rounded-[24px] relative overflow-hidden flex flex-col h-full premium-shadow">
+<!-- Decorative Glow -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-blue-400/20 rounded-full blur-[60px]"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-md shadow-sm">
+<span class="material-symbols-outlined text-white text-xl">settings_suggest</span>
+</div>
+<h2 class="text-xl font-bold text-white tracking-tight">Recomendações da IA</h2>
+</div>
+<div class="space-y-6">
+<!-- Recommendation Card 1 -->
+<div class="bg-white/10 backdrop-blur-md rounded-[24px] p-6 border border-white/10">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-blue-400/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-lg">person</span>
+</div>
+<span class="text-sm font-bold text-white">Lead Estagnado</span>
+</div>
+<h3 class="text-white font-bold text-lg mb-2">Fabiano Silva</h3>
+<p class="text-blue-100/70 text-sm italic mb-6 leading-relaxed">
+                                "O lead não interage há 5 dias. Com base no perfil, ele prefere contato via WhatsApp às 10h."
+                            </p>
+<button class="bg-white text-blue-900 w-full py-3.5 px-6 rounded-full font-bold text-sm transition-transform hover:scale-[1.02] active:scale-95">
+                                Enviar apresentação
+                            </button>
+</div>
+<!-- Recommendation Card 2 -->
+<div class="bg-white/10 backdrop-blur-md rounded-[24px] p-6 border border-white/10">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-amber-400/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-amber-400 text-lg">bolt</span>
+</div>
+<span class="text-sm font-bold text-white">Oportunidade de Match</span>
+</div>
+<p class="text-blue-100/80 text-sm leading-relaxed mb-6">
+                                Novo imóvel captado em Moema coincide 95% com as buscas de Ana Oliveira.
+                            </p>
+<button class="bg-blue-500 hover:bg-blue-400 text-white w-full py-3.5 px-6 rounded-full font-bold text-sm transition-all shadow-lg shadow-blue-500/20">
+                                Ver Combinação
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

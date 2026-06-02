@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e1e2e4; border-radius: 10px; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#2e3132",
+                        "surface-container-highest": "#e1e2e4",
+                        "outline": "#737780",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#0060ac",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-bright": "#f8f9fb",
+                        "on-surface": "#191c1e",
+                        "on-secondary-fixed-variant": "#234875",
+                        "tertiary-fixed": "#d8e2ff",
+                        "secondary-container": "#a6c8fd",
+                        "primary-fixed": "#d4e3ff",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#004395",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#a6c8fd",
+                        "background": "#f8f9fb",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c3c6d0",
+                        "inverse-on-surface": "#f0f1f3",
+                        "on-primary-container": "#589cef",
+                        "inverse-primary": "#a4c9ff",
+                        "on-tertiary-container": "#6298fd",
+                        "primary-fixed-dim": "#a4c9ff",
+                        "on-surface-variant": "#43474f",
+                        "surface": "#f8f9fb",
+                        "surface-container": "#edeef0",
+                        "secondary": "#3d608e",
+                        "primary": "#001d3b",
+                        "tertiary": "#001b44",
+                        "secondary-fixed": "#d4e3ff",
+                        "on-primary-fixed": "#001c39",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e2e4",
+                        "on-secondary-fixed": "#001c3a",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#aec6ff",
+                        "tertiary-container": "#002f6c",
+                        "surface-container-high": "#e7e8ea",
+                        "on-secondary-container": "#315481",
+                        "primary-container": "#00325f",
+                        "surface-dim": "#d9dadc",
+                        "on-primary-fixed-variant": "#004883",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed": "#001a42",
+                        "on-background": "#191c1e",
+                        "error": "#ba1a1a"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface overflow-hidden">
+<!-- Global Layout Wrapper -->
+<div class="flex h-screen w-full">
+<!-- Sidebar Navigation -->
+<aside class="bg-[#05325E] dark:bg-[#04284d] font-['Plus_Jakarta_Sans'] text-sm font-medium tracking-tight h-screen w-64 fixed left-0 top-0 overflow-y-auto shadow-2xl flex flex-col py-6 z-50">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="architecture">architecture</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-white tracking-tight">The Architect</h1>
+<p class="text-[10px] text-blue-200/60 uppercase tracking-widest">Premium Real Estate</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard -->
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Leads / CRM (ACTIVE) -->
+<a class="bg-[#4A90E2] text-white rounded-r-full mr-4 translate-x-1 transition-all px-6 py-3 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span>Leads / CRM</span>
+</a>
+<!-- Other Items -->
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span>Atendimento</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="view_kanban">view_kanban</span>
+<span>Pipeline</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home_work">home_work</span>
+<span>Imóveis</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span>Agenda</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Propostas</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person_pin">person_pin</span>
+<span>Proprietários</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="badge">badge</span>
+<span>Corretores e Equipes</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span>Relatórios</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+<span>Automações</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+<span>Agentes Inteligentes</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span>Integrações e Consumo</span>
+</a>
+<a class="text-blue-100/70 hover:text-white px-6 py-3 flex items-center gap-3 hover:bg-white/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Configurações</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 ml-64 min-h-screen bg-surface-container-low relative">
+<!-- Top App Bar -->
+<header class="fixed top-0 right-0 left-64 h-20 bg-[#F8F9FB]/80 dark:bg-[#191c1e]/80 backdrop-blur-xl z-40 flex justify-between items-center px-8 w-full border-b border-outline-variant/10">
+<div class="flex flex-col">
+<h2 class="text-[#05325E] font-headline font-bold text-xl leading-tight">Lista de Leads / CRM</h2>
+<span class="text-slate-500 font-medium text-xs">Workspace Próprio</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-[#4A90E2] focus:bg-white transition-all" placeholder="Buscar leads..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-[#05325E] hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/20">
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-sm" data-alt="portrait of a professional male real estate agent in a navy blue suit smiling confidently" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZB1xlw4G828Am_3IstxB5svndwODIWftUbqA8UeOh8lS0I5D7JtbHsQ8M_5a2pmI_dM3cFvmORJ6Z2fkHtvRoOq9InwNI9XdgmoU_2L5FwWg4znej6_6BYOj_GwYKDTCXh9BQIfH20Zn2lWChz2xEKMRrq-U52ymCSeP05WQUFgF1DuzrC-_vJ6oQtGIzl-8F-mCdnfI90F32ddmty31nOm5Dl4sU4avhkHa4c-_WQU_kfFAIVz8ts9r4HHRhBMfb5PKXAb0j"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Background Content (Leads List) -->
+<div class="pt-24 px-8 pb-12">
+<div class="flex justify-between items-center mb-8">
+<h3 class="font-headline text-2xl font-bold text-on-surface">Todos os Leads <span class="text-outline text-lg font-normal ml-2">(1,284)</span></h3>
+<button class="bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white px-6 py-3 rounded-full font-semibold shadow-lg shadow-blue-500/20 flex items-center gap-2 hover:scale-[1.02] transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                        Novo Lead
+                    </button>
+</div>
+<!-- Filters -->
+<div class="flex gap-3 mb-6 overflow-x-auto pb-2 no-scrollbar">
+<button class="bg-white px-4 py-2 rounded-full text-sm font-semibold border border-outline-variant/20 shadow-sm text-[#05325E]">Todos</button>
+<button class="bg-surface-container-high px-4 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-white transition-colors">Qualificação</button>
+<button class="bg-surface-container-high px-4 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-white transition-colors">Visita Agendada</button>
+<button class="bg-surface-container-high px-4 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-white transition-colors">Proposta</button>
+<button class="bg-surface-container-high px-4 py-2 rounded-full text-sm font-medium text-on-surface-variant hover:bg-white transition-colors">Fechamento</button>
+</div>
+<!-- Table Container -->
+<div class="bg-white rounded-lg shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface-container-low text-on-surface-variant text-xs font-bold uppercase tracking-wider">
+<tr>
+<th class="px-6 py-4">Nome</th>
+<th class="px-6 py-4">Status</th>
+<th class="px-6 py-4">Último Contato</th>
+<th class="px-6 py-4">Score</th>
+<th class="px-6 py-4">Corretor</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-bright transition-colors cursor-pointer bg-blue-50/30">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-bold">AL</div>
+<div>
+<p class="font-bold text-on-surface">Alexandre Lopes</p>
+<p class="text-xs text-outline">Apartamento - Itaim Bibi</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-[#eef4ff] text-[#315481] text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-tighter">Qualificação</span>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Hoje, 10:45</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full border-2 border-green-500 flex items-center justify-center text-[10px] font-bold text-green-600">85</div>
+<span class="text-xs font-semibold text-green-600">Alta</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<img alt="Agent avatar" class="w-6 h-6 rounded-full object-cover" data-alt="professional male profile photo with neutral background and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2Kw6-u5qh-cGAmhP6I2PghjORBqO2s4awNl1LYNSsibrKEReCVw1C9sJmrnqNsQQCNgHPfYEj06zWz-4jz5-oI90KuWVGLem19E2_tPTuApwvCfLUCdR8cT8PDFfmOJ0zcOnZ2iGX4VHZXwYgy0Sw8j3yOvvLGJUJkYwuS3P7rvNQs93QYq8uR3n4Uax5gUY2wa53_RJsZzMO-IvtZqWRA5lhG05SwH1v2J6zmWnneGjm2CykBjaedBFsOLPUbJPFmBVHZI6O"/>
+<span class="text-sm font-medium">Bruno Silva</span>
+</div>
+</td>
+</tr>
+<tr class="hover:bg-surface-bright transition-colors cursor-pointer">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant flex items-center justify-center font-bold">MC</div>
+<div>
+<p class="font-bold text-on-surface">Mariana Costa</p>
+<p class="text-xs text-outline">Casa - Jardins</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="bg-orange-100 text-orange-700 text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-tighter">Aguardando Visita</span>
+</td>
+<td class="px-6 py-5 text-sm text-on-surface-variant">Ontem, 16:20</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full border-2 border-orange-400 flex items-center justify-center text-[10px] font-bold text-orange-500">62</div>
+<span class="text-xs font-semibold text-orange-500">Média</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-2">
+<img alt="Agent avatar" class="w-6 h-6 rounded-full object-cover" data-alt="smiling female real estate broker portrait with natural daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs7EquQMcISLMZqOe97DQjfHBuPpuDcUtvjJ6HvPHxV68BEddAuI6os9hByp8IgIFEe6NZlTm--6RtP3aJ2t4PVawFqxyyQlMl2rARRg1EyzSA8rncA6vXjGMow__UUPi3YnPFreIiqZs2WIu-zcL02RwY1XoglqwiH1RLK-HaVAwV-fuYFwrlIPPE-AQkCt8YlPynXGt0lDa7Bsu2Y6Q1UgD2I0bUide4u3VHBxDAOHhl97HEsO6OUs8z_BcYGAXhhVfIyvxX"/>
+<span class="text-sm font-medium">Ana Oliveira</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Lead Drawer Overlay (Ficha do Lead) -->
+<div class="fixed inset-0 bg-[#05325E]/20 backdrop-blur-sm z-50 flex justify-end">
+<div class="w-[580px] h-full bg-white shadow-[-20px_0_50px_rgba(0,0,0,0.1)] flex flex-col animate-in slide-in-from-right duration-300 relative">
+<!-- Frame Accent -->
+<div class="absolute inset-0 border-t-[8px] border-l-[8px] border-[#F8F9FB] pointer-events-none rounded-tl-xl"></div>
+<!-- Drawer Header -->
+<div class="pt-10 px-8 pb-6 border-b border-surface-container">
+<div class="flex justify-between items-start mb-6">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Alexandre Lopes avatar" class="w-16 h-16 rounded-2xl object-cover shadow-md" data-alt="professional male executive portrait with warm cinematic lighting and blurred office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdBOGRc6Bcm-JBHouh4uwgIAfU6GO6QA55G7PRnVOfYq9hKnnC4IBb0tOLJFDrAmg4a34RwAWuyvI2dHTfXNP-PQIiTeL0w_D5UvBUNCph2e_ti3IfH9E8phhEqFJkDAnIqkQRx1pf5xsJ1iwEsu6-OQZMMcgBfAsxbxT1mn_HD6RXlFwUl65cnJn3XsFbynA8P6iO1UWHvFOmQQAM6ZUFzM4qM8e5yC9Qi_VLskVUnqpM8K3NorBBmYXePzR_VXNZpQ3kysvT"/>
+<div class="absolute -bottom-1 -right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full"></div>
+</div>
+<div>
+<h2 class="text-2xl font-headline font-extrabold text-[#05325E] tracking-tight leading-none mb-1">Alexandre Lopes</h2>
+<div class="flex items-center gap-2">
+<span class="bg-[#eef4ff] text-[#315481] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-tighter">Qualificação</span>
+<span class="text-xs text-outline font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="update">update</span> Atualizado há 2h
+                                        </span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-[#05325E] hover:bg-[#4A90E2] hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-[#05325E] hover:bg-[#4A90E2] hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-[#05325E] hover:bg-[#4A90E2] hover:text-white transition-all">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant ml-2">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Tabs -->
+<div class="flex gap-6 overflow-x-auto no-scrollbar pt-2">
+<button class="pb-3 border-b-2 border-[#4A90E2] text-[#4A90E2] font-bold text-sm whitespace-nowrap">Resumo</button>
+<button class="pb-3 text-outline font-semibold text-sm whitespace-nowrap hover:text-on-surface transition-colors">Histórico</button>
+<button class="pb-3 text-outline font-semibold text-sm whitespace-nowrap hover:text-on-surface transition-colors">Tarefas</button>
+<button class="pb-3 text-outline font-semibold text-sm whitespace-nowrap hover:text-on-surface transition-colors">Visitas</button>
+<button class="pb-3 text-outline font-semibold text-sm whitespace-nowrap hover:text-on-surface transition-colors">Propostas</button>
+<button class="pb-3 text-outline font-semibold text-sm whitespace-nowrap hover:text-on-surface transition-colors">Imóveis sugeridos</button>
+<button class="pb-3 text-outline font-semibold text-sm whitespace-nowrap hover:text-on-surface transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span> IA / Insights
+                            </button>
+</div>
+</div>
+<!-- Drawer Content (Scrollable) -->
+<div class="flex-1 overflow-y-auto px-8 py-6 space-y-8 no-scrollbar">
+<!-- Main Data and Broker Section Grid -->
+<div class="grid grid-cols-2 gap-8">
+<!-- Contact Section (DADOS PRINCIPAIS) -->
+<section>
+<h3 class="text-[10px] font-black text-outline uppercase tracking-[0.2em] mb-4">DADOS PRINCIPAIS</h3>
+<div class="space-y-4">
+<div class="bg-surface-container-low/50 px-6 py-4 rounded-[2.5rem] border border-outline-variant/10 flex items-center gap-4">
+<span class="material-symbols-outlined text-[#4A90E2] text-2xl" data-icon="phone">phone</span>
+<div>
+<p class="text-[10px] text-outline font-bold uppercase tracking-wider leading-none mb-1">TELEFONE</p>
+<p class="text-[#05325E] font-bold text-base leading-none">(11) 98765-4321</p>
+</div>
+</div>
+<div class="bg-surface-container-low/50 px-6 py-4 rounded-[2.5rem] border border-outline-variant/10 flex items-center gap-4 w-full overflow-hidden">
+<span class="material-symbols-outlined text-[#4A90E2] text-2xl" data-icon="mail">mail</span>
+<div class="overflow-hidden flex-1">
+<p class="text-[10px] text-outline font-bold uppercase tracking-wider leading-none mb-1">EMAIL</p>
+<p class="text-[#05325E] font-bold text-sm leading-none truncate">alexandre.lopes@email.com.br</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Responsible Agent Section (CORRETOR RESPONSÁVEL) -->
+<section>
+<h3 class="text-[10px] font-black text-outline uppercase tracking-[0.2em] mb-4">CORRETOR RESPONSÁVEL</h3>
+<div class="bg-surface-container-low/30 p-6 rounded-3xl border border-outline-variant/10 flex flex-col items-center">
+<div class="flex items-center gap-4 w-full mb-6">
+<img alt="Bruno Silva" class="w-14 h-14 rounded-full object-cover border-2 border-white shadow-sm" data-alt="professional portrait of a man in business attire, clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeSNtNq38cG7NzcaLV49ypU0A7CINYtOq4mlCntl9QbUkGx819JGwvptFCvyAN3oo6c0WUBDoLl7kBGbg01-MGSmZ3xgDVEveZJUYQowM64rL0EEtBH4MC5VSjH82MfF5ZBg3n9dfYefAJkJdE1jxMRaTBiiB7mEnDNGeJPORXQpZNdmDYUEZaX1x7vtMk9KFMPs_GHK54Mo6yaHrbMNpbg-CN9smYSDWDPJr7h7igbVJYt9OkKyMIun44MmTeAOSnmn9BKhUr"/>
+<div>
+<p class="font-bold text-[#05325E] text-base">Bruno Silva</p>
+<p class="text-xs text-outline font-medium">Equipe Premium Alpha</p>
+</div>
+</div>
+<button class="w-full py-3 px-6 rounded-full border border-[#4A90E2]/30 text-[#4A90E2] font-bold text-[10px] uppercase tracking-widest hover:bg-[#4A90E2]/5 transition-all">
+                                ALTERAR RESPONSÁVEL
+                            </button>
+</div>
+</section>
+</div>
+<!-- Qualification Info Section (INFORMAÇÕES DE QUALIFICAÇÃO) -->
+<section>
+<h3 class="text-[10px] font-black text-outline uppercase tracking-[0.2em] mb-4">INFORMAÇÕES DE QUALIFICAÇÃO</h3>
+<div class="bg-surface-container-low/40 p-8 rounded-[2rem] border border-outline-variant/10">
+<div class="grid grid-cols-2 gap-y-8 gap-x-12">
+<!-- Temperatura -->
+<div class="flex flex-col gap-2">
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Temperatura</span>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-orange-500" data-icon="local_fire_department" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="font-bold text-[#05325E] text-lg">Hot Lead</span>
+</div>
+</div>
+<!-- Score -->
+<div class="flex flex-col gap-2">
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Score de Perfil</span>
+<div class="flex items-center gap-4">
+<div class="h-2 flex-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-green-500 w-[85%]"></div>
+</div>
+<span class="font-bold text-[#05325E] text-base">85/100</span>
+</div>
+</div>
+<!-- Prioridade -->
+<div class="flex flex-col gap-2">
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Prioridade</span>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+<span class="font-bold text-red-500 text-xs tracking-wider">HIGH PRIORITY</span>
+</div>
+</div>
+<!-- Origem -->
+<div class="flex flex-col gap-2">
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Origem</span>
+<span class="font-bold text-[#05325E] text-base leading-tight">Google Ads / Campanha Itaim</span>
+</div>
+<!-- Etapa Atual -->
+<div class="flex flex-col gap-2">
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Etapa Atual</span>
+<a class="font-bold text-[#4A90E2] text-lg hover:underline underline-offset-4 decoration-2" href="#">Qualificação Ativa</a>
+</div>
+<!-- Financiamento -->
+<div class="flex flex-col gap-2">
+<span class="text-[10px] font-bold text-outline uppercase tracking-wider">Financiamento</span>
+<span class="font-bold text-[#05325E] text-lg">Sim, Pré-aprovado</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interest Details Section -->
+<section>
+<h3 class="text-[10px] font-black text-outline uppercase tracking-[0.2em] mb-4">Detalhes do Interesse</h3>
+<div class="space-y-4">
+<div class="flex justify-between items-center py-3 border-b border-surface-container">
+<span class="text-sm font-medium text-outline">Tipo de Imóvel</span>
+<span class="text-sm font-bold text-on-surface">Apartamento Residencial</span>
+</div>
+<div class="flex justify-between items-center py-3 border-b border-surface-container">
+<span class="text-sm font-medium text-outline">Faixa de Preço</span>
+<span class="text-sm font-bold text-on-surface">R$ 2.5M - R$ 4.0M</span>
+</div>
+<div class="flex flex-col gap-2 py-3">
+<span class="text-sm font-medium text-outline">Bairros de Preferência</span>
+<div class="flex flex-wrap gap-2">
+<span class="bg-surface-container px-3 py-1 rounded-full text-xs font-semibold text-[#05325E]">Itaim Bibi</span>
+<span class="bg-surface-container px-3 py-1 rounded-full text-xs font-semibold text-[#05325E]">Vila Nova Conceição</span>
+<span class="bg-surface-container px-3 py-1 rounded-full text-xs font-semibold text-[#05325E]">Jardins</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Drawer Footer -->
+<div class="p-8 border-t border-surface-container-high bg-white rounded-bl-xl shadow-[0_-10px_30px_rgba(0,0,0,0.02)]">
+<div class="grid grid-cols-2 gap-4">
+<button class="flex-1 py-4 px-6 rounded-full bg-gradient-to-r from-[#4A90E2] to-[#2161C3] text-white font-bold text-sm shadow-lg shadow-blue-400/30 hover:scale-[1.02] transition-all">
+                                Mover Etapa
+                            </button>
+<button class="flex-1 py-4 px-6 rounded-full border border-outline-variant/30 text-[#05325E] font-bold text-sm hover:bg-surface-container-low transition-all">
+                                Registrar Proposta
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

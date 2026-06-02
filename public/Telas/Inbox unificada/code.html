@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inbox Unificada | Digital Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, h4, h5, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #e1e2e4; border-radius: 10px; }
+        .sidebar-pill-active {
+            background: linear-gradient(90deg, #4A90E2 0%, #2161C3 100%);
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+            border-radius: 9999px;
+            margin: 0 8px;
+        }
+        .message-bubble-left { border-radius: 1.5rem 1.5rem 1.5rem 0.25rem; }
+        .message-bubble-right { border-radius: 1.5rem 1.5rem 0.25rem 1.5rem; }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#001d3b",
+                "background": "#f8f9fb",
+                "surface": "#f8f9fb",
+                "on-surface": "#191c1e",
+                "on-surface-variant": "#43474f",
+                "outline": "#737780",
+                "outline-variant": "#c3c6d0",
+                "surface-container-low": "#f2f4f6",
+                "surface-container": "#edeef0",
+                "surface-container-high": "#e7e8ea",
+                "surface-container-highest": "#e1e2e4",
+                "surface-container-lowest": "#ffffff",
+                "surface-tint": "#0060ac",
+                "error": "#ba1a1a",
+                "error-container": "#ffdad6",
+                "secondary-container": "#a6c8fd",
+                "on-secondary-container": "#315481"
+              },
+              fontFamily: {
+                "headline": ["Plus Jakarta Sans"],
+                "body": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "1.5rem", "2xl": "1.5rem", "3xl": "24px", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background overflow-hidden h-screen flex">
+<!-- 1. Global Sidebar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-[#04294E] flex flex-col py-8 shadow-2xl">
+<div class="px-6 mb-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl font-light">architecture</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-white tracking-tight font-headline leading-none">The Architect</h1>
+<p class="text-[10px] text-blue-100/50 font-bold uppercase tracking-[0.2em] mt-1">Luxury Portfolio</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 overflow-y-auto px-3 no-scrollbar">
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">bar_chart</span>
+<span class="text-sm font-medium">Leads / CRM</span>
+</a>
+<a class="sidebar-pill-active text-white flex items-center px-6 py-3 transition-all" href="#">
+<span class="material-symbols-outlined mr-4" style="font-variation-settings: 'FILL' 1;">chat</span>
+<span class="text-sm font-medium">Atendimento</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">view_column</span>
+<span class="text-sm font-medium">Pipeline</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">home</span>
+<span class="text-sm font-medium">Imóveis</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">calendar_today</span>
+<span class="text-sm font-medium">Agenda</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">description</span>
+<span class="text-sm font-medium">Propostas</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">contact_page</span>
+<span class="text-sm font-medium">Proprietários</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">group</span>
+<span class="text-sm font-medium">Corretores e Equipes</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">equalizer</span>
+<span class="text-sm font-medium">Relatórios</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">settings_suggest</span>
+<span class="text-sm font-medium">Automações</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">smart_toy</span>
+<span class="text-sm font-medium">Agentes Inteligentes</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">hub</span>
+<span class="text-sm font-medium">Integrações e Consumo</span>
+</a>
+<a class="text-blue-100/70 hover:text-white flex items-center px-6 py-3 transition-all hover:bg-white/5 rounded-lg group mx-2" href="#">
+<span class="material-symbols-outlined mr-4">settings</span>
+<span class="text-sm font-medium">Configurações</span>
+</a>
+</nav>
+</aside>
+<main class="ml-64 flex-1 flex flex-col h-screen overflow-hidden">
+<!-- 2. Global Topbar Shell -->
+<header class="h-16 bg-[#F8F9FB]/80 backdrop-blur-xl flex justify-between items-center px-8 w-full z-30 border-b border-surface-container-low">
+<div class="flex items-center gap-6">
+<button class="flex items-center gap-2 bg-white px-4 py-2 rounded-full text-primary font-bold text-sm shadow-sm border border-outline-variant/20 transition-all hover:bg-surface-container-low">
+<span class="material-symbols-outlined text-lg">business_center</span>
+                Workspace Próprio
+                <span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+<div class="flex-1 max-w-xl px-8">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-12 pr-4 py-2.5 bg-surface-container-low border-none rounded-full text-sm focus:ring-2 focus:ring-surface-tint/20 focus:bg-white transition-all shadow-inner" placeholder="Buscar em toda a plataforma..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 px-3 py-1.5 bg-surface-container-low rounded-full">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="text-[11px] font-bold text-on-surface-variant">Disponibilidade</span>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-outline-variant/30">
+<div class="text-right">
+<p class="text-sm font-bold text-primary">Ricardo Mantovani</p>
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Corretor Premium</p>
+</div>
+<img alt="Ricardo Mantovani" class="w-10 h-10 rounded-full object-cover border-2 border-white shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKZf8ZbPHupqKIrkTLkAacp6XN1bUtJqsG0_THqIUIF1gvlqa5bLJjDEHVnVg8LA0ojhfJpVuVH26pl6Q9JrKrIb2lTU-wgK7Q07A0nVgtAVbiWzqIxlAKHmtDRw1lUj2uySpZ0Piz99radXpWOXExf3y6RauwY96UAwokh1cVg7kMM0k75qjjEWhD3KKH-uF5iwdO5qXE2NZGcySrOYEClxo5XDtEsn6DcVpuUSzMKV--VIDjqkdjUZiFjESHyWbdXsfN6dJO"/>
+</div>
+</div>
+</header>
+<!-- 3. Unified Inbox Workspace with 8px Frame -->
+<div class="flex-1 overflow-hidden p-2 bg-[#F8F9FB]">
+<div class="h-full flex bg-surface-container-lowest rounded-3xl overflow-hidden shadow-sm border border-outline-variant/10">
+<!-- Column 1: Conversation List (23%) -->
+<section class="flex flex-col border-r border-surface-container-low w-[calc(23%+20px)]">
+<div class="p-4 bg-surface-container-lowest sticky top-0 z-10 border-b border-surface-container-low">
+<div class="relative group mb-4">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low border-none rounded-xl text-sm focus:ring-2 focus:ring-surface-tint/20 focus:bg-white transition-all" placeholder="Buscar leads..." type="text"/>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-1 no-scrollbar">
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-primary text-white text-xs font-bold">Todos</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-semibold hover:bg-surface-container-high transition-colors">Prioridade</button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface-container-low text-on-surface-variant text-xs font-semibold hover:bg-surface-container-high transition-colors">Não lidas</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto p-2 space-y-1">
+<!-- Chat Item Active -->
+<div class="p-3.5 rounded-[1.25rem] bg-surface-container-low/50 border-l-4 border-surface-tint flex gap-3 cursor-pointer">
+<div class="relative flex-shrink-0">
+<img alt="Mariana" class="w-11 h-11 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBonGq1UkZejYyQ3E3snnu4JZ4hqYhCm_r_SWl1uSb5Tugb5X1jDmiCf2jwp55UBmmP6Jsfc9sIWDiYbu2zVMnkblyOR1elDhARmsWprshQqEq4yDfLieslxqaGWysalnoKaoK1YVlazdQe6eM4z49mi3nuBDsU6EwTs0FIcyxCIYibQNbOQtjO3qm7HSpCqzLDQMl6dztEhpmjKGSuzYGguGqG90aPWcaSzJussrQI82IkROv4_GY2ZbGF08PyOM7dCUona2l"/>
+<div class="absolute -bottom-1 -right-1 bg-white p-0.5 rounded-full shadow-sm">
+<img alt="WhatsApp" class="w-3.5 h-3.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ucbzFM6OhEis1DHJW3_lWjo9QqQNAbZbfQf0_D35S_phZX2jQcAE-6oZFCxwdFAmcJKEli3dO5qqLjLDyaHUZ4OK_Y_grbKPuPARFZdsd3GmDOrG2ymQYbsQHTQJM-U9Z2dlqW51Q5Yl9tTWAXjmJEm5X4kHwVaA8sGaj4QdZJLJZhFeRnSSAK5YckLn3thDYKyORWVxkSs65XfieFEGTHeWNtbJfn4P0Duu_CO8DFitn7RgJXeSX1rp-YtfYhXJZXya18z8"/>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h4 class="text-sm font-bold text-primary truncate">Mariana Gonçalves</h4>
+<span class="text-[9px] font-extrabold text-error bg-error-container/20 px-1.5 py-0.5 rounded uppercase">Hot</span>
+</div>
+<p class="text-[11px] text-on-surface-variant font-medium truncate">O Duplex no Onyx ainda está disponível...</p>
+<div class="flex justify-between items-center mt-1.5">
+<span class="text-[9px] text-outline font-medium">Há 4 min</span>
+<div class="bg-surface-tint text-white text-[9px] font-bold w-4 h-4 flex items-center justify-center rounded-full">2</div>
+</div>
+</div>
+</div>
+<!-- Chat Item 2 -->
+<div class="p-3.5 rounded-[1.25rem] hover:bg-surface-container-low transition-colors flex gap-3 cursor-pointer">
+<div class="relative flex-shrink-0">
+<img alt="Roberto" class="w-11 h-11 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcFF1rzYiEpHnoTkeoGn30oFyW_5WcginbITaXgWPUDX24fhC4HeJJv6gmtQXpXZOgJOSONi48aXPpSwdxlJYCcH_JhuQh4kkLcMEo2PTJFm000f82-OYHeo9-n-2VUbcbgwcQllDSAFgiKKO_R3gt4Q9ZqO8HFL7xjeEzkU96NIvWoJJCHwcLQHrgqUtBnFRT1ofruhzkiYUQ4jvdV2bpRv6BFRYndNVQ7YQ_4reiMEEIVl8tWxYv4UCT0vBF-kY5Uy0-U6mw"/>
+<div class="absolute -bottom-1 -right-1 bg-white p-0.5 rounded-full shadow-sm">
+<img alt="Instagram" class="w-3.5 h-3.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5w78S99hTyUhdfPKjJSfE_f1cwZJbuH6Zt6A9Sm9K8dOH4pAKYlsBYAkjMWAOrWsLwAH6nUVLn0Cy01SOEVJ8gVx5Q6SrwCwm5BM7mFNKZpizG1bdicTHp3vXGYN0JeIN74DCFHYx3nM8lstx08roDEtmL04k_YzTUSr3rxzpwD-xGf2Bpn_alEc1S11MG6gbMMaFmtFmBtsd1nZn_hAlSpatVP-zvpSy_G1ElUwYNB1DbUAyzR--lofokWdsKE6nrfNDbKVc"/>
+</div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-0.5">
+<h4 class="text-sm font-bold text-primary truncate">Roberto Silveira</h4>
+<span class="text-[9px] font-extrabold text-on-secondary-container bg-secondary-container/30 px-1.5 py-0.5 rounded uppercase">Warm</span>
+</div>
+<p class="text-[11px] text-on-surface-variant truncate">Recebi o catálogo, muito obrigado.</p>
+<div class="flex justify-between items-center mt-1.5">
+<span class="text-[9px] text-outline font-medium">Há 12 min</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Column 2: Active Chat Area (50%) -->
+<section class="flex flex-col bg-white relative w-[calc(50%-20px)]">
+<header class="p-4 bg-white border-b border-surface-container-low flex justify-between items-center z-10">
+<div class="flex items-center gap-3">
+<div class="relative">
+<img alt="Mariana" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxQPj6wztsumoF3xCLTHWaaY-bzGsKw_P-kYOfosNQr0GEokNDCD538uEruQac655Q_D6T4KJGvZOx5MDJxFZTcTDJks6fFjBrBHH9laKhLzaz1RX3X-4YZ9vt1SkJbh_HDN8ssmalxUwSstVSlOJiDlOUwyi9HjjLzWlRCC8ib9ERAjgB28vKxhDZdK88Hh3Ii2GV4iQQOJe-_WgvcgKhDkFASXRwxKMRJ0E_4L86lI1-o_kTt2QGGDJraxTL2r0En60Pohly"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<h3 class="text-base font-bold text-primary font-headline leading-tight">Mariana Gonçalves</h3>
+<p class="text-[11px] font-medium text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">smartphone</span> WhatsApp • Online agora
+                            </p>
+</div>
+</div>
+<div class="flex gap-1.5"><button class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">calendar_today</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">description</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button></div>
+</header>
+<!-- Messages Stream -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6 flex flex-col bg-[#F9FAFB]/50">
+<div class="flex justify-center">
+<span class="text-[10px] font-bold text-outline bg-white px-3 py-1 rounded-full uppercase tracking-widest border border-outline-variant/10 shadow-sm">Hoje</span>
+</div>
+<!-- Left Message -->
+<div class="flex gap-3 max-w-[85%]">
+<img class="w-8 h-8 rounded-full self-end mb-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Lo2DSMqfOy3gQVEVZQDa_R5zFb4GU_rBLdyNUsYhToOxxnlsGocoxhfKXqb7RJ_dOsfbqhq6EEKF-bZC5WdMWxxsrp9wVJ67Lo7dlMRIsnsft-myB7QNYRUOxhMxskmBqgh-DqENR6YdKKb5EmhfQ48u5FfjfEAHqDDXLjjVmrUfM_ZjuM2Sd3AAekW5suSfV6ml9G527Lqq9AqUCEmI92LKmK3dZf2pXs8rO9xvNrfVB_zGNPxHjg-QLWd-PEWsKu-kk9Gr"/>
+<div class="bg-white p-3.5 message-bubble-left shadow-sm border border-outline-variant/10 text-sm text-on-surface leading-relaxed">
+                            Boa tarde, Ricardo! Vi o anúncio do <strong>Duplex no Edifício Onyx</strong>. Gostaria de saber se ele ainda está disponível e se podemos agendar uma visita para este sábado.
+                            <p class="text-[10px] text-outline mt-2 text-right">14:02</p>
+</div>
+</div>
+<!-- Right Message -->
+<div class="flex gap-3 max-w-[85%] self-end flex-row-reverse">
+<div class="bg-primary text-white p-3.5 message-bubble-right shadow-md text-sm leading-relaxed">
+                            Olá, Mariana! Que prazer falar com você. O duplex ainda está disponível sim, é uma unidade exclusiva com vista definitiva para o mar. Consigo agendar para o sábado às 10:30 ou às 14:00. Qual horário fica melhor para você?
+                            <p class="text-[10px] text-white/50 mt-2 text-right">14:05</p>
+</div>
+</div>
+<!-- Left Message 2 -->
+<div class="flex gap-3 max-w-[85%]">
+<img class="w-8 h-8 rounded-full self-end mb-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkCkIpGIX5p2euMk41tqSILPbz7BMGlRdP_rFcW-iFqic9Tq0FjB5OC65TykoLBXUFkkMjwBAm5d2_1nWklOJPCJS9Et77h4pKDTw_xHe0aD7Uw2GJKmb5HCvtx19nlhMjTLCgFcgJkucWt-tFJGWJI76ovkN6dIE_9huM07xQQrvvXlgmCQuTGbHOHwhhBY1M6ZcUeLD7Tq-5LuuSajsc0XhX3Cc6MGs_wxV_zTelHTeIrMv2S3jPkZjqGyzT1APgvRnuWAai"/>
+<div class="bg-white p-3.5 message-bubble-left shadow-sm border border-outline-variant/10 text-sm text-on-surface leading-relaxed border-l-[3px] border-error">
+<span class="block text-[10px] font-bold text-error uppercase mb-1">Interesse em Visita</span>
+                            Às 10:30 seria perfeito! Meu marido também quer conhecer. Precisamos levar algum documento?
+                            <p class="text-[10px] text-outline mt-2 text-right">14:08</p>
+</div>
+</div>
+</div>
+<!-- 4. Mark 2 Interaction Zone (Pinned) -->
+<footer class="p-5 bg-white border-t border-surface-container-low">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-6 pl-2">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors text-xs font-bold">
+<span class="material-symbols-outlined text-[20px]">description</span>
+                                Templates
+                            </button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors text-xs font-bold">
+<span class="material-symbols-outlined text-[20px]">attach_file</span>
+                                Anexos
+                            </button>
+</div>
+<button class="flex items-center gap-3 px-5 py-2.5 bg-[#EEF4FF] text-[#2D6AD1] rounded-full text-xs font-bold hover:bg-blue-100 transition-all border border-blue-100/30">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            Gerar Resposta com IA
+                        </button>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex-1 flex items-center bg-[#F2F4F7] rounded-full px-5 py-1.5 shadow-inner">
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-3.5 placeholder:text-on-surface-variant/50 font-medium" placeholder="Escreva sua mensagem aqui..." type="text"/>
+<button class="text-on-surface-variant/40 hover:text-primary transition-colors ml-2">
+<span class="material-symbols-outlined text-2xl">sentiment_satisfied</span>
+</button>
+</div>
+<button class="bg-[#2D6AD1] text-white w-14 h-14 flex items-center justify-center rounded-full shadow-lg shadow-blue-500/20 hover:brightness-105 active:scale-95 transition-all flex-shrink-0">
+<span class="material-symbols-outlined text-[26px] rotate-[-45deg] translate-x-0.5 -translate-y-0.5">send</span>
+</button>
+</div>
+</footer>
+</section>
+<!-- Column 3: Context & Details (27%) -->
+<section class="w-[27%] flex flex-col bg-surface-container-low overflow-y-auto no-scrollbar border-l border-surface-container-low">
+<div class="p-5 space-y-6"><!-- 1. Lead Associado -->
+<div class="space-y-3">
+<h4 class="text-[10px] font-bold text-outline uppercase tracking-widest px-1">Lead Associado</h4>
+<div class="bg-white p-5 rounded-3xl shadow-sm border border-outline-variant/10">
+<div class="flex items-center gap-4">
+<img class="w-12 h-12 rounded-full object-cover shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVgTRfb_PQqSDmb5l4uMJgtDuo_KoZfMMgjiozjgP7FjA5z1sfwANzeVuAtAWLcCk4nXN_k9QYkGduizRQ3YIrAzDuMpWxsZMDcz7q1_KbhFO_qr50BKHy9e1TB9WRSUKteic6z38jchs202p4sPuAC52UrvOftQAZm68ikw51QsHoL0YhqeGHkFJVQo3gxPawW0SeGCwt2kO8JkejNvLs4QHJaw3zcrtQXR57fYiasKOMSSRPu3ooPZh4APtw2vN7fccHTaNv"/>
+<div class="min-w-0">
+<p class="text-sm font-bold text-primary truncate">Mariana Gonçalves</p>
+<p class="text-[11px] text-on-surface-variant font-medium">Diretora Criativa</p>
+</div>
+</div>
+<div class="mt-5 pt-5 border-t border-surface-container-low space-y-4">
+<div class="flex justify-between items-center">
+<span class="text-[11px] text-outline font-bold uppercase tracking-tighter">Score</span>
+<span class="text-xs font-extrabold text-emerald-600">92/100</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-[11px] text-outline font-bold uppercase tracking-tighter">Etapa</span>
+<span class="px-3 py-1 bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold rounded-full">Visita Agendada</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 2. Imóvel de Interesse -->
+<div class="space-y-3">
+<h4 class="text-[10px] font-bold text-outline uppercase tracking-widest px-1">Imóvel de Interesse</h4>
+<div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-outline-variant/10 group cursor-pointer">
+<div class="relative h-32 overflow-hidden">
+<img alt="Duplex Ed. Onyx" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDETelWmjM4OErKGi1IMVVrqoSs3kriAxzZxaP42KdOaaMePdgtKhVzs7rVWhEBqDrNhQXe0qr_xqquGFj3hv6z7mQWKGpOl4E0H9JHiOKNGwkPRGOQ5fRneNcmDzxYdUH-jD4xWnIlkqkduGkcnZhMrFCA93F4Wrwu-175PUhalzbUy_CyBcz-JC0kGavrKwfhVrsMzMgd2cf5_4IAPdftWP6alnEO_pLb5cyrDEbGvC_U1PIAgHrR_e916vvCMpsxoPm9wAa6"/>
+<div class="absolute top-2 right-2 px-2 py-1 bg-white/95 backdrop-blur-sm rounded-lg text-[10px] font-bold text-primary shadow-sm">R$ 4.2M</div>
+</div>
+<div class="p-4">
+<h5 class="text-sm font-bold text-primary font-headline">Duplex Ed. Onyx</h5>
+<p class="text-[11px] text-on-surface-variant mt-1.5 flex items-center gap-1.5 font-medium">
+<span class="material-symbols-outlined text-xs">location_on</span> Jardim Europa, SP
+                                </p>
+</div>
+</div>
+</div>
+<!-- 3. Insights da IA -->
+<div class="bg-gradient-to-br from-[#05325E] to-[#0A3E67] p-5 rounded-3xl shadow-xl text-white relative overflow-hidden group">
+<div class="absolute top-[-10px] right-[-10px] opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl">auto_awesome</span>
+</div>
+<div class="flex items-center gap-2 mb-3 relative">
+<span class="material-symbols-outlined text-blue-200 text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h4 class="text-[10px] font-bold uppercase tracking-widest text-blue-100/80">Insights da IA</h4>
+</div>
+<p class="text-xs leading-relaxed text-blue-50 font-medium relative">
+                            Mariana demonstrou alta intenção de compra. Mencionou o marido, indicando que a decisão é compartilhada. Foco da visita: Vista e exclusividade.
+                        </p>
+</div>
+<!-- 4. Tarefas -->
+<div class="space-y-3">
+<div class="flex justify-between items-center px-1">
+<h4 class="text-[10px] font-bold text-outline uppercase tracking-widest">Tarefas Próximas</h4>
+<button class="text-[10px] font-extrabold text-surface-tint hover:underline">+ Novo</button>
+</div>
+<div class="space-y-2">
+<div class="bg-white p-4 rounded-2xl flex items-center gap-3 border border-outline-variant/5 shadow-sm">
+<input checked="" class="rounded border-outline-variant text-surface-tint focus:ring-surface-tint w-4 h-4" type="checkbox"/>
+<span class="text-xs text-on-surface-variant/60 line-through font-medium">Confirmar disponibilidade</span>
+</div>
+<div class="bg-white p-4 rounded-2xl flex items-center gap-3 border border-outline-variant/5 shadow-sm">
+<input class="rounded border-outline-variant text-surface-tint focus:ring-surface-tint w-4 h-4" type="checkbox"/>
+<span class="text-xs text-primary font-bold">Enviar manual de segurança</span>
+</div>
+<div class="bg-white p-4 rounded-2xl flex items-center gap-3 border border-outline-variant/5 shadow-sm">
+<input class="rounded border-outline-variant text-surface-tint focus:ring-surface-tint w-4 h-4" type="checkbox"/>
+<span class="text-xs text-primary font-bold">Reservar sala de reuniões</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>
