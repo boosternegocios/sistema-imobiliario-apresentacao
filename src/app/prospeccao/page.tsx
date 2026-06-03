@@ -132,12 +132,12 @@ export default function ProspeccaoPDF() {
           <div className="grid grid-cols-2 gap-6 mb-16">
             <div className="rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#090d16]" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/Telas/Dashboard/screen.png" alt="Dashboard" className="w-full object-cover opacity-90 hover:opacity-100 transition-opacity" />
+              <img src="/Telas/Dashboard/screen.png" alt="Dashboard" className="w-full h-auto max-h-[400px] object-contain object-top opacity-90 hover:opacity-100 transition-opacity" />
               <div className="p-4 bg-gray-900/90 text-center font-medium border-t border-white/10">Gestão de Performance e ROI em Tempo Real</div>
             </div>
             <div className="rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#090d16]" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/Telas/Inbox unificada/screen.png" alt="Inbox" className="w-full object-cover opacity-90 hover:opacity-100 transition-opacity" />
+              <img src="/Telas/Inbox unificada/screen.png" alt="Inbox" className="w-full h-auto max-h-[400px] object-contain object-top opacity-90 hover:opacity-100 transition-opacity" />
               <div className="p-4 bg-gray-900/90 text-center font-medium border-t border-white/10">Inbox: Centralização de toda comunicação</div>
             </div>
           </div>
