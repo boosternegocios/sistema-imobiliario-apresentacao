@@ -43,7 +43,7 @@ export default function ProspeccaoPDF() {
                 </div>
                 <p className="text-gray-400 mb-6">Operações que usam sistemas "remendados" perdem vendas no atrito:</p>
                 <ul className="space-y-4">
-                  <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500/80 shrink-0" /> <span><strong>Delay (Speed to lead):</strong> O lead entra no Zapier, que manda pro Chatbot, que manda pro CRM. Minutos preciosos são perdidos.</span></li>
+                  <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500/80 shrink-0" /> <span><strong>Delay (Speed to lead):</strong> O lead entra, passa por ferramentas de integração, vai pro Chatbot e demora até chegar no seu CRM base (como Nido, CV CRM ou Vista). Minutos preciosos são perdidos.</span></li>
                   <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500/80 shrink-0" /> <span><strong>Ponto Cego:</strong> O corretor vai pro WhatsApp do celular. O gestor fica cego e o CRM desatualizado.</span></li>
                   <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500/80 shrink-0" /> <span><strong>Custo Múltiplo:</strong> Mensalidades sobrepostas de várias plataformas para fazer uma única venda.</span></li>
                 </ul>
@@ -87,7 +87,7 @@ export default function ProspeccaoPDF() {
               <div>
                 <h3 className="text-2xl font-bold mb-3">1. Roteamento Instantâneo & Roleta</h3>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Sem depender de Zapier para distribuir leads. O sistema capta, identifica quem é o próximo corretor da fila e entrega na hora. Se o corretor demorar para atender, o próprio sistema aciona um alerta ou passa a bola para outro. <strong>O lead nunca esfria.</strong>
+                  Sem depender de integrações lentas ou gambiarras para distribuir leads. O sistema capta, identifica quem é o próximo corretor da fila e entrega na hora. Se o corretor demorar para atender, o próprio sistema aciona um alerta ou passa a bola para outro. <strong>O lead nunca esfria.</strong>
                 </p>
               </div>
             </div>
