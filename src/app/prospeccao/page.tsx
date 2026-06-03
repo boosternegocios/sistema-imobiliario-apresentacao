@@ -2,25 +2,23 @@
 
 import React from "react";
 import { 
-  Building2, Bot, Workflow, BarChart3, ShieldCheck, 
-  CheckCircle2, XCircle, ChevronRight, Zap, Target
+  ShieldAlert, Activity, TrendingDown, Target, Wallet, Fingerprint, Layers, CheckCircle2, XCircle, ChevronRight
 } from "lucide-react";
 
 export default function ProspeccaoPDF() {
   return (
-    <div className="min-h-screen bg-[#0B0F19] text-white font-sans">
+    <div className="min-h-screen bg-[#0B0F19] text-white font-sans selection:bg-blue-500/30">
       {/* INSTRUÇÃO DE IMPRESSÃO (Escondida no PDF) */}
-      <div className="print:hidden bg-blue-600 text-white p-4 text-center flex items-center justify-center gap-2 sticky top-0 z-50 shadow-lg">
-        <span className="font-semibold">Modo de Exportação para PDF:</span>
-        Aperte <kbd className="bg-blue-800 px-2 py-1 rounded text-sm font-mono">Ctrl + P</kbd> ou <kbd className="bg-blue-800 px-2 py-1 rounded text-sm font-mono">Cmd + P</kbd>. 
-        <strong>Importante:</strong> Marque a opção "Gráficos de segundo plano" (Background graphics) nas configurações de impressão para manter o visual Dark Mode.
+      <div className="print:hidden bg-indigo-600 text-white p-4 text-center flex items-center justify-center gap-2 sticky top-0 z-50 shadow-lg">
+        <span className="font-semibold">Modo de Exportação:</span>
+        Aperte <kbd className="bg-indigo-800 px-2 py-1 rounded text-sm font-mono">Ctrl + P</kbd>. 
+        <strong>Importante:</strong> Marque a opção "Gráficos de segundo plano" (Background graphics) nas configurações de impressão.
       </div>
 
       <main className="max-w-[1100px] mx-auto bg-[#0B0F19] print:bg-[#0B0F19]">
         
-        {/* --- PÁGINA 1: HERO E O PROBLEMA --- */}
+        {/* --- PÁGINA 1: O GRANDE GARGALO (DOR) --- */}
         <div className="page-break-after-always px-8 py-12 md:py-20 min-h-[1050px] flex flex-col relative overflow-hidden">
-          {/* Efeitos de fundo (print-color-adjust obriga a impressão da cor) */}
           <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-blue-900/30 blur-[120px] rounded-full pointer-events-none" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }} />
           
           <header className="flex items-center gap-4 mb-16 z-10">
@@ -29,140 +27,137 @@ export default function ProspeccaoPDF() {
           </header>
 
           <div className="z-10 flex-1 flex flex-col justify-center">
-            <h1 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 leading-[1.1] mb-6" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
-              Por que sua imobiliária perde vendas tendo tantos leads?
+            <h1 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300 leading-[1.15] mb-8" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+              Sua equipe capta muito, mas por que a conversão não acompanha?
             </h1>
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mb-16 leading-relaxed">
-              O mercado mudou, mas a maioria das imobiliárias continua gerenciando clientes de forma fragmentada, gerando custo alto e conversão baixa.
+            <p className="text-xl md:text-2xl text-gray-400 max-w-4xl mb-12 leading-relaxed">
+              Você provavelmente já tem um CRM. Já assinou um disparador de mensagens. Talvez tenha até um chatbot. O problema não é a falta de ferramentas... <strong>é o excesso delas.</strong>
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              {/* Card O Modelo Antigo */}
-              <div className="p-8 rounded-2xl bg-red-950/20 border border-red-900/30 relative" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
-                <div className="absolute -top-4 left-6 bg-red-900/80 text-red-100 px-4 py-1 rounded-full text-sm font-semibold border border-red-700/50">O Modelo Tradicional</div>
-                <ul className="space-y-4 mt-4">
-                  <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500 shrink-0" /> <span>Paga um CRM base (ex: Nido, CV).</span></li>
-                  <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500 shrink-0" /> <span>Paga uma ferramenta extra para WhatsApp.</span></li>
-                  <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500 shrink-0" /> <span>Paga integração (Zapier, Pluga) para ligar tudo.</span></li>
-                  <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500 shrink-0" /> <span>Corretores esquecem de atualizar o funil.</span></li>
-                </ul>
-                <div className="mt-6 pt-6 border-t border-red-900/30 text-red-400 font-medium">
-                  Resultado: Alto custo, dados espalhados e perda de timing comercial.
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              {/* Card O Custo do "Frankenstein" */}
+              <div className="p-8 rounded-2xl bg-[#1a0f14] border border-red-900/30 relative" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <ShieldAlert className="w-8 h-8 text-red-500" />
+                  <h3 className="text-2xl font-bold text-white">A Ilusão da Fragmentação</h3>
                 </div>
+                <p className="text-gray-400 mb-6">Operações que usam sistemas "remendados" perdem vendas no atrito:</p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500/80 shrink-0" /> <span><strong>Delay (Speed to lead):</strong> O lead entra no Zapier, que manda pro Chatbot, que manda pro CRM. Minutos preciosos são perdidos.</span></li>
+                  <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500/80 shrink-0" /> <span><strong>Ponto Cego:</strong> O corretor vai pro WhatsApp do celular. O gestor fica cego e o CRM desatualizado.</span></li>
+                  <li className="flex items-start gap-3 text-gray-300"><XCircle className="w-6 h-6 text-red-500/80 shrink-0" /> <span><strong>Custo Múltiplo:</strong> Mensalidades sobrepostas de várias plataformas para fazer uma única venda.</span></li>
+                </ul>
               </div>
 
-              {/* Card O Nosso Modelo */}
-              <div className="p-8 rounded-2xl bg-blue-900/10 border border-blue-800/40 relative" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
-                <div className="absolute -top-4 left-6 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg shadow-blue-900/50">O Nosso Ecossistema</div>
-                <ul className="space-y-4 mt-4">
-                  <li className="flex items-start gap-3 text-gray-300"><CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" /> <span>Um único sistema integrado (CRM All-in-One).</span></li>
-                  <li className="flex items-start gap-3 text-gray-300"><CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" /> <span>Inteligência Artificial Nativa (atendimento 24/7).</span></li>
-                  <li className="flex items-start gap-3 text-gray-300"><CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" /> <span>Integrações diretas e gratuitas (Facebook, Portais).</span></li>
-                  <li className="flex items-start gap-3 text-gray-300"><CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" /> <span>Automações que obrigam o fluxo a andar.</span></li>
-                </ul>
-                <div className="mt-6 pt-6 border-t border-blue-900/50 text-blue-400 font-medium">
-                  Resultado: Controle total, previsibilidade e drástica redução de custos.
+              {/* Card O Ecossistema */}
+              <div className="p-8 rounded-2xl bg-[#0f172a] border border-blue-900/40 relative" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+                <div className="flex items-center gap-3 mb-6">
+                  <Layers className="w-8 h-8 text-blue-400" />
+                  <h3 className="text-2xl font-bold text-white">O Poder do All-in-One</h3>
                 </div>
+                <p className="text-gray-400 mb-6">Quando uma única plataforma controla de ponta a ponta, o atrito some:</p>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3 text-gray-300"><CheckCircle2 className="w-6 h-6 text-emerald-400/80 shrink-0" /> <span><strong>Zero Delay:</strong> O lead entra e a IA (nativa) responde e qualifica na mesma hora. Tudo dentro do CRM.</span></li>
+                  <li className="flex items-start gap-3 text-gray-300"><CheckCircle2 className="w-6 h-6 text-emerald-400/80 shrink-0" /> <span><strong>Visibilidade 100%:</strong> O WhatsApp roda dentro do sistema. Você audita o que o corretor fala, em tempo real.</span></li>
+                  <li className="flex items-start gap-3 text-gray-300"><CheckCircle2 className="w-6 h-6 text-emerald-400/80 shrink-0" /> <span><strong>Previsibilidade:</strong> Você sabe exatamente o custo de aquisição (CAC), sem perder dados em integrações.</span></li>
+                </ul>
               </div>
+            </div>
+            
+            <div className="text-center mt-6 text-blue-400 font-medium text-xl">
+              Nós não vendemos "mais uma ferramenta". Nós entregamos a fundação para sua imobiliária escalar.
             </div>
           </div>
         </div>
 
-        {/* --- PÁGINA 2: OS 3 PILARES --- */}
+        {/* --- PÁGINA 2: O IMPACTO DIRETO (SOLUÇÕES) --- */}
         <div className="page-break-after-always px-8 py-12 md:py-20 min-h-[1050px] flex flex-col justify-center relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Os 3 Pilares da Máquina de Vendas</h2>
-            <p className="text-xl text-gray-400">Desenhado para imobiliárias que buscam alta performance operacional.</p>
+            <h2 className="text-4xl font-bold mb-4">O Fim da Perda de Vendas</h2>
+            <p className="text-xl text-gray-400">Como nosso ecossistema elimina os maiores ralos de dinheiro da sua operação.</p>
           </div>
 
           <div className="space-y-12">
-            {/* Pilar 1 */}
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="w-full md:w-1/3 aspect-square bg-gradient-to-br from-[#0d1527] to-[#121c33] rounded-2xl border border-white/5 flex items-center justify-center p-8 shadow-2xl" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
-                <Bot className="w-32 h-32 text-indigo-400" />
+            
+            {/* Benefício 1 */}
+            <div className="flex flex-col md:flex-row gap-8 items-center bg-[#0d1321] p-8 rounded-3xl border border-white/5 shadow-xl" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+              <div className="w-20 h-20 rounded-full bg-blue-900/30 flex items-center justify-center shrink-0">
+                <Target className="w-10 h-10 text-blue-400" />
               </div>
-              <div className="w-full md:w-2/3 space-y-4">
-                <div className="text-indigo-400 font-bold tracking-widest text-sm uppercase">Pilar 1</div>
-                <h3 className="text-3xl font-bold">Inteligência Artificial Integrada</h3>
+              <div>
+                <h3 className="text-2xl font-bold mb-3">1. Roteamento Instantâneo & Roleta</h3>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Não pague por um bot terceirizado. Nossa plataforma possui <strong>Agentes de IA Nativos</strong>. Eles qualificam leads de madrugada, analisam sentimentos nas conversas e só transferem para o corretor quando a venda estiver quente. Você treina a IA com as regras e produtos da sua empresa.
+                  Sem depender de Zapier para distribuir leads. O sistema capta, identifica quem é o próximo corretor da fila e entrega na hora. Se o corretor demorar para atender, o próprio sistema aciona um alerta ou passa a bola para outro. <strong>O lead nunca esfria.</strong>
                 </p>
-                <div className="flex gap-4 pt-2">
-                  <span className="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-sm text-gray-300 flex items-center gap-1"><Zap className="w-4 h-4 text-yellow-400"/> Atendimento 24/7</span>
-                  <span className="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-sm text-gray-300 flex items-center gap-1"><Target className="w-4 h-4 text-red-400"/> Foco em conversão</span>
-                </div>
               </div>
             </div>
 
-            {/* Pilar 2 */}
-            <div className="flex flex-col md:flex-row-reverse gap-8 items-center">
-              <div className="w-full md:w-1/3 aspect-square bg-gradient-to-br from-[#0d1527] to-[#121c33] rounded-2xl border border-white/5 flex items-center justify-center p-8 shadow-2xl" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
-                <Workflow className="w-32 h-32 text-emerald-400" />
+            {/* Benefício 2 */}
+            <div className="flex flex-col md:flex-row gap-8 items-center bg-[#0d1321] p-8 rounded-3xl border border-white/5 shadow-xl" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+              <div className="w-20 h-20 rounded-full bg-indigo-900/30 flex items-center justify-center shrink-0">
+                <Activity className="w-10 h-10 text-indigo-400" />
               </div>
-              <div className="w-full md:w-2/3 space-y-4 text-right">
-                <div className="text-emerald-400 font-bold tracking-widest text-sm uppercase">Pilar 2</div>
-                <h3 className="text-3xl font-bold">Automação de Ponta a Ponta</h3>
+              <div>
+                <h3 className="text-2xl font-bold mb-3">2. Fim do Ponto Cego (Comunicação Unificada)</h3>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  O corretor deve focar em relacionamento, não em preencher sistemas. O nosso <strong>Workflow Automático</strong> distribui leads via roleta, envia e-mails e WhatsApps de nutrição automaticamente e alerta gestores sobre leads esquecidos no funil. 
+                  O problema do corretor ir pro WhatsApp pessoal e você perder o controle, acabou. Nossa Inbox Unificada mantém as conversas (WhatsApp, Insta, E-mail) dentro da ficha do cliente. <strong>A carteira de clientes pertence à imobiliária</strong>, não ao corretor.
                 </p>
-                <div className="flex gap-4 pt-2 justify-end">
-                  <span className="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-sm text-gray-300 flex items-center gap-1">Fim do trabalho manual</span>
-                </div>
               </div>
             </div>
 
-            {/* Pilar 3 */}
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="w-full md:w-1/3 aspect-square bg-gradient-to-br from-[#0d1527] to-[#121c33] rounded-2xl border border-white/5 flex items-center justify-center p-8 shadow-2xl" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
-                <Building2 className="w-32 h-32 text-blue-400" />
+            {/* Benefício 3 */}
+            <div className="flex flex-col md:flex-row gap-8 items-center bg-[#0d1321] p-8 rounded-3xl border border-white/5 shadow-xl" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+              <div className="w-20 h-20 rounded-full bg-emerald-900/30 flex items-center justify-center shrink-0">
+                <Fingerprint className="w-10 h-10 text-emerald-400" />
               </div>
-              <div className="w-full md:w-2/3 space-y-4">
-                <div className="text-blue-400 font-bold tracking-widest text-sm uppercase">Pilar 3</div>
-                <h3 className="text-3xl font-bold">Gestão Completa (All-in-One)</h3>
+              <div>
+                <h3 className="text-2xl font-bold mb-3">3. A IA como sua "Pré-venda" Infalível</h3>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Toda a sua operação numa tela só. Do <strong>Dashboard Financeiro</strong> à <strong>Lista de Imóveis</strong>, passando pela <strong>Caixa de Entrada Unificada</strong> (onde WhatsApp, E-mail e Insta ficam no mesmo lugar). Gestão visual via Pipeline Kanban e assinatura de propostas.
+                  Nossos agentes de IA (treinados por você) não são robôs burros. Eles entendem contexto, fazem as perguntas certas e qualificam o lead de madrugada, no domingo, ou quando sua equipe estiver ocupada. <strong>O humano só atua quando a intenção de compra é real.</strong>
                 </p>
-                <div className="flex gap-4 pt-2">
-                  <span className="bg-white/5 border border-white/10 px-3 py-1 rounded-full text-sm text-gray-300 flex items-center gap-1"><ShieldCheck className="w-4 h-4 text-blue-400"/> Segurança de Dados</span>
-                </div>
               </div>
             </div>
+
           </div>
         </div>
 
-        {/* --- PÁGINA 3: TELAS E FECHAMENTO --- */}
+        {/* --- PÁGINA 3: TELAS E ROI --- */}
         <div className="px-8 py-12 md:py-20 min-h-[1050px] flex flex-col justify-between relative">
-          <div className="mb-12 text-center">
-            <h2 className="text-4xl font-bold mb-4">Design Feito Para Engajar</h2>
-            <p className="text-xl text-gray-400">Uma plataforma intuitiva, rápida e bonita. Seus corretores vão querer usar.</p>
+          
+          <div className="mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-center">Tudo Acontece Aqui Dentro</h2>
+            <p className="text-xl text-gray-400 text-center">Gestão visual, bonita e impossível do corretor ignorar.</p>
           </div>
 
-          {/* Grid de Imagens */}
           <div className="grid grid-cols-2 gap-6 mb-16">
-            <div className="rounded-xl overflow-hidden border border-white/10 shadow-xl bg-gray-900" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+            <div className="rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#090d16]" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/Telas/Dashboard/screen.png" alt="Dashboard" className="w-full object-cover" />
-              <div className="p-3 bg-gray-900/90 text-sm text-center text-gray-300 border-t border-white/10">Dashboard Executivo</div>
+              <img src="/Telas/Dashboard/screen.png" alt="Dashboard" className="w-full object-cover opacity-90 hover:opacity-100 transition-opacity" />
+              <div className="p-4 bg-gray-900/90 text-center font-medium border-t border-white/10">Gestão de Performance e ROI em Tempo Real</div>
             </div>
-            <div className="rounded-xl overflow-hidden border border-white/10 shadow-xl bg-gray-900" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+            <div className="rounded-xl overflow-hidden border border-white/10 shadow-2xl bg-[#090d16]" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/Telas/Pipeline/screen.png" alt="Pipeline" className="w-full object-cover" />
-              <div className="p-3 bg-gray-900/90 text-sm text-center text-gray-300 border-t border-white/10">Funil de Vendas Kanban</div>
+              <img src="/Telas/Inbox unificada/screen.png" alt="Inbox" className="w-full object-cover opacity-90 hover:opacity-100 transition-opacity" />
+              <div className="p-4 bg-gray-900/90 text-center font-medium border-t border-white/10">Inbox: Centralização de toda comunicação</div>
             </div>
           </div>
 
-          {/* Call to Action Final */}
-          <div className="mt-auto p-12 rounded-3xl bg-gradient-to-br from-blue-900/40 to-indigo-900/20 border border-blue-500/20 text-center" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">Pronto para unificar sua operação?</h3>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
-              Apresentamos apenas uma fração do que o nosso Ecossistema SaaS pode fazer pelo seu negócio. Reduza seus custos de tecnologia e aumente as conversões do seu time hoje.
+          {/* O Fechamento Matador */}
+          <div className="mt-auto p-12 rounded-3xl bg-gradient-to-br from-[#0c1630] to-[#0a1122] border border-blue-500/20 text-center shadow-2xl" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+            <Wallet className="w-16 h-16 text-emerald-400 mx-auto mb-6" />
+            <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">Quanto custa a fragmentação?</h3>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+              O custo não é apenas a soma das 4 mensalidades diferentes que você paga hoje. O custo real é o lead de R$ 50,00 que não recebeu retorno porque se perdeu no processo. 
+              <br/><br/>
+              Pare de perder dinheiro na transição entre ferramentas. <strong>Centralize sua operação.</strong>
             </p>
-            <div className="inline-flex items-center gap-2 text-blue-400 font-semibold text-lg print:hidden">
-              Agende uma demonstração gratuita <ChevronRight />
+            
+            <div className="hidden print:block text-blue-400 font-semibold text-2xl mt-4 bg-blue-900/20 py-4 px-8 rounded-full border border-blue-800/50 inline-block">
+              Entre em contato e agende sua demonstração.
             </div>
-            <div className="hidden print:block text-blue-400 font-semibold text-xl mt-4">
-              Entre em contato para uma demonstração completa do sistema.
-            </div>
+            <button className="print:hidden px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-full text-lg shadow-lg shadow-blue-600/30 flex items-center gap-2 mx-auto transition-all">
+              Ver Ecossistema na Prática <ChevronRight />
+            </button>
           </div>
         </div>
 
@@ -179,7 +174,6 @@ export default function ProspeccaoPDF() {
           .page-break-after-always {
             page-break-after: always;
           }
-          /* Ocultar margens padroes do navegador na impressao se possivel */
           @page { margin: 0; size: A4 portrait; }
           html, body {
             width: 100%;
