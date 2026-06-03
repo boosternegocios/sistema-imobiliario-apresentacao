@@ -13,8 +13,9 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      * - apresentacao (presentation page)
+     * - prospeccao (prospecting PDF page)
      * - images, etc.
      */
-    '/((?!_next/static|_next/image|favicon.ico|apresentacao|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|apresentacao|prospeccao|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 }
