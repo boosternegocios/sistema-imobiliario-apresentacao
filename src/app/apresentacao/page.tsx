@@ -6,7 +6,7 @@ import {
   ChevronRight, ChevronLeft, Building2, TrendingUp, BarChart3, 
   UploadCloud, UserPlus, List, Users, Workflow, Target, Inbox, 
   Calendar, Home, FileText, Cpu, Library, Wand2, Activity, Zap, 
-  PlusCircle, Link, Settings, TerminalSquare, UserCircle, CheckCircle2 
+  PlusCircle, Link, Settings, TerminalSquare, UserCircle, CheckCircle2, Wallet 
 } from "lucide-react";
 
 const slides = [
@@ -434,7 +434,49 @@ const slides = [
       </div>
     ),
     image: "/Telas/Perfil do corretor/screen.png",
-    icon: <UserCircle className="w-12 h-12 text-violet-400" />
+  },
+  // --- VALORES E TRANSPARÊNCIA ---
+  {
+    id: "investimento",
+    title: "Transparência Total (Investimento)",
+    subtitle: "Sem taxas ocultas, dados 100% seus",
+    content: (
+      <div className="space-y-6 text-lg text-gray-300">
+        <p>
+          Muitas empresas escondem os custos de servidor e IA. Nós conectamos você direto na fonte, pagando <strong>preço de custo</strong>.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <div className="bg-white/5 p-5 rounded-xl border border-blue-500/30">
+            <h4 className="text-blue-400 font-bold mb-4 flex items-center gap-2"><Building2 className="w-5 h-5"/> Ecossistema All-in-One</h4>
+            <ul className="text-sm space-y-3">
+              <li className="flex flex-col">
+                <span className="text-gray-400">Implementação & Setup</span>
+                <strong className="text-white text-lg">R$ 2.500,00</strong>
+              </li>
+              <li className="flex flex-col">
+                <span className="text-gray-400">Licença Mensal</span>
+                <strong className="text-white text-lg">R$ 699/mês</strong>
+              </li>
+            </ul>
+          </div>
+          <div className="bg-white/5 p-5 rounded-xl border border-emerald-500/30">
+            <h4 className="text-emerald-400 font-bold mb-4 flex items-center gap-2"><Wallet className="w-5 h-5"/> Sua Infra (Preço de Custo)</h4>
+            <ul className="text-sm space-y-3">
+              <li className="flex flex-col">
+                <span className="text-gray-400">Inteligência Artificial</span>
+                <span className="text-white">Pague apenas os centavos que consumir, conectado direto na provedora.</span>
+              </li>
+              <li className="flex flex-col">
+                <span className="text-gray-400">Banco de Dados (Supabase)</span>
+                <span className="text-white">Limite gratuito atende a maioria. Custo máximo aprox. <strong>$20/mês (~R$ 110)</strong> se a operação escalar absurdamente.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    ),
+    image: "/Telas/Dashboard/screen.png",
+    icon: <Wallet className="w-12 h-12 text-emerald-400" />
   }
 ];
 
