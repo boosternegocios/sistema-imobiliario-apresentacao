@@ -2,7 +2,7 @@
 
 import React from "react";
 import { 
-  ShieldAlert, Activity, TrendingDown, Target, Wallet, Fingerprint, Layers, CheckCircle2, XCircle, ChevronRight
+  ShieldAlert, Activity, TrendingDown, Target, Wallet, Fingerprint, Layers, CheckCircle2, XCircle, ChevronRight, Zap, Database
 } from "lucide-react";
 
 export default function ProspeccaoPDF() {
@@ -121,7 +121,50 @@ export default function ProspeccaoPDF() {
           </div>
         </div>
 
-        {/* --- PÁGINA 3: TELAS E ROI --- */}
+        {/* --- PÁGINA 3: TRANSPARÊNCIA E VALORES --- */}
+        <div className="page-break-after-always px-8 py-12 md:py-20 print:py-10 min-h-[1050px] print:min-h-0 print:h-[297mm] flex flex-col justify-center relative">
+          <div className="text-center mb-16 print:mb-8">
+            <h2 className="text-4xl print:text-3xl font-bold mb-4 text-blue-400">Transparência Total</h2>
+            <p className="text-xl print:text-lg text-gray-400">Sem taxas ocultas. Sem comissões em cima da sua operação.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 print:gap-6 mb-12">
+            {/* Bloco Sistema */}
+            <div className="bg-[#0f172a] p-8 print:p-6 rounded-3xl border border-blue-900/40 relative break-inside-avoid shadow-xl" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+              <div className="absolute -top-4 left-6 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">O Ecossistema All-in-One</div>
+              <div className="mt-4 mb-8">
+                <div className="text-sm text-blue-400 font-bold tracking-wider uppercase mb-1">Implementação & Setup</div>
+                <div className="text-4xl font-bold text-white mb-2">R$ 2.500<span className="text-lg text-gray-500 font-normal">,00</span></div>
+                <p className="text-gray-400 text-sm">Setup completo, treinamento da IA com os dados da sua imobiliária e onboarding da equipe.</p>
+              </div>
+              <div className="pt-8 border-t border-white/10">
+                <div className="text-sm text-blue-400 font-bold tracking-wider uppercase mb-1">Licença Mensal</div>
+                <div className="text-4xl font-bold text-white mb-2">R$ 699<span className="text-lg text-gray-500 font-normal">/mês</span></div>
+                <p className="text-gray-400 text-sm">Acesso ilimitado ao CRM, Inbox Unificada, Automações e Gestão Visual. Substitui as suas mensalidades atuais.</p>
+              </div>
+            </div>
+
+            {/* Bloco Infraestrutura */}
+            <div className="bg-[#1a0f14] p-8 print:p-6 rounded-3xl border border-red-900/30 relative break-inside-avoid shadow-xl" style={{ WebkitPrintColorAdjust: 'exact', printColorAdjust: 'exact' }}>
+              <div className="absolute -top-4 left-6 bg-red-900/80 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-lg">Sua Infraestrutura (Controle Total)</div>
+              <p className="mt-4 text-gray-300 text-sm mb-6 leading-relaxed">Conectamos você direto na fonte. Você paga preço de custo e os dados são 100% seus.</p>
+              
+              <div className="mb-6">
+                <div className="flex items-center gap-2 text-red-400 font-bold mb-1"><Zap className="w-4 h-4"/> IA (Preço de Custo)</div>
+                <p className="text-gray-400 text-sm leading-relaxed">Você não paga "pacotes de mensagens" superfaturados. Sua conta liga direto ao motor da IA e você paga os centavos exatos que consumir.</p>
+              </div>
+              <div className="pt-6 border-t border-white/10">
+                <div className="flex items-center gap-2 text-red-400 font-bold mb-1"><Database className="w-4 h-4"/> Banco de Dados Exclusivo</div>
+                <p className="text-gray-400 text-sm leading-relaxed mb-3">Seus leads não se misturam. Usamos a plataforma global <strong>Supabase</strong> para isolar seus dados na nuvem.</p>
+                <div className="bg-white/5 p-3 rounded-lg border border-white/10 text-xs text-gray-300">
+                  O limite gratuito já atende a esmagadora maioria. Mas se você escalar absurdamente, o custo teto de servidor será de <strong>$20 dólares/mês (~R$ 110)</strong> pago direto à provedora.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* --- PÁGINA 4: TELAS E ROI --- */}
         <div className="px-8 py-12 md:py-20 print:py-10 min-h-[1050px] print:min-h-0 print:h-[297mm] flex flex-col justify-between relative">
           
           <div className="mb-12 print:mb-8">
