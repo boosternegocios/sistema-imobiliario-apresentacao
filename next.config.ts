@@ -18,6 +18,16 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
+        source: '/',
+        has: [
+          {
+            type: 'host',
+            value: 'sdr.boostertech.com.br',
+          },
+        ],
+        destination: '/sdr.html',
+      },
+      {
         source: '/sdr',
         destination: '/sdr.html',
       },
