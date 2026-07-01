@@ -14,8 +14,10 @@ export const config = {
      * - favicon.ico (favicon file)
      * - apresentacao (presentation page)
      * - prospeccao (prospecting PDF page)
+     * - sdr (SDR presentation)
+     * - sdr.html (SDR HTML file)
      * - images, etc.
      */
-    '/((?!_next/static|_next/image|favicon.ico|apresentacao|prospeccao|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|apresentacao|prospeccao|sdr|sdr\\.html|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
   ],
 }
